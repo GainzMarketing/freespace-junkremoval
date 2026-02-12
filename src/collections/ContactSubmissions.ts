@@ -157,7 +157,7 @@ export const ContactSubmissions: CollectionConfig = {
 
             // Use Payload's built-in email functionality
             await req.payload.sendEmail({
-              to: ['receptionist@cleancutstrees.com'], // Add multiple emails as needed
+              to: ['eric@gainzmarketing.com'], // TODO: Update to client's email address
               bcc: 'eric@gainzmarketing.com',
               subject: `New Contact Form Submission - ${urgencyLabel}`,
               html: `
