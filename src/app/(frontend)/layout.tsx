@@ -21,6 +21,7 @@ const openSans = Open_Sans({
 })
 
 export const metadata = {
+  metadataBase: new URL(businessConfig.website.url),
   title: {
     default: 'Free Space Junk Removal & Cleaning | Northern Utah Junk Removal',
     template: '%s | Free Space Junk Removal & Cleaning',

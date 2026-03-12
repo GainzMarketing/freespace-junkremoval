@@ -50,6 +50,22 @@ function getCanonicalUrl(path = ''): string {
   return `${normalizedBaseUrl}/${path.replace(/^\//, '')}`
 }
 
+function createPageMetadata(path: string, metadata: Metadata): Metadata {
+  const canonicalUrl = getCanonicalUrl(path)
+
+  return {
+    ...metadata,
+    alternates: {
+      ...metadata.alternates,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      ...metadata.openGraph,
+      url: canonicalUrl,
+    },
+  }
+}
+
 function getLocalBusinessId(): string {
   return `${getCanonicalUrl()}#localbusiness`
 }
@@ -114,36 +130,36 @@ export function getBaseMetadata(): Metadata {
  * Home page metadata
  */
 export function getHomeMetadata(): Metadata {
-  return {
+  return createPageMetadata('/', {
     ...getBaseMetadata(),
     title: `Junk Removal Near Me | #1 ${config.contact.address.serviceArea} Junk Removal Service`,
     description: `Looking for junk removal near me? Free Space Junk Removal is Northern Utah's #1 rated junk removal service. Same-day pickup, transparent pricing, eco-friendly disposal. Serving Ogden, Logan, Brigham City with professional junk hauling services. Call now for immediate junk removal near you!`,
     keywords: 'junk removal near me, junk hauling near me, same day junk removal, furniture removal near me, appliance removal near me, junk removal services near me, northern utah junk removal, ogden junk removal, logan junk removal, local junk removal, residential junk removal, commercial junk removal'
-  }
+  })
 }
 
 /**
  * About page metadata
  */
 export function getAboutMetadata(): Metadata {
-  return {
+  return createPageMetadata('/about', {
     ...getBaseMetadata(),
     title: `About ${config.business.name} | Expert ${config.business.tagline}`,
     description: `Learn about ${config.business.name} - ${config.business.experience} years of experience in professional services. ${config.business.missionStatement} Licensed, insured, and trusted by homeowners.`,
     keywords: `about ${config.business.name.toLowerCase()}, ${config.business.tagline.toLowerCase()}, experienced contractors, licensed contractors`,
-  }
+  })
 }
 
 /**
  * Contact page metadata
  */
 export function getContactMetadata(): Metadata {
-  return {
+  return createPageMetadata('/contact', {
     ...getBaseMetadata(),
     title: `Contact ${config.business.name} | Free Estimates & Consultation`,
     description: `Contact ${config.business.name} for a free estimate. Call ${config.contact.phone.display} or email ${config.contact.email.main}. Serving ${config.contact.address.serviceArea}. Licensed, insured, and ready to help.`,
     keywords: `contact ${config.business.name.toLowerCase()}, free estimate, ${config.contact.address.serviceArea.toLowerCase()}, ${config.contact.phone.display}`,
-  }
+  })
 }
 
 /**
@@ -153,12 +169,12 @@ export function getServicesMetadata(): Metadata {
   const services = getActiveServices()
   const serviceNames = services.map((service) => service.name.toLowerCase()).join(', ')
 
-  return {
+  return createPageMetadata('/services', {
     ...getBaseMetadata(),
     title: `Professional Services ${config.contact.address.serviceArea} | Expert Contractors`,
     description: `Expert services throughout ${config.contact.address.serviceArea}. Professional ${serviceNames} and more. Licensed contractors serving ${config.contact.address.serviceArea} and surrounding areas.`,
     keywords: `services ${config.contact.address.serviceArea.toLowerCase()}, ${serviceNames}, professional contractor, ${config.contact.address.serviceArea.toLowerCase()}`,
-  }
+  })
 }
 
 /**
@@ -168,36 +184,36 @@ export function getServiceAreasMetadata(): Metadata {
   const serviceAreas = getActiveServiceAreas()
   const areaNames = serviceAreas.map((area) => area.name).join(', ')
 
-  return {
+  return createPageMetadata('/service-areas', {
     ...getBaseMetadata(),
     title: `Service Areas | ${config.business.name} Coverage Throughout ${config.contact.address.serviceArea}`,
     description: `${config.business.name} serves ${areaNames} and surrounding communities. Professional services throughout ${config.contact.address.serviceArea} with local expertise and reliable service.`,
     keywords: `service areas, ${areaNames.toLowerCase()}, ${config.contact.address.serviceArea.toLowerCase()}, local contractors`,
-  }
+  })
 }
 
 /**
  * Blog page metadata
  */
 export function getBlogMetadata(): Metadata {
-  return {
+  return createPageMetadata('/blog', {
     ...getBaseMetadata(),
     title: `${config.business.name} Blog | Tips, News & Insights`,
     description: `Expert tips, industry news, and insights from ${config.business.name}. Stay informed about best practices, trends, and updates in ${config.contact.address.serviceArea}.`,
     keywords: `${config.business.name.toLowerCase()} blog, tips, industry news, ${config.contact.address.serviceArea.toLowerCase()}`,
-  }
+  })
 }
 
 /**
  * Gallery page metadata
  */
 export function getGalleryMetadata(): Metadata {
-  return {
+  return createPageMetadata('/gallery', {
     ...getBaseMetadata(),
     title: `${config.business.name} Gallery | Professional Work Examples`,
     description: `View examples of ${config.business.name}'s professional work throughout ${config.contact.address.serviceArea}. See the quality and craftsmanship that makes us the trusted choice.`,
     keywords: `${config.business.name.toLowerCase()} gallery, work examples, before and after, ${config.contact.address.serviceArea.toLowerCase()}`,
-  }
+  })
 }
 
 /**
@@ -214,12 +230,12 @@ export function getServiceMetadata(serviceSlug: string): Metadata {
   const title = service.seo?.title || `${service.name} Services | ${config.business.name}`
   const description = service.seo?.description || service.shortDescription
 
-  return {
+  return createPageMetadata(`/services/${service.slug}`, {
     ...getBaseMetadata(),
     title,
     description,
     keywords: `${service.name.toLowerCase()}, ${service.name.toLowerCase()} ${config.contact.address.serviceArea.toLowerCase()}, ${service.category}, professional contractors`,
-  }
+  })
 }
 
 /**
@@ -238,12 +254,12 @@ export function getServiceAreaMetadata(areaSlug: string): Metadata {
     area.seo?.description ||
     `${config.business.name} serves ${area.name}, ${area.state}. ${area.description} Contact us for professional services in ${area.name}.`
 
-  return {
+  return createPageMetadata(`/service-areas/${area.slug}`, {
     ...getBaseMetadata(),
     title,
     description,
     keywords: `${area.name.toLowerCase()}, ${area.state.toLowerCase()}, ${config.business.name.toLowerCase()}, local contractors ${area.name.toLowerCase()}`,
-  }
+  })
 }
 
 /**
