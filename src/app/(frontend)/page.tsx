@@ -77,6 +77,11 @@ export default function HomePage() {
         </AnimatedSection>
       </Section>
 
+      {/* Testimonials */}
+      <Section background="light" paddingY="xl" className="border-y border-primary/10">
+        <Testimonials layout="compact" />
+      </Section>
+
       {/* Pricing Summary */}
       <Section background="gray" paddingY="xl">
         <PricingSummary />
@@ -568,11 +573,6 @@ export default function HomePage() {
             </div>
           </AnimatedSection>
         </div>
-      </Section>
-
-      {/* Testimonials */}
-      <Section paddingY="xl">
-        <Testimonials layout="compact" />
       </Section>
 
       {/* FAQ Section */}
