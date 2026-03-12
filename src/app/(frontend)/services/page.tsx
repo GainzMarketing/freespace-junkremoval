@@ -5,13 +5,35 @@ import Layout from '@/components/Layout'
 import Section from '@/components/Section'
 import Link from 'next/link'
 import { getBusinessConfig, getActiveServices } from '@/utils/businessHelpers'
-import { getServicesMetadata } from '@/utils/metadataHelpers'
+import {
+  createBreadcrumbListStructuredData,
+  createCollectionPageStructuredData,
+  createItemListStructuredData,
+  getServicesMetadata,
+} from '@/utils/metadataHelpers'
 
 export const metadata = getServicesMetadata()
 
 export default function ServicesPage() {
   const config = getBusinessConfig()
   const services = getActiveServices()
+  const breadcrumbStructuredData = createBreadcrumbListStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+  ])
+  const collectionPageStructuredData = createCollectionPageStructuredData({
+    name: `${config.business.name} Services`,
+    path: '/services',
+    description: `Explore professional junk removal services from ${config.business.name} throughout ${config.contact.address.serviceArea}.`,
+  })
+  const itemListStructuredData = createItemListStructuredData(
+    '/services',
+    services.map((service) => ({
+      name: service.name,
+      path: `/services/${service.slug}`,
+      entityId: `${config.website.url.replace(/\/$/, '')}/services/${service.slug}#service`,
+    })),
+  )
 
   return (
     <Layout
@@ -20,6 +42,26 @@ export default function ServicesPage() {
         description: `Contact ${config.contact.address.serviceArea}'s premier service contractors today for a free estimate. Professional, reliable, and trusted throughout the region.`,
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(collectionPageStructuredData),
+        }}
+      />
+      {itemListStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(itemListStructuredData),
+          }}
+        />
+      )}
       <Hero
         title="PROFESSIONAL SERVICES"
         subtitle={`${config.contact.address.serviceArea}'s Trusted Service Contractors`}

@@ -7,6 +7,73 @@ import { getBusinessConfig, getActiveServices, getActiveServiceAreas } from './b
 
 const config = getBusinessConfig()
 
+interface FAQStructuredDataItem {
+  question: string
+  answer: string
+}
+
+interface BreadcrumbStructuredDataItem {
+  name: string
+  path: string
+}
+
+interface ServiceStructuredDataInput {
+  name: string
+  slug: string
+  description: string
+}
+
+interface PageStructuredDataInput {
+  name: string
+  path: string
+  description: string
+}
+
+interface ItemListStructuredDataItem {
+  name: string
+  path: string
+  entityId?: string
+}
+
+interface ServiceAreaStructuredDataInput {
+  name: string
+  slug: string
+  state: string
+  county?: string
+  description: string
+  placeType?: 'City' | 'AdministrativeArea'
+}
+
+function getCanonicalUrl(path = ''): string {
+  const normalizedBaseUrl = config.website.url.replace(/\/$/, '')
+  if (!path) return normalizedBaseUrl
+  return `${normalizedBaseUrl}/${path.replace(/^\//, '')}`
+}
+
+function getLocalBusinessId(): string {
+  return `${getCanonicalUrl()}#localbusiness`
+}
+
+function getWebSiteId(): string {
+  return `${getCanonicalUrl()}#website`
+}
+
+function getPageId(path: string): string {
+  return `${getCanonicalUrl(path)}#webpage`
+}
+
+function getOfficialSameAsUrls(): string[] {
+  const urls = new Set<string>()
+
+  for (const socialLink of config.navigation.footer.social ?? []) {
+    if (typeof socialLink.href !== 'string') continue
+    if (!socialLink.href.startsWith('http')) continue
+    urls.add(socialLink.href)
+  }
+
+  return [...urls]
+}
+
 /**
  * Base metadata that can be extended by specific pages
  */
@@ -187,13 +254,14 @@ export function getOrganizationStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': config.website.url,
+    '@id': getLocalBusinessId(),
     name: config.business.name,
     alternateName: 'Free Space Junk Removal',
     description: 'Professional junk removal and hauling services throughout Northern Utah. Same-day pickup, transparent pricing, eco-friendly disposal.',
-    url: config.website.url,
+    url: getCanonicalUrl(),
     telephone: config.contact.phone.display,
     email: config.contact.email.main,
+    sameAs: getOfficialSameAsUrls(),
     address: {
       '@type': 'PostalAddress',
       addressLocality: config.contact.address.city,
@@ -237,8 +305,8 @@ export function getOrganizationStructuredData() {
       latitude: '41.7323',
       longitude: '-111.8766'
     },
-    logo: `${config.website.url}${config.branding.logo.main}`,
-    image: `${config.website.url}${config.branding.logo.main}`,
+    logo: `${getCanonicalUrl()}${config.branding.logo.main}`,
+    image: `${getCanonicalUrl()}${config.branding.logo.main}`,
     foundingDate: config.business.yearEstablished.toString(),
     slogan: 'Northern Utah\'s Premier Junk Removal Experts',
     priceRange: '$$',
@@ -291,5 +359,247 @@ export function getOrganizationStructuredData() {
         }
       ]
     }
+  }
+}
+
+export function getWebSiteStructuredData() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': getWebSiteId(),
+    url: getCanonicalUrl(),
+    name: config.business.name,
+    publisher: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createFaqPageStructuredData(items: FAQStructuredDataItem[]) {
+  if (!items.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
+}
+
+export function createBreadcrumbListStructuredData(items: BreadcrumbStructuredDataItem[]) {
+  if (!items.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: getCanonicalUrl(item.path),
+    })),
+  }
+}
+
+export function createServiceStructuredData(input: ServiceStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${getCanonicalUrl(`/services/${input.slug}`)}#service`,
+    name: input.name,
+    serviceType: input.name,
+    description: input.description,
+    url: getCanonicalUrl(`/services/${input.slug}`),
+    mainEntityOfPage: {
+      '@id': getPageId(`/services/${input.slug}`),
+    },
+    provider: {
+      '@id': getLocalBusinessId(),
+    },
+    areaServed: config.business.countiesServed.map((county) => ({
+      '@type': 'AdministrativeArea',
+      name: county,
+    })),
+  }
+}
+
+export function createServiceAreaPageStructuredData(input: ServiceAreaStructuredDataInput) {
+  const path = `/service-areas/${input.slug}`
+  const placeId = `${getCanonicalUrl(path)}#place`
+  const serviceId = `${getCanonicalUrl(path)}#service`
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': getPageId(path),
+    name: `${config.business.mainService} in ${input.name}, ${input.state}`,
+    url: getCanonicalUrl(path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    about: [
+      {
+        '@id': getLocalBusinessId(),
+      },
+      {
+        '@id': placeId,
+      },
+    ],
+    mainEntity: {
+      '@id': serviceId,
+    },
+  }
+}
+
+export function createServiceAreaPlaceStructuredData(input: ServiceAreaStructuredDataInput) {
+  const path = `/service-areas/${input.slug}`
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': input.placeType ?? 'City',
+    '@id': `${getCanonicalUrl(path)}#place`,
+    name: input.name,
+    containedInPlace: {
+      '@type': 'AdministrativeArea',
+      name: input.county || input.state,
+      ...(input.county
+        ? {
+            containedInPlace: {
+              '@type': 'State',
+              name: input.state,
+            },
+          }
+        : {}),
+    },
+  }
+}
+
+export function createAreaServiceStructuredData(input: ServiceAreaStructuredDataInput) {
+  const path = `/service-areas/${input.slug}`
+  const placeId = `${getCanonicalUrl(path)}#place`
+  const pageId = getPageId(path)
+  const localizedServiceName = `${config.business.mainService} in ${input.name}, ${input.state}`
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${getCanonicalUrl(path)}#service`,
+    name: localizedServiceName,
+    serviceType: config.business.mainService,
+    description: input.description,
+    url: getCanonicalUrl(path),
+    provider: {
+      '@id': getLocalBusinessId(),
+    },
+    areaServed: {
+      '@id': placeId,
+    },
+    mainEntityOfPage: {
+      '@id': pageId,
+    },
+  }
+}
+
+export function createAboutPageStructuredData(input: PageStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': getPageId(input.path),
+    name: input.name,
+    url: getCanonicalUrl(input.path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    about: {
+      '@id': getLocalBusinessId(),
+    },
+    mainEntity: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createContactPageStructuredData(input: PageStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': getPageId(input.path),
+    name: input.name,
+    url: getCanonicalUrl(input.path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    about: {
+      '@id': getLocalBusinessId(),
+    },
+    mainEntity: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createCollectionPageStructuredData(input: PageStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': getPageId(input.path),
+    name: input.name,
+    url: getCanonicalUrl(input.path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    about: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createBlogPageStructuredData(input: PageStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['CollectionPage', 'Blog'],
+    '@id': getPageId(input.path),
+    name: input.name,
+    url: getCanonicalUrl(input.path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    publisher: {
+      '@id': getLocalBusinessId(),
+    },
+    about: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createItemListStructuredData(path: string, items: ItemListStructuredDataItem[]) {
+  if (!items.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${getCanonicalUrl(path)}#itemlist`,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: item.entityId
+        ? {
+            '@id': item.entityId,
+          }
+        : getCanonicalUrl(item.path),
+      name: item.name,
+    })),
   }
 }

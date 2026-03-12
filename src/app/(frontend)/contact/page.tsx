@@ -6,9 +6,22 @@ import Hero from '@/components/Hero'
 import Layout from '@/components/Layout'
 import Section from '@/components/Section'
 import { getBusinessConfig } from '@/utils/businessHelpers'
+import {
+  createBreadcrumbListStructuredData,
+  createContactPageStructuredData,
+} from '@/utils/metadataHelpers'
 
 export default function Contact() {
   const config = getBusinessConfig()
+  const breadcrumbStructuredData = createBreadcrumbListStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'Contact', path: '/contact' },
+  ])
+  const contactPageStructuredData = createContactPageStructuredData({
+    name: `Contact ${config.business.name}`,
+    path: '/contact',
+    description: `Contact ${config.business.name} for a free estimate. Call ${config.contact.phone.display} or schedule your junk removal online.`,
+  })
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -72,6 +85,18 @@ export default function Contact() {
 
   return (
     <Layout>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(contactPageStructuredData),
+        }}
+      />
       <Hero
         title={`CONTACT ${config.business.name.toUpperCase()}`}
         subtitle="Get Your Free Estimate Today"

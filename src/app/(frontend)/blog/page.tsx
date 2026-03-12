@@ -2,13 +2,26 @@ import Button from '@/components/Button'
 import Hero from '@/components/Hero'
 import Layout from '@/components/Layout'
 import Section from '@/components/Section'
-import { getBlogMetadata } from '@/utils/metadataHelpers'
+import {
+  createBlogPageStructuredData,
+  createBreadcrumbListStructuredData,
+  getBlogMetadata,
+} from '@/utils/metadataHelpers'
 import { getBusinessConfig } from '@/utils/businessHelpers'
 
 export const metadata = getBlogMetadata()
 
 export default function Blog() {
   const config = getBusinessConfig()
+  const breadcrumbStructuredData = createBreadcrumbListStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'Blog', path: '/blog' },
+  ])
+  const blogPageStructuredData = createBlogPageStructuredData({
+    name: `${config.business.name} Blog`,
+    path: '/blog',
+    description: `Browse tips, updates, and industry insights from ${config.business.name} for homeowners and businesses in ${config.contact.address.serviceArea}.`,
+  })
 
   const blogPosts = [
     {
@@ -98,6 +111,18 @@ export default function Blog() {
         primaryButtonText: 'Ask Our Experts',
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogPageStructuredData),
+        }}
+      />
       <Hero
         title={`${config.business.name.toUpperCase()} BLOG`}
         subtitle="Expert Tips & Industry Insights"

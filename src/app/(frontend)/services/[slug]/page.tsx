@@ -6,7 +6,12 @@ import Section from '@/components/Section'
 import AnimatedSection from '@/components/AnimatedSection'
 import BeforeAfter from '@/components/BeforeAfter'
 import { getActiveServices, getServiceBySlug, getBusinessConfig } from '@/utils/businessHelpers'
-import { getServiceMetadata } from '@/utils/metadataHelpers'
+import {
+  createBreadcrumbListStructuredData,
+  createFaqPageStructuredData,
+  createServiceStructuredData,
+  getServiceMetadata,
+} from '@/utils/metadataHelpers'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -43,6 +48,39 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   const processSteps = service.content?.sections?.processSteps
   const serviceTypes = service.content?.sections?.serviceTypes
   const faq = service.content?.sections?.faq
+  const faqItems = faq?.items ?? [
+    {
+      question: `How long does ${service.name.toLowerCase()} take?`,
+      answer: `${service.name} timeline varies based on project size and complexity. Most standard ${service.name.toLowerCase()} projects take 2-3 days. Our contractors provide accurate timelines during the initial consultation.`,
+    },
+    {
+      question: `What's included in ${service.name.toLowerCase()} services?`,
+      answer: `Our ${service.name.toLowerCase()} services include ${service.features.join(', ').toLowerCase()}. We handle all aspects from start to finish.`,
+    },
+    {
+      question: 'Do you handle permits?',
+      answer: `We obtain permits for our specific ${service.name.toLowerCase()} work. Property owners and other contractors are responsible for handling their own permits related to reconstruction, electrical, plumbing, or other non-demolition work.`,
+    },
+    {
+      question: `How much does ${service.name.toLowerCase()} cost?`,
+      answer: `${service.name} costs depend on the scope of work, project size, and complexity. Our contractors provide detailed free estimates that include all work, materials, and cleanup.`,
+    },
+    {
+      question: 'Are you licensed and insured?',
+      answer: `Yes, ${config.business.name} is fully licensed and insured to provide professional ${service.name.toLowerCase()} services throughout ${config.contact.address.serviceArea}.`,
+    },
+  ]
+  const breadcrumbStructuredData = createBreadcrumbListStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services' },
+    { name: service.name, path: `/services/${service.slug}` },
+  ])
+  const faqStructuredData = createFaqPageStructuredData(faqItems)
+  const serviceStructuredData = createServiceStructuredData({
+    name: service.name,
+    slug: service.slug,
+    description: hero.description || service.shortDescription,
+  })
 
   return (
     <Layout
@@ -52,6 +90,26 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         primaryButtonText: 'Schedule Your Removal',
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceStructuredData)
+        }}
+      />
+      {faqStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqStructuredData)
+          }}
+        />
+      )}
       <Hero
         title={hero.title || defaultHero.title}
         subtitle={hero.subtitle || defaultHero.subtitle}
@@ -406,28 +464,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <FAQ
             title={`${service.name.toUpperCase()} FREQUENTLY ASKED QUESTIONS`}
             subtitle={`Common questions about ${service.name.toLowerCase()} services answered by our expert contractors.`}
-            items={[
-              {
-                question: `How long does ${service.name.toLowerCase()} take?`,
-                answer: `${service.name} timeline varies based on project size and complexity. Most standard ${service.name.toLowerCase()} projects take 2-3 days. Our contractors provide accurate timelines during the initial consultation.`,
-              },
-              {
-                question: `What's included in ${service.name.toLowerCase()} services?`,
-                answer: `Our ${service.name.toLowerCase()} services include ${service.features.join(', ').toLowerCase()}. We handle all aspects from start to finish.`,
-              },
-              {
-                question: 'Do you handle permits?',
-                answer: `We obtain permits for our specific ${service.name.toLowerCase()} work. Property owners and other contractors are responsible for handling their own permits related to reconstruction, electrical, plumbing, or other non-demolition work.`,
-              },
-              {
-                question: `How much does ${service.name.toLowerCase()} cost?`,
-                answer: `${service.name} costs depend on the scope of work, project size, and complexity. Our contractors provide detailed free estimates that include all work, materials, and cleanup.`,
-              },
-              {
-                question: 'Are you licensed and insured?',
-                answer: `Yes, ${config.business.name} is fully licensed and insured to provide professional ${service.name.toLowerCase()} services throughout ${config.contact.address.serviceArea}.`,
-              },
-            ]}
+            items={faqItems}
           />
         </Section>
       )}

@@ -2,13 +2,26 @@ import Button from '@/components/Button'
 import Hero from '@/components/Hero'
 import Layout from '@/components/Layout'
 import Section from '@/components/Section'
-import { getAboutMetadata } from '@/utils/metadataHelpers'
+import {
+  createAboutPageStructuredData,
+  createBreadcrumbListStructuredData,
+  getAboutMetadata,
+} from '@/utils/metadataHelpers'
 import { getBusinessConfig } from '@/utils/businessHelpers'
 
 export const metadata = getAboutMetadata()
 
 export default function About() {
   const config = getBusinessConfig()
+  const breadcrumbStructuredData = createBreadcrumbListStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about' },
+  ])
+  const aboutPageStructuredData = createAboutPageStructuredData({
+    name: `About ${config.business.name}`,
+    path: '/about',
+    description: `${config.business.name} serves ${config.contact.address.serviceArea} with professional junk removal, transparent pricing, and eco-friendly disposal.`,
+  })
 
   return (
     <Layout
@@ -18,6 +31,18 @@ export default function About() {
         primaryButtonText: 'Start Your Project',
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(aboutPageStructuredData),
+        }}
+      />
       <Hero
         title={`ABOUT ${config.business.name.toUpperCase()}`}
         subtitle={`${config.business.experience} Years of Excellence in Professional Services`}

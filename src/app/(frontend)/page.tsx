@@ -9,7 +9,10 @@ import Section from '@/components/Section'
 import ServiceCard from '@/components/ServiceCard'
 import Testimonials from '@/components/Testimonials'
 import { getBusinessConfig, getActiveServices } from '@/utils/businessHelpers'
-import { getHomeMetadata, getOrganizationStructuredData } from '@/utils/metadataHelpers'
+import {
+  createFaqPageStructuredData,
+  getHomeMetadata,
+} from '@/utils/metadataHelpers'
 import './global.css'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -19,17 +22,18 @@ export const metadata = getHomeMetadata()
 export default function HomePage() {
   const config = getBusinessConfig()
   const services = getActiveServices()
-  const structuredData = getOrganizationStructuredData()
+  const faqStructuredData = createFaqPageStructuredData(config.faq)
 
   return (
     <Layout>
-      {/* Structured Data */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(structuredData)
-        }}
-      />
+      {faqStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqStructuredData)
+          }}
+        />
+      )}
       {/* Hero Section */}
       <Hero
         title="JUNK REMOVAL NEAR ME - #1 NORTHERN UTAH SERVICE"
