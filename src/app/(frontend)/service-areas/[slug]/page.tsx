@@ -10,7 +10,14 @@ import {
   getServiceAreaBySlug,
   getBusinessConfig,
 } from '@/utils/businessHelpers'
-import { getServiceAreaMetadata } from '@/utils/metadataHelpers'
+import {
+  createAreaServiceStructuredData,
+  createBreadcrumbListStructuredData,
+  createFaqPageStructuredData,
+  createServiceAreaPageStructuredData,
+  createServiceAreaPlaceStructuredData,
+  getServiceAreaMetadata,
+} from '@/utils/metadataHelpers'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -55,6 +62,51 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
   const neighborhoods = serviceArea.content?.sections?.neighborhoods
   const whyChooseUs = serviceArea.content?.sections?.whyChooseUs
   const faq = serviceArea.content?.sections?.faq
+  const faqItems = faq?.items ?? [
+    {
+      question: `Do you serve all areas of ${serviceArea.name}, ${serviceArea.state}?`,
+      answer: `Yes, we provide comprehensive services throughout all of ${serviceArea.name}, ${serviceArea.state} and surrounding areas in ${serviceArea.county || serviceArea.state}.`,
+    },
+    {
+      question: `How long have you been serving ${serviceArea.name}?`,
+      answer: `${config.business.name} has been proudly serving ${serviceArea.name}, ${serviceArea.state} for ${config.business.experience} years with professional, reliable service.`,
+    },
+    {
+      question: 'Are you licensed and insured?',
+      answer: `Yes, ${config.business.name} is fully licensed and insured to provide professional services throughout ${serviceArea.name}, ${serviceArea.state} and surrounding areas.`,
+    },
+  ]
+  const breadcrumbStructuredData = createBreadcrumbListStructuredData([
+    { name: 'Home', path: '/' },
+    { name: 'Service Areas', path: '/service-areas' },
+    { name: `${serviceArea.name}, ${serviceArea.state}`, path: `/service-areas/${serviceArea.slug}` },
+  ])
+  const serviceAreaDescription = hero.description || defaultHero.description
+  const serviceAreaPageStructuredData = createServiceAreaPageStructuredData({
+    name: serviceArea.name,
+    slug: serviceArea.slug,
+    state: serviceArea.state,
+    county: serviceArea.county,
+    description: serviceAreaDescription,
+    placeType: 'City',
+  })
+  const serviceAreaPlaceStructuredData = createServiceAreaPlaceStructuredData({
+    name: serviceArea.name,
+    slug: serviceArea.slug,
+    state: serviceArea.state,
+    county: serviceArea.county,
+    description: serviceAreaDescription,
+    placeType: 'City',
+  })
+  const serviceAreaServiceStructuredData = createAreaServiceStructuredData({
+    name: serviceArea.name,
+    slug: serviceArea.slug,
+    state: serviceArea.state,
+    county: serviceArea.county,
+    description: serviceAreaDescription,
+    placeType: 'City',
+  })
+  const faqStructuredData = createFaqPageStructuredData(faqItems)
 
   return (
     <Layout
@@ -63,6 +115,38 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
         description: `Contact ${config.business.name} today for a free estimate on your ${serviceArea.name}, ${serviceArea.state} project. As your trusted local [RELACEME contractor], we provide expert service throughout ${serviceArea.county || serviceArea.state}.`,
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbStructuredData)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceAreaPageStructuredData)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceAreaPlaceStructuredData)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceAreaServiceStructuredData)
+        }}
+      />
+      {faqStructuredData && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(faqStructuredData)
+          }}
+        />
+      )}
       <Hero
         title={hero.title || defaultHero.title}
         subtitle={hero.subtitle || defaultHero.subtitle}
@@ -274,20 +358,7 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
           <FAQ
             title={`${serviceArea.name} ${serviceArea.state} SERVICE FAQ`}
             subtitle={`Common questions about our services in ${serviceArea.name}, ${serviceArea.state}`}
-            items={[
-              {
-                question: `Do you serve all areas of ${serviceArea.name}, ${serviceArea.state}?`,
-                answer: `Yes, we provide comprehensive services throughout all of ${serviceArea.name}, ${serviceArea.state} and surrounding areas in ${serviceArea.county || serviceArea.state}.`,
-              },
-              {
-                question: `How long have you been serving ${serviceArea.name}?`,
-                answer: `${config.business.name} has been proudly serving ${serviceArea.name}, ${serviceArea.state} for ${config.business.experience} years with professional, reliable service.`,
-              },
-              {
-                question: 'Are you licensed and insured?',
-                answer: `Yes, ${config.business.name} is fully licensed and insured to provide professional services throughout ${serviceArea.name}, ${serviceArea.state} and surrounding areas.`,
-              },
-            ]}
+            items={faqItems}
           />
         </Section>
       )}

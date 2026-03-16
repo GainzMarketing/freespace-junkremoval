@@ -3,6 +3,7 @@ import Script from 'next/script'
 import React from 'react'
 import './global.css'
 import { businessConfig } from '@/config/business.config'
+import { getOrganizationStructuredData, getWebSiteStructuredData } from '@/utils/metadataHelpers'
 
 const leagueSpartan = League_Spartan({
   weight: '700',
@@ -20,6 +21,7 @@ const openSans = Open_Sans({
 })
 
 export const metadata = {
+  metadataBase: new URL(businessConfig.website.url),
   title: {
     default: 'Free Space Junk Removal & Cleaning | Northern Utah Junk Removal',
     template: '%s | Free Space Junk Removal & Cleaning',
@@ -95,6 +97,8 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   const { children } = props
   const { analytics } = businessConfig
   const gtmEnabled = analytics?.googleTagManager?.enabled && analytics?.googleTagManager?.id
+  const webSiteStructuredData = getWebSiteStructuredData()
+  const organizationStructuredData = getOrganizationStructuredData()
 
   return (
     <html lang="en">
@@ -128,6 +132,18 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
             />
           </noscript>
         )}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(webSiteStructuredData),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationStructuredData),
+          }}
+        />
         <main>{children}</main>
       </body>
     </html>

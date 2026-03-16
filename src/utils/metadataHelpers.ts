@@ -7,6 +7,89 @@ import { getBusinessConfig, getActiveServices, getActiveServiceAreas } from './b
 
 const config = getBusinessConfig()
 
+interface FAQStructuredDataItem {
+  question: string
+  answer: string
+}
+
+interface BreadcrumbStructuredDataItem {
+  name: string
+  path: string
+}
+
+interface ServiceStructuredDataInput {
+  name: string
+  slug: string
+  description: string
+}
+
+interface PageStructuredDataInput {
+  name: string
+  path: string
+  description: string
+}
+
+interface ItemListStructuredDataItem {
+  name: string
+  path: string
+  entityId?: string
+}
+
+interface ServiceAreaStructuredDataInput {
+  name: string
+  slug: string
+  state: string
+  county?: string
+  description: string
+  placeType?: 'City' | 'AdministrativeArea'
+}
+
+function getCanonicalUrl(path = ''): string {
+  const normalizedBaseUrl = config.website.url.replace(/\/$/, '')
+  if (!path) return normalizedBaseUrl
+  return `${normalizedBaseUrl}/${path.replace(/^\//, '')}`
+}
+
+function createPageMetadata(path: string, metadata: Metadata): Metadata {
+  const canonicalUrl = getCanonicalUrl(path)
+
+  return {
+    ...metadata,
+    alternates: {
+      ...metadata.alternates,
+      canonical: canonicalUrl,
+    },
+    openGraph: {
+      ...metadata.openGraph,
+      url: canonicalUrl,
+    },
+  }
+}
+
+function getLocalBusinessId(): string {
+  return `${getCanonicalUrl()}#localbusiness`
+}
+
+function getWebSiteId(): string {
+  return `${getCanonicalUrl()}#website`
+}
+
+function getPageId(path: string): string {
+  return `${getCanonicalUrl(path)}#webpage`
+}
+
+function getOfficialSameAsUrls(): string[] {
+  const urls = new Set<string>()
+
+  for (const socialLink of config.navigation.footer.social ?? []) {
+    if (typeof socialLink.href !== 'string') continue
+    if (!socialLink.href.startsWith('http')) continue
+    urls.add(socialLink.href)
+  }
+
+  return [...urls]
+}
+
 /**
  * Base metadata that can be extended by specific pages
  */
@@ -47,36 +130,36 @@ export function getBaseMetadata(): Metadata {
  * Home page metadata
  */
 export function getHomeMetadata(): Metadata {
-  return {
+  return createPageMetadata('/', {
     ...getBaseMetadata(),
     title: `Junk Removal Near Me | #1 ${config.contact.address.serviceArea} Junk Removal Service`,
     description: `Looking for junk removal near me? Free Space Junk Removal is Northern Utah's #1 rated junk removal service. Same-day pickup, transparent pricing, eco-friendly disposal. Serving Ogden, Logan, Brigham City with professional junk hauling services. Call now for immediate junk removal near you!`,
     keywords: 'junk removal near me, junk hauling near me, same day junk removal, furniture removal near me, appliance removal near me, junk removal services near me, northern utah junk removal, ogden junk removal, logan junk removal, local junk removal, residential junk removal, commercial junk removal'
-  }
+  })
 }
 
 /**
  * About page metadata
  */
 export function getAboutMetadata(): Metadata {
-  return {
+  return createPageMetadata('/about', {
     ...getBaseMetadata(),
     title: `About ${config.business.name} | Expert ${config.business.tagline}`,
     description: `Learn about ${config.business.name} - ${config.business.experience} years of experience in professional services. ${config.business.missionStatement} Licensed, insured, and trusted by homeowners.`,
     keywords: `about ${config.business.name.toLowerCase()}, ${config.business.tagline.toLowerCase()}, experienced contractors, licensed contractors`,
-  }
+  })
 }
 
 /**
  * Contact page metadata
  */
 export function getContactMetadata(): Metadata {
-  return {
+  return createPageMetadata('/contact', {
     ...getBaseMetadata(),
     title: `Contact ${config.business.name} | Free Estimates & Consultation`,
     description: `Contact ${config.business.name} for a free estimate. Call ${config.contact.phone.display} or email ${config.contact.email.main}. Serving ${config.contact.address.serviceArea}. Licensed, insured, and ready to help.`,
     keywords: `contact ${config.business.name.toLowerCase()}, free estimate, ${config.contact.address.serviceArea.toLowerCase()}, ${config.contact.phone.display}`,
-  }
+  })
 }
 
 /**
@@ -86,12 +169,12 @@ export function getServicesMetadata(): Metadata {
   const services = getActiveServices()
   const serviceNames = services.map((service) => service.name.toLowerCase()).join(', ')
 
-  return {
+  return createPageMetadata('/services', {
     ...getBaseMetadata(),
     title: `Professional Services ${config.contact.address.serviceArea} | Expert Contractors`,
     description: `Expert services throughout ${config.contact.address.serviceArea}. Professional ${serviceNames} and more. Licensed contractors serving ${config.contact.address.serviceArea} and surrounding areas.`,
     keywords: `services ${config.contact.address.serviceArea.toLowerCase()}, ${serviceNames}, professional contractor, ${config.contact.address.serviceArea.toLowerCase()}`,
-  }
+  })
 }
 
 /**
@@ -101,36 +184,36 @@ export function getServiceAreasMetadata(): Metadata {
   const serviceAreas = getActiveServiceAreas()
   const areaNames = serviceAreas.map((area) => area.name).join(', ')
 
-  return {
+  return createPageMetadata('/service-areas', {
     ...getBaseMetadata(),
     title: `Service Areas | ${config.business.name} Coverage Throughout ${config.contact.address.serviceArea}`,
     description: `${config.business.name} serves ${areaNames} and surrounding communities. Professional services throughout ${config.contact.address.serviceArea} with local expertise and reliable service.`,
     keywords: `service areas, ${areaNames.toLowerCase()}, ${config.contact.address.serviceArea.toLowerCase()}, local contractors`,
-  }
+  })
 }
 
 /**
  * Blog page metadata
  */
 export function getBlogMetadata(): Metadata {
-  return {
+  return createPageMetadata('/blog', {
     ...getBaseMetadata(),
     title: `${config.business.name} Blog | Tips, News & Insights`,
     description: `Expert tips, industry news, and insights from ${config.business.name}. Stay informed about best practices, trends, and updates in ${config.contact.address.serviceArea}.`,
     keywords: `${config.business.name.toLowerCase()} blog, tips, industry news, ${config.contact.address.serviceArea.toLowerCase()}`,
-  }
+  })
 }
 
 /**
  * Gallery page metadata
  */
 export function getGalleryMetadata(): Metadata {
-  return {
+  return createPageMetadata('/gallery', {
     ...getBaseMetadata(),
     title: `${config.business.name} Gallery | Professional Work Examples`,
     description: `View examples of ${config.business.name}'s professional work throughout ${config.contact.address.serviceArea}. See the quality and craftsmanship that makes us the trusted choice.`,
     keywords: `${config.business.name.toLowerCase()} gallery, work examples, before and after, ${config.contact.address.serviceArea.toLowerCase()}`,
-  }
+  })
 }
 
 /**
@@ -147,12 +230,12 @@ export function getServiceMetadata(serviceSlug: string): Metadata {
   const title = service.seo?.title || `${service.name} Services | ${config.business.name}`
   const description = service.seo?.description || service.shortDescription
 
-  return {
+  return createPageMetadata(`/services/${service.slug}`, {
     ...getBaseMetadata(),
     title,
     description,
     keywords: `${service.name.toLowerCase()}, ${service.name.toLowerCase()} ${config.contact.address.serviceArea.toLowerCase()}, ${service.category}, professional contractors`,
-  }
+  })
 }
 
 /**
@@ -171,12 +254,12 @@ export function getServiceAreaMetadata(areaSlug: string): Metadata {
     area.seo?.description ||
     `${config.business.name} serves ${area.name}, ${area.state}. ${area.description} Contact us for professional services in ${area.name}.`
 
-  return {
+  return createPageMetadata(`/service-areas/${area.slug}`, {
     ...getBaseMetadata(),
     title,
     description,
     keywords: `${area.name.toLowerCase()}, ${area.state.toLowerCase()}, ${config.business.name.toLowerCase()}, local contractors ${area.name.toLowerCase()}`,
-  }
+  })
 }
 
 /**
@@ -187,13 +270,14 @@ export function getOrganizationStructuredData() {
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
-    '@id': config.website.url,
+    '@id': getLocalBusinessId(),
     name: config.business.name,
     alternateName: 'Free Space Junk Removal',
     description: 'Professional junk removal and hauling services throughout Northern Utah. Same-day pickup, transparent pricing, eco-friendly disposal.',
-    url: config.website.url,
+    url: getCanonicalUrl(),
     telephone: config.contact.phone.display,
     email: config.contact.email.main,
+    sameAs: getOfficialSameAsUrls(),
     address: {
       '@type': 'PostalAddress',
       addressLocality: config.contact.address.city,
@@ -237,8 +321,8 @@ export function getOrganizationStructuredData() {
       latitude: '41.7323',
       longitude: '-111.8766'
     },
-    logo: `${config.website.url}${config.branding.logo.main}`,
-    image: `${config.website.url}${config.branding.logo.main}`,
+    logo: `${getCanonicalUrl()}${config.branding.logo.main}`,
+    image: `${getCanonicalUrl()}${config.branding.logo.main}`,
     foundingDate: config.business.yearEstablished.toString(),
     slogan: 'Northern Utah\'s Premier Junk Removal Experts',
     priceRange: '$$',
@@ -291,5 +375,247 @@ export function getOrganizationStructuredData() {
         }
       ]
     }
+  }
+}
+
+export function getWebSiteStructuredData() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': getWebSiteId(),
+    url: getCanonicalUrl(),
+    name: config.business.name,
+    publisher: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createFaqPageStructuredData(items: FAQStructuredDataItem[]) {
+  if (!items.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  }
+}
+
+export function createBreadcrumbListStructuredData(items: BreadcrumbStructuredDataItem[]) {
+  if (!items.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: getCanonicalUrl(item.path),
+    })),
+  }
+}
+
+export function createServiceStructuredData(input: ServiceStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${getCanonicalUrl(`/services/${input.slug}`)}#service`,
+    name: input.name,
+    serviceType: input.name,
+    description: input.description,
+    url: getCanonicalUrl(`/services/${input.slug}`),
+    mainEntityOfPage: {
+      '@id': getPageId(`/services/${input.slug}`),
+    },
+    provider: {
+      '@id': getLocalBusinessId(),
+    },
+    areaServed: config.business.countiesServed.map((county) => ({
+      '@type': 'AdministrativeArea',
+      name: county,
+    })),
+  }
+}
+
+export function createServiceAreaPageStructuredData(input: ServiceAreaStructuredDataInput) {
+  const path = `/service-areas/${input.slug}`
+  const placeId = `${getCanonicalUrl(path)}#place`
+  const serviceId = `${getCanonicalUrl(path)}#service`
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': getPageId(path),
+    name: `${config.business.mainService} in ${input.name}, ${input.state}`,
+    url: getCanonicalUrl(path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    about: [
+      {
+        '@id': getLocalBusinessId(),
+      },
+      {
+        '@id': placeId,
+      },
+    ],
+    mainEntity: {
+      '@id': serviceId,
+    },
+  }
+}
+
+export function createServiceAreaPlaceStructuredData(input: ServiceAreaStructuredDataInput) {
+  const path = `/service-areas/${input.slug}`
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': input.placeType ?? 'City',
+    '@id': `${getCanonicalUrl(path)}#place`,
+    name: input.name,
+    containedInPlace: {
+      '@type': 'AdministrativeArea',
+      name: input.county || input.state,
+      ...(input.county
+        ? {
+            containedInPlace: {
+              '@type': 'State',
+              name: input.state,
+            },
+          }
+        : {}),
+    },
+  }
+}
+
+export function createAreaServiceStructuredData(input: ServiceAreaStructuredDataInput) {
+  const path = `/service-areas/${input.slug}`
+  const placeId = `${getCanonicalUrl(path)}#place`
+  const pageId = getPageId(path)
+  const localizedServiceName = `${config.business.mainService} in ${input.name}, ${input.state}`
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    '@id': `${getCanonicalUrl(path)}#service`,
+    name: localizedServiceName,
+    serviceType: config.business.mainService,
+    description: input.description,
+    url: getCanonicalUrl(path),
+    provider: {
+      '@id': getLocalBusinessId(),
+    },
+    areaServed: {
+      '@id': placeId,
+    },
+    mainEntityOfPage: {
+      '@id': pageId,
+    },
+  }
+}
+
+export function createAboutPageStructuredData(input: PageStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'AboutPage',
+    '@id': getPageId(input.path),
+    name: input.name,
+    url: getCanonicalUrl(input.path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    about: {
+      '@id': getLocalBusinessId(),
+    },
+    mainEntity: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createContactPageStructuredData(input: PageStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    '@id': getPageId(input.path),
+    name: input.name,
+    url: getCanonicalUrl(input.path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    about: {
+      '@id': getLocalBusinessId(),
+    },
+    mainEntity: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createCollectionPageStructuredData(input: PageStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': getPageId(input.path),
+    name: input.name,
+    url: getCanonicalUrl(input.path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    about: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createBlogPageStructuredData(input: PageStructuredDataInput) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['CollectionPage', 'Blog'],
+    '@id': getPageId(input.path),
+    name: input.name,
+    url: getCanonicalUrl(input.path),
+    description: input.description,
+    isPartOf: {
+      '@id': getWebSiteId(),
+    },
+    publisher: {
+      '@id': getLocalBusinessId(),
+    },
+    about: {
+      '@id': getLocalBusinessId(),
+    },
+  }
+}
+
+export function createItemListStructuredData(path: string, items: ItemListStructuredDataItem[]) {
+  if (!items.length) return null
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    '@id': `${getCanonicalUrl(path)}#itemlist`,
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: item.entityId
+        ? {
+            '@id': item.entityId,
+          }
+        : getCanonicalUrl(item.path),
+      name: item.name,
+    })),
   }
 }
