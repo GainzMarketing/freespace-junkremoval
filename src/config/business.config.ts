@@ -56,6 +56,7 @@ export const businessConfig: BusinessConfig = {
   },
 
   analytics: {
+    googleAnalytics: { id: 'G-J4RW7E152T', enabled: true },
     googleTagManager: {
       id: 'GTM-T3BJJPWH',
       enabled: true,
