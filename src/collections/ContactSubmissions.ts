@@ -8,10 +8,14 @@ export const ContactSubmissions: CollectionConfig = {
     group: 'Forms',
   },
   access: {
-    read: () => true,
-    create: () => true,
-    update: () => false,
-    delete: () => true,
+    // Submissions hold customer PII — never publicly readable. The public
+    // form posts through /api/contact-submissions (local API), and the CRM
+    // reads/updates as an authenticated user for the client portal's Leads
+    // page.
+    read: ({ req }) => Boolean(req.user),
+    create: ({ req }) => Boolean(req.user),
+    update: ({ req }) => Boolean(req.user),
+    delete: ({ req }) => Boolean(req.user),
   },
   fields: [
     {
