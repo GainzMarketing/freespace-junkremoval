@@ -82,7 +82,7 @@ export default function Blog() {
     {
       title: 'Safety First: OSHA Standards in Demolition Work',
       excerpt:
-        'Understanding safety protocols and OSHA standards that professional demolition contractors follow to protect workers and property.',
+        'Safe lifting, loading, and property-aware junk removal practices for homeowners and businesses.',
       author: 'David Martinez',
       date: 'October 3, 2024',
       readTime: '5 min read',
@@ -126,7 +126,7 @@ export default function Blog() {
       <Hero
         title={`${config.business.name.toUpperCase()} BLOG`}
         subtitle="Expert Tips & Industry Insights"
-        description={`Stay informed with the latest professional tips and advice from our team of experienced contractors serving ${config.contact.address.serviceArea}.`}
+        description={`Stay informed with the latest professional tips and advice from our team of full-service junk removal crew serving ${config.contact.address.serviceArea}.`}
         buttonText="Subscribe to Updates"
         buttonLink="/contact"
         backgroundImage="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80"
@@ -137,7 +137,7 @@ export default function Blog() {
           <h2 className="text-4xl font-heading font-bold text-brand-dark mb-6">LATEST ARTICLES</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Get expert insights on demolition, remodeling, and home renovation from our team of
-            licensed professionals.
+            trained crew members.
           </p>
         </div>
 

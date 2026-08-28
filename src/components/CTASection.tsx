@@ -34,7 +34,7 @@ const CTASection = ({
             {primaryButtonText}
           </Button>
           {showPhoneButton && (
-            <Button href="tel:3853268426" variant="secondary" size="lg">
+            <Button href="tel:+13853268426" variant="secondary" size="lg">
               {secondaryButtonText}
             </Button>
           )}

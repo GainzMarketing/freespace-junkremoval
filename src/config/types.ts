@@ -230,6 +230,8 @@ export interface ServiceArea {
         content?: string[]
         highlights?: { title: string; description: string; icon?: string }[]
       }
+      reviewTodos?: string[]
+      contextualLinks?: { label: string; href: string; description: string }[]
       localServices?: {
         title?: string
         subtitle?: string

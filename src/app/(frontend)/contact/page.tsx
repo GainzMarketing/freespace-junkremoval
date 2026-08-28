@@ -519,7 +519,7 @@ export default function Contact() {
                   </h3>
                   <p className="text-gray-600 mb-2">{config.contact.address.serviceArea}</p>
                   <p className="text-gray-600 text-sm">
-                    Professional service throughout the region
+                    Full-service junk removal throughout the region
                   </p>
                 </div>
               </div>
@@ -542,41 +542,41 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto space-y-8">
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h3 className="text-xl font-heading font-bold text-brand-dark mb-3">
-              How quickly can you provide an estimate?
+              How quickly can you provide a quote?
             </h3>
             <p className="text-gray-600">
-              We provide written estimates within 24-48 hours of site visit. For simple projects, we
-              can often provide preliminary estimates over the phone or via email.
+              For many junk removal jobs, we can discuss a quote by phone or email. For larger
+              cleanouts, pricing depends on volume, item type, and access.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h3 className="text-xl font-heading font-bold text-brand-dark mb-3">
-              Do you handle permits and approvals?
+              Do customers need to move items outside first?
             </h3>
             <p className="text-gray-600">
-              Yes, we handle all necessary permits and approvals for demolition work. Our team is
-              familiar with local building codes and permit requirements.
+              No. This is full-service junk removal, so our crew lifts, carries, loads, and hauls
+              the items included in your quote.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h3 className="text-xl font-heading font-bold text-brand-dark mb-3">
-              What's included in your cleanup service?
+              What's included in your junk removal service?
             </h3>
             <p className="text-gray-600">
-              Complete debris removal, site cleanup, and proper disposal of all materials. We leave
-              your property clean and ready for the next phase of your project.
+              Labor, loading, hauling, sorting for donation or recycling when practical, and
+              appropriate disposal for the remaining material.
             </p>
           </div>
 
           <div className="bg-white p-6 rounded-lg shadow-lg">
             <h3 className="text-xl font-heading font-bold text-brand-dark mb-3">
-              Are you licensed and insured?
+              How do I schedule service?
             </h3>
             <p className="text-gray-600">
-              Yes, we are fully licensed contractors with comprehensive liability and workers'
-              compensation insurance. We provide certificates of insurance upon request.
+              Use the online scheduling link or call (385) 326-8426. We serve Northern Utah from
+              the Hyrum business address.
             </p>
           </div>
         </div>
@@ -587,8 +587,8 @@ export default function Contact() {
         <div className="text-center">
           <h2 className="text-4xl font-heading font-bold mb-6">START YOUR PROJECT TODAY</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Don't wait - contact {config.business.name} today for your free estimate and
-            consultation. Let's bring your vision to life.
+            Contact {config.business.name} for a free junk removal quote. We lift, load, haul,
+            and sort items responsibly throughout Northern Utah.
           </p>
           <div className="space-x-4">
             <Button href={config.contact.phone.link} variant="accent" size="lg">

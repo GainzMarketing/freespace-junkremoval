@@ -14,10 +14,12 @@ import {
   createAreaServiceStructuredData,
   createBreadcrumbListStructuredData,
   createFaqPageStructuredData,
+  createServiceAreaLocalBusinessStructuredData,
   createServiceAreaPageStructuredData,
   createServiceAreaPlaceStructuredData,
   getServiceAreaMetadata,
 } from '@/utils/metadataHelpers'
+import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export async function generateStaticParams() {
@@ -44,15 +46,15 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
   // Default content if no custom content is provided
   const defaultHero = {
     title: `${config.business.name} - ${serviceArea.name} ${serviceArea.state}`,
-    subtitle: `Professional Services in ${serviceArea.name}, ${serviceArea.state}`,
-    description: `${config.business.name} serves ${serviceArea.name}, ${serviceArea.state} with expert services. ${serviceArea.description} Contact us for ${config.business.mainService} in ${serviceArea.name}.`,
+    subtitle: `Full-service junk removal in ${serviceArea.name}, ${serviceArea.state}`,
+    description: `${config.business.name} serves ${serviceArea.name}, ${serviceArea.state}. Our crew lifts, carries, loads, and hauls so customers do not have to load a dumpster.`,
     backgroundImage: serviceArea.image || '/images/default.webp',
   }
 
   const defaultLocalServices = serviceArea.specialties.map((specialty, index) => ({
     title: `${specialty} - ${serviceArea.name}`,
-    description: `Professional ${specialty.toLowerCase()} services in ${serviceArea.name}, ${serviceArea.state}.`,
-    href: '/services',
+    description: `${specialty} for ${serviceArea.name} customers, with lifting and loading handled by our crew.`,
+    href: '/services/large-load-junk-removal',
     backgroundImage: `/images/${specialty.toLowerCase().replace(/\s+/g, '-')}.jpg`,
   }))
 
@@ -61,6 +63,8 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
   const localServices = serviceArea.content?.sections?.localServices
   const neighborhoods = serviceArea.content?.sections?.neighborhoods
   const whyChooseUs = serviceArea.content?.sections?.whyChooseUs
+  const reviewTodos = serviceArea.content?.sections?.reviewTodos
+  const contextualLinks = serviceArea.content?.sections?.contextualLinks
   const faq = serviceArea.content?.sections?.faq
   const faqItems = faq?.items ?? [
     {
@@ -68,12 +72,12 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
       answer: `Yes, we provide comprehensive services throughout all of ${serviceArea.name}, ${serviceArea.state} and surrounding areas in ${serviceArea.county || serviceArea.state}.`,
     },
     {
-      question: `How long have you been serving ${serviceArea.name}?`,
-      answer: `${config.business.name} has been proudly serving ${serviceArea.name}, ${serviceArea.state} for ${config.business.experience} years with professional, reliable service.`,
+      question: `Do customers need to load items before you arrive in ${serviceArea.name}?`,
+      answer: `No. ${config.business.name} is full-service junk removal, so our crew lifts, carries, loads, and hauls the items included in your quote.`,
     },
     {
-      question: 'Are you licensed and insured?',
-      answer: `Yes, ${config.business.name} is fully licensed and insured to provide professional services throughout ${serviceArea.name}, ${serviceArea.state} and surrounding areas.`,
+      question: 'How do I get a quote?',
+      answer: `Call ${config.contact.phone.display} or use the online scheduling link for a free quote based on volume, item type, and access.`,
     },
   ]
   const breadcrumbStructuredData = createBreadcrumbListStructuredData([
@@ -107,12 +111,20 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
     placeType: 'City',
   })
   const faqStructuredData = createFaqPageStructuredData(faqItems)
+  const serviceAreaLocalBusinessStructuredData = createServiceAreaLocalBusinessStructuredData({
+    name: serviceArea.name,
+    slug: serviceArea.slug,
+    state: serviceArea.state,
+    county: serviceArea.county,
+    description: serviceAreaDescription,
+    placeType: 'City',
+  })
 
   return (
     <Layout
       ctaProps={{
         title: `READY TO START YOUR ${serviceArea.name.toUpperCase()} PROJECT?`,
-        description: `Contact ${config.business.name} today for a free estimate on your ${serviceArea.name}, ${serviceArea.state} project. As your trusted local [RELACEME contractor], we provide expert service throughout ${serviceArea.county || serviceArea.state}.`,
+        description: `Contact ${config.business.name} for a free ${serviceArea.name}, ${serviceArea.state} junk removal quote. Our crew lifts, loads, hauls, and handles responsible disposal throughout ${serviceArea.county || serviceArea.state}.`,
       }}
     >
       <script
@@ -137,6 +149,12 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(serviceAreaServiceStructuredData)
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceAreaLocalBusinessStructuredData)
         }}
       />
       {faqStructuredData && (
@@ -195,23 +213,28 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
                     ))}
                   </div>
                 )}
-                <Button href="/contact" variant="primary" size="lg">
-                  Get Your Free {serviceArea.name} Estimate
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button href="https://calendar.app.google/S8TaQaP9DRGngVtV7" variant="primary" size="lg">
+                    Schedule {serviceArea.name} Junk Removal
+                  </Button>
+                  <Button href={config.contact.phone.link} variant="secondary" size="lg">
+                    Call {config.contact.phone.display}
+                  </Button>
+                </div>
               </div>
             </AnimatedSection>
             <AnimatedSection delay={200}>
               <div className="relative">
                 <div
                   className="bg-cover bg-center rounded-lg h-96 shadow-lg"
-                  style={{ backgroundImage: "url('/images/team-consultation.jpg')" }}
+                  style={{ backgroundImage: "url('/images/north-utah-ogden-mountain.jpeg')" }}
                 ></div>
-                <div className="absolute -bottom-6 -right-6 bg-accent p-6 rounded-lg shadow-lg">
+                <div className="absolute -bottom-6 -right-6 bg-accent p-6 rounded-lg shadow-lg max-w-xs">
                   <div className="text-center">
-                    <div className="text-3xl font-heading font-bold text-brand-dark">
-                      {config.business.experience}
+                    <div className="text-2xl font-heading font-bold text-brand-dark">
+                      From $50
                     </div>
-                    <div className="text-sm font-semibold text-brand-dark">YEARS EXPERIENCE</div>
+                    <div className="text-sm font-semibold text-brand-dark">FULL-SERVICE PICKUP</div>
                   </div>
                 </div>
               </div>
@@ -331,6 +354,48 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
                     <h4 className="font-heading font-bold text-brand-dark mb-2">{item.title}</h4>
                     <p className="text-gray-600 mb-4">{item.description}</p>
                   </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </Section>
+      )}
+
+
+      {reviewTodos && reviewTodos.length > 0 && (
+        <Section background="light" paddingY="xl">
+          <AnimatedSection>
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-heading font-bold text-brand-dark mb-6 text-center">
+                REAL {serviceArea.name.toUpperCase()} CUSTOMER REVIEWS
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {reviewTodos.map((todo, index) => (
+                  <div key={index} className="bg-white border-2 border-dashed border-primary/40 rounded-lg p-6 text-gray-700">
+                    {todo}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimatedSection>
+        </Section>
+      )}
+
+      {contextualLinks && contextualLinks.length > 0 && (
+        <Section paddingY="lg">
+          <AnimatedSection>
+            <div className="max-w-4xl mx-auto bg-gray-50 rounded-lg p-8">
+              <h2 className="text-2xl font-heading font-bold text-brand-dark mb-4">
+                Related local junk removal resources
+              </h2>
+              <div className="space-y-4">
+                {contextualLinks.map((item) => (
+                  <p key={item.href} className="text-gray-700">
+                    <Link href={item.href} className="font-semibold text-primary hover:text-primary-700">
+                      {item.label}
+                    </Link>{' '}
+                    — {item.description}
+                  </p>
                 ))}
               </div>
             </div>

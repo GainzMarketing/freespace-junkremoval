@@ -24,7 +24,7 @@ export default function ServicesPage() {
   const collectionPageStructuredData = createCollectionPageStructuredData({
     name: `${config.business.name} Services`,
     path: '/services',
-    description: `Explore professional junk removal services from ${config.business.name} throughout ${config.contact.address.serviceArea}.`,
+    description: `Explore full-service junk removal services from ${config.business.name} throughout ${config.contact.address.serviceArea}.`,
   })
   const itemListStructuredData = createItemListStructuredData(
     '/services',
@@ -38,8 +38,8 @@ export default function ServicesPage() {
   return (
     <Layout
       ctaProps={{
-        title: `NEED PROFESSIONAL SERVICES IN ${config.contact.address.serviceArea.toUpperCase()}?`,
-        description: `Contact ${config.contact.address.serviceArea}'s premier service contractors today for a free estimate. Professional, reliable, and trusted throughout the region.`,
+        title: `NEED JUNK REMOVAL IN ${config.contact.address.serviceArea.toUpperCase()}?`,
+        description: `Book ${config.business.name} for full-service hauling. We lift, load, haul, and dispose responsibly so you do not have to load a dumpster.`,
       }}
     >
       <script
@@ -63,54 +63,47 @@ export default function ServicesPage() {
         />
       )}
       <Hero
-        title="PROFESSIONAL SERVICES"
-        subtitle={`${config.contact.address.serviceArea}'s Trusted Service Contractors`}
-        description={`${config.business.description} Licensed, insured contractors ready to handle your project with expertise and care.`}
+        title="FULL-SERVICE JUNK REMOVAL SERVICES"
+        subtitle="Northern Utah hauling with the lifting and loading included"
+        description={`${config.business.description} Choose the service that matches your cleanup: single item pickup, large loads, garage cleanouts, appliance removal, estate rooms, land cleanout, or construction cleanup.`}
         buttonText="Schedule Your Removal"
         buttonLink="https://calendar.app.google/S8TaQaP9DRGngVtV7"
-        backgroundImage="/images/floor-demo-team-work.jpg"
+        backgroundImage="/images/north-utah-ogden-mountain.jpeg"
       />
 
       <Section paddingY="xl">
         <AnimatedSection>
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-brand-dark mb-4 md:mb-6">
-              {config.contact.address.serviceArea.toUpperCase()} PROFESSIONAL SERVICES
+              JUNK REMOVAL OPTIONS FOR NORTHERN UTAH
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4">
-              At {config.business.name}, we are {config.contact.address.serviceArea}'s trusted{' '}
-              {config.business.mainRole}s. {config.business.description}. 
-              We serve residential and commercial clients throughout{' '}
-              {config.contact.address.serviceArea} with precision, reliability, and complete
-              satisfaction guaranteed.
+              Every service is built around the same promise: our crew does the lifting, carrying,
+              loading, hauling, and responsible sorting. Customers do not have to rent a dumpster or
+              move bulky items to the curb before we arrive.
             </p>
           </div>
         </AnimatedSection>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
-            <AnimatedSection key={index} delay={index * 100} direction="up">
-              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+            <AnimatedSection key={service.slug} delay={index * 100} direction="up">
+              <div className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 h-full flex flex-col">
                 <div
                   className="h-48 bg-cover bg-center"
                   style={{ backgroundImage: `url(${service.image})` }}
                 />
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="text-xl font-heading font-bold text-brand-dark mb-3">
                     {service.name}
                   </h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">{service.shortDescription}</p>
                   <Link
                     href={`/services/${service.slug}`}
-                    className="inline-flex items-center text-primary font-semibold hover:text-accent transition-colors"
+                    className="inline-flex items-center text-primary font-semibold hover:text-accent transition-colors mt-auto"
                   >
                     {service.buttonText || 'Learn More'}
-                    <svg
-                      className="ml-2 w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -130,69 +123,38 @@ export default function ServicesPage() {
         <AnimatedSection>
           <div className="text-center">
             <h2 className="text-3xl sm:text-4xl font-heading font-bold text-brand-dark mb-4 md:mb-6">
-              WHY CHOOSE {config.contact.address.serviceArea.toUpperCase()}'S TOP SERVICE
-              CONTRACTORS?
+              WHY FULL-SERVICE HAULING WORKS BETTER
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-              <AnimatedSection delay={100}>
-                <div className="text-center">
-                  <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-heading font-bold text-brand-dark mb-2">ON TIME</h3>
-                  <p className="text-gray-600">We show up when we say we will, every time.</p>
+              <div className="text-center">
+                <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold">1</span>
                 </div>
-              </AnimatedSection>
-              <AnimatedSection delay={200}>
-                <div className="text-center">
-                  <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-heading font-bold text-brand-dark mb-2">
-                    CLEAN & ACCURATE
-                  </h3>
-                  <p className="text-gray-600">Precise work that protects your property.</p>
+                <h3 className="text-xl font-heading font-bold text-brand-dark mb-2">WE LIFT</h3>
+                <p className="text-gray-600">Furniture, appliances, boxes, and bulky items are removed by the crew.</p>
+              </div>
+              <div className="text-center">
+                <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold">2</span>
                 </div>
-              </AnimatedSection>
-              <AnimatedSection delay={300}>
-                <div className="text-center">
-                  <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-heading font-bold text-brand-dark mb-2">TRUSTED</h3>
-                  <p className="text-gray-600">Licensed, insured, and professionally certified.</p>
+                <h3 className="text-xl font-heading font-bold text-brand-dark mb-2">WE LOAD</h3>
+                <p className="text-gray-600">You do not have to load a dumpster, trailer, or truck yourself.</p>
+              </div>
+              <div className="text-center">
+                <div className="bg-primary text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <span className="text-2xl font-bold">3</span>
                 </div>
-              </AnimatedSection>
+                <h3 className="text-xl font-heading font-bold text-brand-dark mb-2">WE HAUL</h3>
+                <p className="text-gray-600">Items are sorted for donation, recycling, or appropriate disposal when practical.</p>
+              </div>
             </div>
-            <AnimatedSection delay={400}>
-              <p className="text-xl text-accent font-semibold mb-6">
-                "{config.business.tagline.toUpperCase()}"
-              </p>
-              <Button href="/contact" variant="primary" size="lg">
-                Get Your Free Estimate
-              </Button>
-            </AnimatedSection>
+            <p className="text-lg text-gray-700 mb-6">
+              Reference pricing: $50 single item, $95 truck load, $320 half trailer, $490 full
+              trailer, and $849 multi-trailer projects.
+            </p>
+            <Button href="https://calendar.app.google/S8TaQaP9DRGngVtV7" variant="primary" size="lg">
+              Get Your Free Quote
+            </Button>
           </div>
         </AnimatedSection>
       </Section>

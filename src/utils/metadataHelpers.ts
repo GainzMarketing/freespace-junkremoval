@@ -7,6 +7,17 @@ import { getBusinessConfig, getActiveServices, getActiveServiceAreas } from './b
 
 const config = getBusinessConfig()
 
+// TODO_OG_IMAGE_PATH: supply a confirmed 1200x630 PNG/JPG social share image.
+// Existing brand assets include SVG logos and service photos, but no verified share image.
+const TODO_OG_IMAGE_PATH: string | null = null
+
+// TODO_OPENING_HOURS: confirm real hours before adding openingHours to LocalBusiness JSON-LD.
+const TODO_OPENING_HOURS: string | null = null
+
+// TODO_RATING_CONFIRMATION: task states 27 Google reviews at 5.0 average; confirm before future edits.
+const GOOGLE_RATING_VALUE = '5.0'
+const GOOGLE_REVIEW_COUNT = '27'
+
 interface FAQStructuredDataItem {
   question: string
   answer: string
@@ -50,8 +61,24 @@ function getCanonicalUrl(path = ''): string {
   return `${normalizedBaseUrl}/${path.replace(/^\//, '')}`
 }
 
+function getShareImageMetadata() {
+  if (!TODO_OG_IMAGE_PATH) return undefined
+
+  return [
+    {
+      url: `${config.website.url}${TODO_OG_IMAGE_PATH}`,
+      width: 1200,
+      height: 630,
+      alt: `${config.business.name} full-service junk removal`,
+    },
+  ]
+}
+
 function createPageMetadata(path: string, metadata: Metadata): Metadata {
   const canonicalUrl = getCanonicalUrl(path)
+  const pageTitle = typeof metadata.title === 'string' ? metadata.title : config.seo.title
+  const pageDescription = typeof metadata.description === 'string' ? metadata.description : config.seo.description
+  const shareImages = getShareImageMetadata()
 
   return {
     ...metadata,
@@ -61,7 +88,19 @@ function createPageMetadata(path: string, metadata: Metadata): Metadata {
     },
     openGraph: {
       ...metadata.openGraph,
+      title: pageTitle,
+      description: pageDescription,
       url: canonicalUrl,
+      siteName: config.business.name,
+      type: 'website',
+      ...(shareImages ? { images: shareImages } : {}),
+    },
+    twitter: {
+      ...metadata.twitter,
+      card: 'summary_large_image',
+      title: pageTitle,
+      description: pageDescription,
+      ...(shareImages ? { images: shareImages.map((image) => image.url) } : {}),
     },
   }
 }
@@ -81,13 +120,58 @@ function getPageId(path: string): string {
 function getOfficialSameAsUrls(): string[] {
   const urls = new Set<string>()
 
+  if (config.socialMedia.facebook?.startsWith('http')) {
+    urls.add(config.socialMedia.facebook)
+  }
+
   for (const socialLink of config.navigation.footer.social ?? []) {
     if (typeof socialLink.href !== 'string') continue
     if (!socialLink.href.startsWith('http')) continue
     urls.add(socialLink.href)
   }
 
+  // TODO_SOCIAL_URLS: add other confirmed official social profiles when available.
   return [...urls]
+}
+
+function getAreaServedStructuredData() {
+  const countyAreas = config.business.countiesServed.map((county) => ({
+    '@type': 'AdministrativeArea',
+    name: county,
+    containedInPlace: {
+      '@type': 'State',
+      name: 'Utah',
+    },
+  }))
+
+  const cityAreas = getActiveServiceAreas().map((area) => ({
+    '@type': 'City',
+    name: area.name,
+    containedInPlace: {
+      '@type': 'AdministrativeArea',
+      name: area.county || area.state,
+      ...(area.county
+        ? {
+            containedInPlace: {
+              '@type': 'State',
+              name: area.state,
+            },
+          }
+        : {}),
+    },
+  }))
+
+  return [...countyAreas, ...cityAreas]
+}
+
+function getAggregateRatingStructuredData() {
+  return {
+    '@type': 'AggregateRating',
+    ratingValue: GOOGLE_RATING_VALUE,
+    reviewCount: GOOGLE_REVIEW_COUNT,
+    bestRating: '5',
+    worstRating: '1',
+  }
 }
 
 /**
@@ -104,20 +188,15 @@ export function getBaseMetadata(): Metadata {
       url: config.website.url,
       siteName: config.business.name,
       type: 'website',
-      images: [
-        {
-          url: `${config.website.url}${config.branding.logo.main}`,
-          width: 1200,
-          height: 630,
-          alt: `${config.business.name} Logo`,
-        },
-      ],
+      ...(getShareImageMetadata() ? { images: getShareImageMetadata() } : {}),
     },
     twitter: {
       card: 'summary_large_image',
       title: config.seo.title,
       description: config.seo.description,
-      images: [`${config.website.url}${config.branding.logo.main}`],
+      ...(getShareImageMetadata()
+        ? { images: getShareImageMetadata()!.map((image) => image.url) }
+        : {}),
     },
     robots: {
       index: true,
@@ -132,9 +211,9 @@ export function getBaseMetadata(): Metadata {
 export function getHomeMetadata(): Metadata {
   return createPageMetadata('/', {
     ...getBaseMetadata(),
-    title: `Junk Removal Near Me | #1 ${config.contact.address.serviceArea} Junk Removal Service`,
-    description: `Looking for junk removal near me? Free Space Junk Removal is Northern Utah's #1 rated junk removal service. Same-day pickup, transparent pricing, eco-friendly disposal. Serving Ogden, Logan, Brigham City with professional junk hauling services. Call now for immediate junk removal near you!`,
-    keywords: 'junk removal near me, junk hauling near me, same day junk removal, furniture removal near me, appliance removal near me, junk removal services near me, northern utah junk removal, ogden junk removal, logan junk removal, local junk removal, residential junk removal, commercial junk removal'
+    title: 'Junk Removal in Northern Utah | Free Space Junk Removal & Cleaning',
+    description: 'Full-service junk removal across Northern Utah. We lift, load, haul, and dispose responsibly for homes, rentals, farms, and businesses. Free quotes.',
+    keywords: 'junk removal northern utah, full-service junk removal, junk hauling near me, furniture removal, appliance removal, ogden junk removal, logan junk removal, brigham city junk removal, local junk removal, residential junk removal, commercial junk removal'
   })
 }
 
@@ -144,9 +223,9 @@ export function getHomeMetadata(): Metadata {
 export function getAboutMetadata(): Metadata {
   return createPageMetadata('/about', {
     ...getBaseMetadata(),
-    title: `About ${config.business.name} | Expert ${config.business.tagline}`,
-    description: `Learn about ${config.business.name} - ${config.business.experience} years of experience in professional services. ${config.business.missionStatement} Licensed, insured, and trusted by homeowners.`,
-    keywords: `about ${config.business.name.toLowerCase()}, ${config.business.tagline.toLowerCase()}, experienced contractors, licensed contractors`,
+    title: `About ${config.business.name} | Northern Utah Junk Removal`,
+    description: `Learn about ${config.business.name}, a Hyrum-based full-service junk removal crew serving Northern Utah with upfront pricing and responsible disposal.`,
+    keywords: `about ${config.business.name.toLowerCase()}, full-service junk removal, northern utah junk removal`,
   })
 }
 
@@ -156,8 +235,8 @@ export function getAboutMetadata(): Metadata {
 export function getContactMetadata(): Metadata {
   return createPageMetadata('/contact', {
     ...getBaseMetadata(),
-    title: `Contact ${config.business.name} | Free Estimates & Consultation`,
-    description: `Contact ${config.business.name} for a free estimate. Call ${config.contact.phone.display} or email ${config.contact.email.main}. Serving ${config.contact.address.serviceArea}. Licensed, insured, and ready to help.`,
+    title: `Contact ${config.business.name} | Free Junk Removal Quotes`,
+    description: `Contact ${config.business.name} for a free junk removal quote. Call ${config.contact.phone.display} or email ${config.contact.email.main}. Serving Northern Utah.`,
     keywords: `contact ${config.business.name.toLowerCase()}, free estimate, ${config.contact.address.serviceArea.toLowerCase()}, ${config.contact.phone.display}`,
   })
 }
@@ -171,9 +250,9 @@ export function getServicesMetadata(): Metadata {
 
   return createPageMetadata('/services', {
     ...getBaseMetadata(),
-    title: `Professional Services ${config.contact.address.serviceArea} | Expert Contractors`,
-    description: `Expert services throughout ${config.contact.address.serviceArea}. Professional ${serviceNames} and more. Licensed contractors serving ${config.contact.address.serviceArea} and surrounding areas.`,
-    keywords: `services ${config.contact.address.serviceArea.toLowerCase()}, ${serviceNames}, professional contractor, ${config.contact.address.serviceArea.toLowerCase()}`,
+    title: `Junk Removal Services in Northern Utah | Free Space`,
+    description: `Full-service junk removal services throughout Northern Utah, including ${serviceNames}. Our crew lifts, loads, hauls, and sorts items responsibly.`,
+    keywords: `junk removal services ${config.contact.address.serviceArea.toLowerCase()}, ${serviceNames}, full-service junk removal`,
   })
 }
 
@@ -186,9 +265,9 @@ export function getServiceAreasMetadata(): Metadata {
 
   return createPageMetadata('/service-areas', {
     ...getBaseMetadata(),
-    title: `Service Areas | ${config.business.name} Coverage Throughout ${config.contact.address.serviceArea}`,
-    description: `${config.business.name} serves ${areaNames} and surrounding communities. Professional services throughout ${config.contact.address.serviceArea} with local expertise and reliable service.`,
-    keywords: `service areas, ${areaNames.toLowerCase()}, ${config.contact.address.serviceArea.toLowerCase()}, local contractors`,
+    title: `Service Areas | Full-Service Junk Removal in Northern Utah`,
+    description: `${config.business.name} serves ${areaNames} and nearby communities with full-service junk removal, upfront pricing, and responsible disposal.`,
+    keywords: `junk removal service areas, ${areaNames.toLowerCase()}, ${config.contact.address.serviceArea.toLowerCase()}`,
   })
 }
 
@@ -198,8 +277,8 @@ export function getServiceAreasMetadata(): Metadata {
 export function getBlogMetadata(): Metadata {
   return createPageMetadata('/blog', {
     ...getBaseMetadata(),
-    title: `${config.business.name} Blog | Tips, News & Insights`,
-    description: `Expert tips, industry news, and insights from ${config.business.name}. Stay informed about best practices, trends, and updates in ${config.contact.address.serviceArea}.`,
+    title: `${config.business.name} Blog | Junk Removal Tips`,
+    description: `Junk removal, cleanout, pricing, and responsible disposal tips from ${config.business.name} for Northern Utah homes and businesses.`,
     keywords: `${config.business.name.toLowerCase()} blog, tips, industry news, ${config.contact.address.serviceArea.toLowerCase()}`,
   })
 }
@@ -210,8 +289,8 @@ export function getBlogMetadata(): Metadata {
 export function getGalleryMetadata(): Metadata {
   return createPageMetadata('/gallery', {
     ...getBaseMetadata(),
-    title: `${config.business.name} Gallery | Professional Work Examples`,
-    description: `View examples of ${config.business.name}'s professional work throughout ${config.contact.address.serviceArea}. See the quality and craftsmanship that makes us the trusted choice.`,
+    title: `${config.business.name} Gallery | Junk Removal Projects`,
+    description: `View junk removal and cleanout project examples from ${config.business.name} across Northern Utah.`,
     keywords: `${config.business.name.toLowerCase()} gallery, work examples, before and after, ${config.contact.address.serviceArea.toLowerCase()}`,
   })
 }
@@ -234,7 +313,7 @@ export function getServiceMetadata(serviceSlug: string): Metadata {
     ...getBaseMetadata(),
     title,
     description,
-    keywords: `${service.name.toLowerCase()}, ${service.name.toLowerCase()} ${config.contact.address.serviceArea.toLowerCase()}, ${service.category}, professional contractors`,
+    keywords: `${service.name.toLowerCase()}, ${service.name.toLowerCase()} ${config.contact.address.serviceArea.toLowerCase()}, ${service.category}, full-service junk removal`,
   })
 }
 
@@ -252,13 +331,13 @@ export function getServiceAreaMetadata(areaSlug: string): Metadata {
   const title = area.seo?.title || `${area.name} ${area.state} Services | ${config.business.name}`
   const description =
     area.seo?.description ||
-    `${config.business.name} serves ${area.name}, ${area.state}. ${area.description} Contact us for professional services in ${area.name}.`
+    `${config.business.name} serves ${area.name}, ${area.state}. ${area.description} Contact us for junk removal in ${area.name}.`
 
   return createPageMetadata(`/service-areas/${area.slug}`, {
     ...getBaseMetadata(),
     title,
     description,
-    keywords: `${area.name.toLowerCase()}, ${area.state.toLowerCase()}, ${config.business.name.toLowerCase()}, local contractors ${area.name.toLowerCase()}`,
+    keywords: `${area.name.toLowerCase()}, ${area.state.toLowerCase()}, ${config.business.name.toLowerCase()}, local junk removal ${area.name.toLowerCase()}`,
   })
 }
 
@@ -266,115 +345,91 @@ export function getServiceAreaMetadata(areaSlug: string): Metadata {
  * Generate structured data for the organization
  */
 export function getOrganizationStructuredData() {
-  const serviceAreas = getActiveServiceAreas()
+  const openingHours = TODO_OPENING_HOURS ? { openingHours: TODO_OPENING_HOURS } : {}
+
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     '@id': getLocalBusinessId(),
     name: config.business.name,
-    alternateName: 'Free Space Junk Removal',
-    description: 'Professional junk removal and hauling services throughout Northern Utah. Same-day pickup, transparent pricing, eco-friendly disposal.',
+    alternateName: 'Free Space Junk Removal & Cleaning',
+    description:
+      'Full-service junk removal and cleaning in Northern Utah. The crew lifts, carries, loads, hauls, and sorts unwanted items for responsible disposal.',
     url: getCanonicalUrl(),
     telephone: config.contact.phone.display,
     email: config.contact.email.main,
     sameAs: getOfficialSameAsUrls(),
     address: {
       '@type': 'PostalAddress',
+      streetAddress: config.contact.address.street,
       addressLocality: config.contact.address.city,
       addressRegion: config.contact.address.state,
       postalCode: config.contact.address.zip,
-      streetAddress: config.contact.address.street,
-      addressCountry: 'US'
+      addressCountry: 'US',
     },
-    areaServed: [
-      {
-        '@type': 'State',
-        name: 'Utah'
-      },
-      {
-        '@type': 'City',
-        name: 'Ogden',
-        containedInPlace: {
-          '@type': 'State',
-          name: 'Utah'
-        }
-      },
-      {
-        '@type': 'City', 
-        name: 'Logan',
-        containedInPlace: {
-          '@type': 'State',
-          name: 'Utah'
-        }
-      },
-      {
-        '@type': 'City',
-        name: 'Brigham City', 
-        containedInPlace: {
-          '@type': 'State',
-          name: 'Utah'
-        }
-      }
-    ],
+    areaServed: getAreaServedStructuredData(),
     geo: {
       '@type': 'GeoCoordinates',
       latitude: '41.7323',
-      longitude: '-111.8766'
+      longitude: '-111.8766',
     },
     logo: `${getCanonicalUrl()}${config.branding.logo.main}`,
-    image: `${getCanonicalUrl()}${config.branding.logo.main}`,
     foundingDate: config.business.yearEstablished.toString(),
-    slogan: 'Northern Utah\'s Premier Junk Removal Experts',
-    priceRange: '$$',
+    slogan: config.business.tagline,
+    priceRange: '$50-$849+',
     paymentAccepted: ['Cash', 'Credit Card', 'Check'],
-    openingHours: 'Mo-Su 07:00-19:00',
-    serviceArea: {
-      '@type': 'GeoCircle',
-      geoMidpoint: {
-        '@type': 'GeoCoordinates',
-        latitude: '41.7323',
-        longitude: '-111.8766'
-      },
-      geoRadius: '50000'
-    },
+    aggregateRating: getAggregateRatingStructuredData(),
+    ...openingHours,
     hasOfferCatalog: {
       '@type': 'OfferCatalog',
       name: 'Junk Removal Services',
-      itemListElement: [
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Residential Junk Removal',
-            description: 'Professional junk removal services for homes throughout Northern Utah'
-          }
+      itemListElement: getActiveServices().map((service) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: service.name,
+          description: service.shortDescription,
+          url: getCanonicalUrl(`/services/${service.slug}`),
         },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service', 
-            name: 'Commercial Junk Removal',
-            description: 'Business junk hauling and cleanout services for Northern Utah companies'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Appliance Removal',
-            description: 'EPA-compliant appliance disposal and recycling throughout Northern Utah'
-          }
-        },
-        {
-          '@type': 'Offer',
-          itemOffered: {
-            '@type': 'Service',
-            name: 'Furniture Removal',
-            description: 'Professional furniture hauling and disposal services in Northern Utah'
-          }
-        }
-      ]
-    }
+      })),
+    },
+  }
+}
+
+export function createServiceAreaLocalBusinessStructuredData(input: ServiceAreaStructuredDataInput) {
+  const openingHours = TODO_OPENING_HOURS ? { openingHours: TODO_OPENING_HOURS } : {}
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    '@id': `${getCanonicalUrl(`/service-areas/${input.slug}`)}#localbusiness`,
+    name: config.business.name,
+    description: input.description,
+    url: getCanonicalUrl(`/service-areas/${input.slug}`),
+    telephone: config.contact.phone.display,
+    email: config.contact.email.main,
+    sameAs: getOfficialSameAsUrls(),
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: config.contact.address.street,
+      addressLocality: config.contact.address.city,
+      addressRegion: config.contact.address.state,
+      postalCode: config.contact.address.zip,
+      addressCountry: 'US',
+    },
+    areaServed: {
+      '@type': input.placeType ?? 'City',
+      name: input.name,
+      containedInPlace: {
+        '@type': 'AdministrativeArea',
+        name: input.county || input.state,
+      },
+    },
+    logo: `${getCanonicalUrl()}${config.branding.logo.main}`,
+    foundingDate: config.business.yearEstablished.toString(),
+    priceRange: '$50-$849+',
+    aggregateRating: getAggregateRatingStructuredData(),
+    ...openingHours,
   }
 }
 
