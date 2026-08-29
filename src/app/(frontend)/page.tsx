@@ -36,11 +36,11 @@ export default function HomePage() {
       )}
       {/* Hero Section */}
       <Hero
-        title="JUNK REMOVAL NEAR ME - #1 NORTHERN UTAH SERVICE"
-        subtitle={`Professional Junk Hauling Throughout ${config.contact.address.serviceArea}`}
-        description={`Looking for reliable junk removal near me? Free Space Junk Removal is Northern Utah's most trusted junk removal service with same-day pickup, transparent pricing, and eco-friendly disposal. Our professional junk hauling team serves homeowners and businesses throughout Ogden, Logan, Brigham City, and surrounding areas. From single item pickup to full property cleanouts, we're the local junk removal experts you can count on for fast, fair, and environmentally responsible service.`}
+        title="FULL-SERVICE JUNK REMOVAL IN NORTHERN UTAH"
+        subtitle={`We lift, load, haul, and dispose responsibly throughout ${config.contact.address.serviceArea}`}
+        description={`Need junk removal without loading a dumpster yourself? Free Space Junk Removal & Cleaning provides full-service hauling for homes, rentals, farms, and businesses across Ogden, Logan, Brigham City, Hyrum, and nearby Northern Utah communities. Our crew does the lifting, carrying, loading, and responsible disposal with clear pricing and easy scheduling.`}
         buttonText="Get Same-Day Junk Removal"
-        buttonLink="/contact"
+        buttonLink="https://calendar.app.google/S8TaQaP9DRGngVtV7"
         isMainPage={true}
         backgroundImage={config.business.mainHeroImage || '/images/default.webp'}
       />
@@ -53,7 +53,7 @@ export default function HomePage() {
               PROFESSIONAL JUNK REMOVAL SERVICES NEAR YOU
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4">
-              When you're searching for "junk removal near me," Free Space Junk Removal is your trusted local solution. Our comprehensive junk hauling services cover everything from furniture removal and appliance disposal to full property cleanouts throughout Northern Utah. As licensed and insured junk removal specialists serving Ogden, Logan, Brigham City, and surrounding communities, we've built our reputation on transparent pricing, same-day availability, and environmentally responsible disposal practices. Whether you need residential junk removal, commercial cleanouts, or construction debris hauling, our experienced team delivers professional service that Northern Utah homeowners and businesses have trusted for years.
+              When you need junk removal near you, Free Space Junk Removal & Cleaning provides a full-service alternative to loading a dumpster yourself. Our crew removes furniture, appliances, mattresses, garage clutter, estate items, construction debris, and property junk from homes and businesses across Northern Utah. We serve Ogden, Logan, Brigham City, Hyrum, and nearby communities with transparent pricing, online scheduling, and responsible disposal practices.
             </p>
           </div>
         </AnimatedSection>
@@ -99,9 +99,7 @@ export default function HomePage() {
               OUR SERVICE PROCESS
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4">
-              As professional {config.business.mainRole}s, we follow a systematic approach to every
-              project. From initial assessment through final completion, our team ensures
-              high-quality and efficient work.
+              Our full-service process keeps junk removal simple: we review the load, quote clearly, lift and load the items, then sort for donation, recycling, or proper disposal when practical.
             </p>
           </div>
         </AnimatedSection>
@@ -175,7 +173,7 @@ export default function HomePage() {
               WHY NORTHERN UTAH CHOOSES US FOR JUNK REMOVAL
             </h2>
             <p className="text-lg text-gray-600 mb-6">
-              When searching for "junk removal near me," Northern Utah residents consistently choose Free Space Junk Removal because we're not just another hauling company - we're your local neighbors committed to providing exceptional service with complete transparency and environmental responsibility.
+              When searching for "junk removal near me," Northern Utah residents consistently choose Free Space Junk Removal & Cleaning because we're not just another hauling company - we're your local neighbors committed to providing exceptional service with complete transparency and environmental responsibility.
             </p>
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
@@ -198,7 +196,7 @@ export default function HomePage() {
                   <h3 className="text-xl font-heading font-bold text-brand-dark mb-2">
                     LICENSED & INSURED JUNK REMOVAL EXPERTS
                   </h3>
-                  <p className="text-gray-600">Our fully licensed and insured junk removal professionals carry comprehensive liability coverage, ensuring your property is protected during every junk hauling project. We maintain all required Utah state licenses and certifications for safe, legal junk removal services.</p>
+                  <p className="text-gray-600">Our crew works carefully in homes, garages, yards, rentals, and business spaces, using safe lifting and loading practices to protect your property during each junk hauling project.</p>
                 </div>
               </div>
 
@@ -310,7 +308,7 @@ export default function HomePage() {
             <div>
               <Image
                 src="/images/why-we-are-the-best.jpeg"
-                alt="Why We Are The Best - Free Space Junk Removal Team"
+                alt="Why We Are The Best - Free Space Junk Removal & Cleaning Team"
                 width={600}
                 height={400}
                 className="rounded-lg shadow-lg"
@@ -384,7 +382,7 @@ export default function HomePage() {
                   As Northern Utah's premier junk removal service, we understand what it means to provide reliable, professional junk hauling in our local communities. Our team has deep roots in Weber County, Cache County, and Box Elder County, giving us unique insight into local disposal regulations, recycling opportunities, and community needs.
                 </p>
                 <p className="text-gray-600 mb-4">
-                  When you search for "junk removal near me," you're not just looking for any hauling company - you're looking for local junk removal experts who understand your community, respect your property, and deliver exceptional service every time. That's exactly what Free Space Junk Removal provides throughout Northern Utah.
+                  When you search for "junk removal near me," you're not just looking for any hauling company - you're looking for local junk removal experts who understand your community, respect your property, and deliver exceptional service every time. That's exactly what Free Space Junk Removal & Cleaning provides throughout Northern Utah.
                 </p>
               </div>
               <div>

@@ -7,23 +7,23 @@ export const businessConfig: BusinessConfig = {
   clientId: '6',
   business: {
     name: 'Free Space Junk Removal & Cleaning',
-    tagline: "Northern Utah's Premier Junk Removal Experts",
+    tagline: 'Full-service junk removal for Northern Utah',
     description:
-      'Professional junk removal and cleaning services for homes and businesses across Northern Utah. Transparent pricing, eco-friendly disposal, and same-day service available.',
+      'Full-service junk removal and cleaning for homes, rentals, farms, and businesses across Northern Utah. Our crew lifts, carries, loads, and hauls items away so customers do not have to load a dumpster.',
     yearEstablished: 2025,
-    experience: 'New',
+    experience: 'Founded 2025',
     missionStatement:
       'Clear space, not wallets. We make junk removal radically easy, fairly priced, and environmentally responsible—today.',
     ownerNames: ['Free Space Team'],
-    countiesServed: ['Ogden County', 'Weber County', 'Cache County', 'Box Elder County'],
+    countiesServed: ['Cache County', 'Box Elder County', 'Weber County'],
     generalServiceArea: 'Northern Utah',
-    mainRole: 'Junk Removal Specialist',
+    mainRole: 'full-service junk removal crew',
     mainService: 'junk removal',
     mainHeroImage: '/images/north-utah-ogden-mountain.jpeg',
   },
   socialMedia: {
     instagram: '',
-    facebook: '',
+    facebook: 'https://www.facebook.com/p/Free-Space-Junk-Removal-Cleaning-61580896573000/',
     twitter: '',
     linkedIn: '',
     yelp: 'freespace-junk-removal',
@@ -51,7 +51,7 @@ export const businessConfig: BusinessConfig = {
   },
 
   website: {
-    url: 'https://freespace-junkremoval.com',
+    url: 'https://www.freespace-junkremoval.com',
     domain: 'freespace-junkremoval.com',
   },
 
@@ -95,6 +95,10 @@ export const businessConfig: BusinessConfig = {
           { label: 'Brigham City', href: '/service-areas/brigham-city-utah', type: 'link' },
           { label: 'Hyrum', href: '/service-areas/hyrum-utah', type: 'link' },
           { label: 'North Ogden', href: '/service-areas/north-ogden-utah', type: 'link' },
+          { label: 'Willard', href: '/service-areas/willard-utah', type: 'link' },
+          { label: 'Plain City', href: '/service-areas/plain-city-utah', type: 'link' },
+          { label: 'West Haven', href: '/service-areas/west-haven-utah', type: 'link' },
+          { label: 'Liberty', href: '/service-areas/liberty-utah', type: 'link' },
         ],
       },
       { label: 'About', href: '/about', type: 'link', showInMobile: true },
@@ -124,7 +128,7 @@ export const businessConfig: BusinessConfig = {
       social: [
         {
           platform: 'Facebook',
-          href: 'https://www.facebook.com/freespace-junk-removal',
+          href: 'https://www.facebook.com/p/Free-Space-Junk-Removal-Cleaning-61580896573000/',
           icon: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z',
         },
       ],
@@ -144,11 +148,11 @@ export const businessConfig: BusinessConfig = {
   contact: {
     phone: {
       display: '(385) 326-8426',
-      link: 'tel:3853268426',
+      link: 'tel:+13853268426',
     },
     email: {
-      main: 'contact@freedomremoval.com',
-      info: 'info@freedomremoval.com',
+      main: 'contact@freespace-junkremoval.com',
+      info: 'contact@freespace-junkremoval.com',
     },
     address: {
       street: '375 E 300 S',
@@ -165,9 +169,9 @@ export const businessConfig: BusinessConfig = {
       name: 'Single Item Pickup Junk Removal',
       slug: 'single-item-pickup',
       shortDescription:
-        'Fast and affordable single item pickup junk removal throughout Davis County and Northern Utah. Professional furniture removal, appliance disposal, and bulky item hauling with transparent pricing and same-day service.',
+        'Fast and affordable single item pickup junk removal throughout Northern Utah. Professional furniture removal, appliance disposal, and bulky item hauling with transparent pricing and same-day service.',
       longDescription:
-        "Our single item pickup junk removal service eliminates the hassle of bulky item disposal for Davis County homeowners and businesses. Whether you need furniture removal, appliance pickup, or exercise equipment hauling, we provide transparent upfront pricing and same-day single item pickup service across Northern Utah. Every single item removal includes professional handling, eco-friendly disposal, and satisfaction guarantee.",
+        "Our single item pickup junk removal service eliminates the hassle of bulky item disposal for Northern Utah homeowners and businesses. Whether you need furniture removal, appliance pickup, or exercise equipment hauling, we provide transparent upfront pricing and same-day single item pickup service across Northern Utah. Every single item removal includes professional handling, eco-friendly disposal, and satisfaction guarantee.",
       features: [
         'Transparent single item pickup pricing online',
         'Same-day single item removal available',
@@ -181,44 +185,44 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Single Item Pickup',
       isActive: true,
       seo: {
-        title: 'Single Item Pickup Junk Removal Davis County Utah | Free Space Junk Removal',
+        title: 'Single Item Pickup in Northern Utah | Free Space',
         description:
-          'Professional single item pickup junk removal in Davis County, Ogden, Logan, Brigham City. Transparent pricing, same-day single item removal, eco-friendly disposal. Get your free single item pickup quote today.',
+          'Full-service single item pickup in Northern Utah. We lift and haul couches, mattresses, appliances, and bulky items with clear pricing and free quotes.',
       },
       content: {
         hero: {
           title: 'SINGLE ITEM PICKUP JUNK REMOVAL - DAVIS COUNTY',
           subtitle: 'Fast, Affordable, and Transparent Single Item Removal',
           description:
-            'Need bulky item removal today? Our single item pickup junk removal service offers transparent online pricing, same-day availability, and environmentally responsible disposal throughout Davis County, Weber County, Cache County, and Box Elder County. Professional single item hauling with satisfaction guarantee.',
+            'Need bulky item removal today? Our single item pickup junk removal service offers transparent online pricing, same-day availability, and environmentally responsible disposal throughout Northern Utah, Weber County, Cache County, and Box Elder County. Professional single item hauling with satisfaction guarantee.',
           backgroundImage: '/images/single-item-pickup.jpg',
         },
         sections: {
           mainContent: {
-            title: 'Single Item Pickup Junk Removal - Davis County',
+            title: 'Single Item Pickup Junk Removal - Northern Utah',
             content: [
-              'Free Space Junk Removal & Cleaning specializes in professional single item pickup junk removal across Davis County and Northern Utah. Our single item removal service eliminates the frustration of bulky item disposal with transparent pricing, same-day availability, and eco-friendly handling that Davis County residents trust.',
+              'Free Space Junk Removal & Cleaning specializes in professional single item pickup junk removal across Northern Utah. Our single item removal service eliminates the frustration of bulky item disposal with transparent pricing, same-day availability, and eco-friendly handling that Northern Utah residents trust.',
               'Unlike traditional junk removal companies that require on-site estimates for single item pickup, we provide transparent single item removal pricing online before we arrive at your location. Our single item pickup service covers everything from furniture removal and appliance disposal to exercise equipment hauling and electronics recycling.',
-              'Each single item pickup includes comprehensive photo documentation, proper disposal or recycling coordination, and detailed impact reporting. We serve Davis County homeowners, property managers, and businesses throughout Ogden, Logan, Brigham City, Hyrum, and surrounding Northern Utah communities with reliable same-day and next-day single item removal options.',
-              'Our single item pickup junk removal service prioritizes environmental responsibility, ensuring every removed item is properly recycled, donated, or disposed of according to Utah environmental standards. Davis County residents receive detailed documentation showing exactly how their single item pickup contributed to local recycling and donation efforts.',
-              'Professional single item removal requires specialized equipment, proper handling techniques, and environmental knowledge that our licensed team provides with every pickup. From basement furniture removal to attic appliance extraction, we handle single item pickup challenges that Davis County properties present with expertise and care.',
-              'The single item pickup process includes arrival time coordination, safe removal from any floor or location, cleanup of the removal area, and responsible disposal with photo verification. Our single item removal service maintains the highest standards for Davis County customers, ensuring complete satisfaction with every pickup.',
+              'Each single item pickup includes comprehensive photo documentation, proper disposal or recycling coordination, and detailed impact reporting. We serve Northern Utah homeowners, property managers, and businesses throughout Ogden, Logan, Brigham City, Hyrum, and surrounding Northern Utah communities with reliable same-day and next-day single item removal options.',
+              'Our single item pickup junk removal service prioritizes environmental responsibility, ensuring every removed item is properly recycled, donated, or disposed of according to Utah environmental standards. Northern Utah residents receive detailed documentation showing exactly how their single item pickup contributed to local recycling and donation efforts.',
+              'Professional single item removal requires specialized equipment, proper handling techniques, and environmental knowledge that our licensed team provides with every pickup. From basement furniture removal to attic appliance extraction, we handle single item pickup challenges that Northern Utah properties present with expertise and care.',
+              'The single item pickup process includes arrival time coordination, safe removal from any floor or location, cleanup of the removal area, and responsible disposal with photo verification. Our single item removal service maintains the highest standards for Northern Utah customers, ensuring complete satisfaction with every pickup.',
             ],
             benefits: [
               {
                 title: 'Transparent Single Item Pickup Pricing',
                 description:
-                  "Know exactly what you'll pay for single item removal before we arrive. No surprise fees or inflated on-site quotes for your Davis County pickup.",
+                  "Know exactly what you'll pay for single item removal before we arrive. No surprise fees or inflated on-site quotes for your Northern Utah pickup.",
               },
               {
                 title: 'Same-Day Single Item Removal',
                 description:
-                  'Need single item pickup today? We offer same-day removal for bulky items throughout Davis County and Northern Utah.',
+                  'Need single item pickup today? We offer same-day removal for bulky items throughout Northern Utah.',
               },
               {
                 title: 'Eco-Friendly Single Item Disposal',
                 description:
-                  'We prioritize recycling and donation for every single item pickup, keeping usable items out of Davis County landfills whenever possible.',
+                  'We prioritize recycling and donation for every single item pickup, keeping usable items out of Northern Utah landfills whenever possible.',
               },
               {
                 title: 'Professional Single Item Documentation',
@@ -231,14 +235,14 @@ export const businessConfig: BusinessConfig = {
                   "Our single item pickup work is guaranteed. If you're not satisfied with your removal service, we'll make it right or refund your money.",
               },
               {
-                title: 'Davis County Impact Reporting',
+                title: 'Northern Utah Impact Reporting',
                 description:
-                  'See exactly how your single item pickup contributed to local Davis County recycling and donation efforts with detailed reporting.',
+                  'See exactly how your single item pickup contributed to local Northern Utah recycling and donation efforts with detailed reporting.',
               },
               {
-                title: 'Davis County Transparent Pricing',
+                title: 'Northern Utah Transparent Pricing',
                 description:
-                  'Our single item pickup pricing is straightforward and transparent for Davis County residents. Small items ($45-75), medium items ($85-125), large items ($135-185), oversized items (custom quote). Get exact pricing online with photos.',
+                  'Our single item pickup pricing is straightforward and transparent for Northern Utah residents. Small items ($45-75), medium items ($85-125), large items ($135-185), oversized items (custom quote). Get exact pricing online with photos.',
               },
             ],
           },
@@ -248,12 +252,12 @@ export const businessConfig: BusinessConfig = {
               {
                 title: 'Get Instant Single Item Quote Online',
                 description:
-                  'Upload photos of your item for single item pickup and receive transparent pricing immediately - no waiting for estimates or on-site quotes for your Davis County removal.',
+                  'Upload photos of your item for single item pickup and receive transparent pricing immediately - no waiting for estimates or on-site quotes for your Northern Utah removal.',
               },
               {
                 title: 'Schedule Single Item Pickup Time',
                 description:
-                  'Choose from same-day or next-day single item removal windows that work with your Davis County schedule and availability.',
+                  'Choose from same-day or next-day single item removal windows that work with your Northern Utah schedule and availability.',
               },
               {
                 title: 'Professional Single Item Removal',
@@ -263,7 +267,7 @@ export const businessConfig: BusinessConfig = {
               {
                 title: 'Responsible Single Item Disposal',
                 description:
-                  'Your item is recycled, donated, or properly disposed of with photo verification provided for your Davis County single item pickup.',
+                  'Your item is recycled, donated, or properly disposed of with photo verification provided for your Northern Utah single item pickup.',
               },
             ],
           },
@@ -315,47 +319,47 @@ export const businessConfig: BusinessConfig = {
           },
           faq: {
             title: 'SINGLE ITEM PICKUP JUNK REMOVAL FAQ',
-            subtitle: 'Common questions about our Davis County single item removal service',
+            subtitle: 'Common questions about our Northern Utah single item removal service',
             items: [
               {
-                question: 'How do I get pricing for my single item pickup in Davis County?',
+                question: 'How do I get pricing for my single item pickup in Northern Utah?',
                 answer:
-                  "Simply visit our website and upload photos of your item for single item removal. You'll receive transparent pricing immediately - no waiting for estimates or on-site quotes for your Davis County single item pickup.",
+                  "Simply visit our website and upload photos of your item for single item removal. You'll receive transparent pricing immediately - no waiting for estimates or on-site quotes for your Northern Utah single item pickup.",
               },
               {
-                question: 'Do you offer same-day single item pickup in Davis County?',
+                question: 'Do you offer same-day single item pickup in Northern Utah?',
                 answer:
-                  'Yes! We offer same-day single item removal throughout Davis County and Northern Utah when you schedule your pickup before noon, subject to availability.',
+                  'Yes! We offer same-day single item removal throughout Northern Utah when you schedule your pickup before noon, subject to availability.',
               },
               {
                 question: "What if my item doesn't fit in your single item pickup truck?",
                 answer:
-                  "We bring the right equipment for every single item removal job. If it's truly oversized for standard pickup, we'll recommend our trailer service and adjust pricing accordingly for your Davis County removal.",
+                  "We bring the right equipment for every single item removal job. If it's truly oversized for standard pickup, we'll recommend our trailer service and adjust pricing accordingly for your Northern Utah removal.",
               },
               {
-                question: 'Do you remove single items from upper floors in Davis County?',
+                question: 'Do you remove single items from upper floors in Northern Utah?',
                 answer:
-                  'Absolutely. Our team safely removes single items from any floor, including basements and attics throughout Davis County, with proper equipment and techniques for complex single item pickup situations.',
+                  'Absolutely. Our team safely removes single items from any floor, including basements and attics throughout Northern Utah, with proper equipment and techniques for complex single item pickup situations.',
               },
               {
                 question: 'What happens to my item after single item pickup?',
                 answer:
-                  "We prioritize donation and recycling for every single item removal. You'll receive photo documentation showing how your Davis County pickup item was responsibly processed and disposed of.",
+                  "We prioritize donation and recycling for every single item removal. You'll receive photo documentation showing how your Northern Utah pickup item was responsibly processed and disposed of.",
               },
               {
                 question: "Are there any items you won't handle for single item pickup?",
                 answer:
-                  'We handle most household single item removals. Hazardous materials, chemicals, and certain regulated electronics require special handling - contact us for specific questions about your Davis County single item pickup needs.',
+                  'We handle most household single item removals. Hazardous materials, chemicals, and certain regulated electronics require special handling - contact us for specific questions about your Northern Utah single item pickup needs.',
               },
               {
-                question: 'How much does single item pickup cost in Davis County?',
+                question: 'How much does single item pickup cost in Northern Utah?',
                 answer:
-                  'Single item pickup pricing ranges from $45-185 depending on size, weight, and access difficulty. Most Davis County single item removals cost $85-125. Get exact pricing online with photos of your item.',
+                  'Single item pickup pricing ranges from $45-185 depending on size, weight, and access difficulty. Most Northern Utah single item removals cost $85-125. Get exact pricing online with photos of your item.',
               },
               {
                 question: 'Do you provide single item pickup documentation?',
                 answer:
-                  'Yes! Every single item removal includes before/after photos, disposal verification, and environmental impact reporting showing how your Davis County pickup contributed to recycling and donation efforts.',
+                  'Yes! Every single item removal includes before/after photos, disposal verification, and environmental impact reporting showing how your Northern Utah pickup contributed to recycling and donation efforts.',
               },
             ],
           },
@@ -383,9 +387,9 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Large Load Removal',
       isActive: true,
       seo: {
-        title: 'Large Load Junk Removal Northern Utah | Free Space Junk Removal',
+        title: 'Large Load Junk Removal in Northern Utah | Free Space',
         description:
-          'Professional large load junk removal in Northern Utah. Transparent pricing, same-day service, eco-friendly disposal. Large load junk removal experts serving Ogden, Logan, Brigham City.',
+          'Full-service large load junk removal in Northern Utah. Trailer hauling for garage, room, estate, property, and business cleanouts with upfront pricing.',
       },
       content: {
         hero: {
@@ -582,9 +586,9 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Small Load Pickup',
       isActive: true,
       seo: {
-        title: 'Small Load Junk Removal Northern Utah | Free Space Junk Removal',
+        title: 'Small Load Junk Removal in Northern Utah | Free Space',
         description:
-          'Affordable small load junk removal in Northern Utah. Perfect for decluttering, closet cleanouts, small projects. Transparent pricing, same-day service available.',
+          'Full-service small load junk removal in Northern Utah for closets, rooms, storage corners, and light decluttering. We lift, load, and haul.',
       },
       content: {
         hero: {
@@ -781,9 +785,9 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Estate Cleanout',
       isActive: true,
       seo: {
-        title: 'Estate Cleanout Northern Utah | Free Space Junk Removal',
+        title: 'Estate & Room Cleanouts in Northern Utah | Free Space',
         description:
-          'Professional estate cleanout and room cleanout services in Northern Utah. Compassionate estate clearing, donation coordination, transparent pricing. Serving families throughout the region.',
+          'Careful estate and room cleanouts in Northern Utah. We lift, load, donate when practical, and haul unwanted items with transparent pricing.',
       },
       content: {
         hero: {
@@ -980,9 +984,9 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Land Cleanout',
       isActive: true,
       seo: {
-        title: 'Land Cleanout Northern Utah | Free Space Junk Removal',
+        title: 'Land Cleanout in Northern Utah | Free Space',
         description:
-          'Professional land cleanout services in Northern Utah. Large-scale property clearing, debris removal, environmental cleanup. Transparent pricing, professional equipment.',
+          'Full-service land cleanout in Northern Utah for yards, sheds, rural properties, and debris piles. Trailer hauling with clear pricing.',
       },
       content: {
         hero: {
@@ -1179,9 +1183,9 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Appliance Removal',
       isActive: true,
       seo: {
-        title: 'Appliance Removal Northern Utah | Free Space Junk Removal',
+        title: 'Appliance Removal in Northern Utah | Free Space',
         description:
-          'Professional appliance removal in Northern Utah. EPA-compliant refrigerator, washer, dryer removal. Same-day appliance disposal service in Ogden, Logan, Brigham City.',
+          'Full-service appliance removal in Northern Utah. We lift, carry, load, and haul refrigerators, washers, dryers, freezers, and more.',
       },
       content: {
         hero: {
@@ -1378,9 +1382,9 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Garage Cleanout',
       isActive: true,
       seo: {
-        title: 'Garage Cleanout Northern Utah | Free Space Junk Removal',
+        title: 'Garage Cleanout in Northern Utah | Free Space',
         description:
-          'Professional garage cleanout services in Northern Utah. Complete garage organization, junk removal, space transformation. Transparent pricing, same-day service available.',
+          'Full-service garage cleanout in Northern Utah. We clear boxes, furniture, appliances, storage clutter, and bulky items so you do not lift.',
       },
       content: {
         hero: {
@@ -1577,9 +1581,9 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Construction Cleanup',
       isActive: true,
       seo: {
-        title: 'Construction Cleanup Northern Utah | Free Space Junk Removal',
+        title: 'Construction Cleanup in Northern Utah | Free Space',
         description:
-          'Professional construction cleanup and debris removal in Northern Utah. Job site cleanup, renovation waste, demolition materials. Contractor services in Ogden, Logan, Brigham City.',
+          'Construction cleanup and debris removal in Northern Utah. We load and haul remodel debris, packaging, fixtures, and job-site clutter.',
       },
       content: {
         hero: {
@@ -1764,157 +1768,83 @@ export const businessConfig: BusinessConfig = {
       slug: 'ogden-utah',
       state: 'UT',
       county: 'Weber County',
-      description: 'Professional junk removal services throughout Ogden, Utah and Weber County.',
+      description:
+        'Full-service junk removal in Ogden and Weber County. Our crew lifts, carries, loads, and hauls unwanted items so customers do not have to load a dumpster.',
       specialties: [
-        'Same-day residential junk removal',
-        'Commercial property cleanouts',
-        'Construction debris removal',
-        'Eco-friendly disposal and recycling',
+        'Historic-home and apartment cleanouts near central Ogden',
+        'Furniture and appliance pickup from upper floors and basements',
+        'Renovation and construction debris hauling',
+        'Retail, office, and property-manager cleanouts',
       ],
       isActive: true,
       seo: {
-        title: 'Junk Removal Ogden UT | Free Space Junk Removal & Cleaning',
+        title: 'Junk Removal Ogden, UT | Full-Service Hauling | Free Space',
         description:
-          'Professional junk removal in Ogden, Utah. Same-day service, transparent pricing, eco-friendly disposal. Serving Weber County with reliable junk hauling.',
+          'Full-service junk removal in Ogden and Weber County. We lift, load, and haul the junk for homes, apartments, and businesses. Upfront pricing and free quotes.',
       },
       content: {
         hero: {
           title: 'JUNK REMOVAL OGDEN UT',
-          subtitle: "Weber County's Most Trusted Junk Removal Service",
+          subtitle: 'Full-service hauling for Weber County homes and businesses',
           description:
-            'Free Space Junk Removal & Cleaning provides transparent, eco-friendly junk removal throughout Ogden and Weber County. From single items to full property cleanouts, we deliver professional service with upfront pricing and same-day availability.',
+            'Free Space Junk Removal & Cleaning serves Ogden with full-service junk removal: our crew lifts items from where they sit, carries them out carefully, loads the trailer, and handles responsible disposal.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
         },
         sections: {
           mainContent: {
-            title: "Ogden's Premier Junk Removal Experts",
+            title: 'Ogden junk removal without dumpster loading',
             content: [
-              'Ogden residents and businesses choose Free Space Junk Removal & Cleaning for our transparent pricing, environmental responsibility, and professional service. Unlike national chains that provide vague estimates, we offer clear pricing online before we arrive.',
-              "Our local team understands Weber County's unique needs, from historic downtown properties to growing suburban neighborhoods. We provide specialized services for residential cleanouts, business relocations, and construction site cleanup.",
-              'Every junk removal job in Ogden contributes to our community recycling efforts. We partner with local organizations to ensure usable items find new homes while diverting waste from area landfills.',
+              'Ogden homeowners, renters, landlords, and businesses call Free Space Junk Removal & Cleaning when the job needs more than a bin dropped in the driveway. We do the lifting, carrying, loading, and hauling so you do not have to drag couches, appliances, or renovation debris to a curb or dumpster.',
+              'Our crew works across Weber County, including older homes near downtown, apartment turnovers, hillside neighborhoods, and commercial spaces where careful access matters. We quote clearly, arrive ready to load, and sort usable or recyclable material whenever practical.',
+              'Common Ogden jobs include basement furniture removal, garage cleanouts, appliance pickup, tenant move-out debris, and light construction cleanup after remodels.',
             ],
             highlights: [
-              {
-                title: 'Same-Day Service',
-                description: 'Available throughout Ogden and Weber County',
-                icon: '⚡',
-              },
-              {
-                title: 'Transparent Pricing',
-                description: 'No surprise fees or inflated on-site quotes',
-                icon: '💰',
-              },
-              {
-                title: 'Local Environmental Impact',
-                description: 'Supporting Weber County recycling initiatives',
-                icon: '♻️',
-              },
-              {
-                title: 'Professional Documentation',
-                description: 'Before/after photos and disposal verification',
-                icon: '📸',
-              },
+              { title: 'Apartment and rental turnover help', description: 'We clear bulky furniture, mattresses, bagged junk, and leftover tenant items from Ogden rentals and multi-family properties.' },
+              { title: 'Full-service furniture and appliance removal', description: 'You point to the item; our crew handles stairs, tight doorways, loading, and haul-away.' },
+              { title: 'Construction and renovation debris', description: 'We remove cabinets, flooring, drywall scraps, packaging, and other project debris from Weber County remodels.' },
+              { title: 'Responsible sorting', description: 'Usable items are separated for donation or recycling opportunities before landfill disposal is considered.' },
             ],
           },
           localServices: {
-            title: 'JUNK REMOVAL SERVICES IN OGDEN, UTAH',
-            subtitle: 'Comprehensive solutions for Weber County residents and businesses',
+            title: 'FULL-SERVICE JUNK REMOVAL IN OGDEN',
+            subtitle: 'Useful hauling options for Weber County cleanouts, move-outs, and projects',
             services: [
-              {
-                title: 'Residential Junk Removal',
-                description: 'Home cleanouts, furniture removal, appliance disposal',
-                href: '/services/residential-junk-removal',
-                backgroundImage: '/images/single-item-pickup.jpg',
-              },
-              {
-                title: 'Commercial Cleanouts',
-                description: 'Office moves, retail space clearing, warehouse cleanouts',
-                href: '/services/commercial-junk-removal',
-                backgroundImage: '/images/truck-load.jpg',
-              },
-              {
-                title: 'Construction Debris',
-                description: 'Renovation waste, demolition cleanup, contractor support',
-                href: '/services/construction-debris',
-                backgroundImage: '/images/trailer-load.jpg',
-              },
-              {
-                title: 'Estate Cleanouts',
-                description: 'Sensitive estate clearing with donation coordination',
-                href: '/services/estate-cleanouts',
-                backgroundImage: '/images/half-trailer.jpg',
-              },
+              { title: 'Single Item Pickup', description: 'One couch, mattress, appliance, or other bulky item removed from inside the property.', href: '/services/single-item-pickup', backgroundImage: '/images/single-item-pickup.jpg' },
+              { title: 'Garage Cleanout', description: 'Reclaim garage space without lifting boxes, old tools, tires, or storage clutter yourself.', href: '/services/garage-cleanout', backgroundImage: '/images/garage-cleaning.jpeg' },
+              { title: 'Appliance Removal', description: 'Washer, dryer, refrigerator, freezer, water heater, and kitchen appliance hauling.', href: '/services/appliance-removal', backgroundImage: '/images/appliance-removal.jpg' },
+              { title: 'Construction Cleanup', description: 'Trailer hauling for remodel debris, packaging, old fixtures, and job-site clutter.', href: '/services/construction-cleanup', backgroundImage: '/images/construction-cleanup.jpeg' },
             ],
           },
           neighborhoods: {
             title: 'OGDEN AREAS WE SERVE',
             areas: [
-              {
-                title: 'Downtown Ogden',
-                description: 'Historic district, Union Station area, commercial properties',
-                icon: '🏢',
-              },
-              {
-                title: 'East Ogden',
-                description: 'Foothill neighborhoods, larger properties, mountain access areas',
-                icon: '🏔️',
-              },
-              {
-                title: 'West Ogden',
-                description: 'Established neighborhoods, family homes, community areas',
-                icon: '🏘️',
-              },
-              {
-                title: 'South Ogden',
-                description: 'Suburban developments, mixed residential and commercial',
-                icon: '🏡',
-              },
+              { title: 'Downtown and central Ogden', description: 'Apartment, rental, office, and older-home cleanouts where access and parking need planning.' },
+              { title: 'East and North Ogden routes', description: 'Furniture, appliance, and garage cleanouts for hillside and suburban properties.' },
+              { title: 'West Ogden and Weber County', description: 'Residential, commercial, and property cleanups throughout the broader Weber County area.' },
             ],
           },
           whyChooseUs: {
-            title: 'Why Ogden Residents Choose Free Space Junk Removal',
+            title: 'Why Ogden customers choose a full-service crew',
             content: [
-              {
-                title: 'Weber County Expertise',
-                description:
-                  "We know Ogden's neighborhoods, access challenges, and local disposal regulations.",
-              },
-              {
-                title: 'Community Partnership',
-                description:
-                  'We work with local charities and recycling centers to maximize community benefit.',
-              },
-              {
-                title: 'Professional Standards',
-                description:
-                  'Licensed, insured, and committed to the highest service standards in Weber County.',
-              },
+              { title: 'No dumpster loading', description: 'Our crew removes items from the room, garage, yard, or work area and loads everything for you.' },
+              { title: 'Clear price references', description: 'Typical starting points include $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer projects.' },
+              { title: 'Easy scheduling', description: 'Book online or call (385) 326-8426 for Ogden and Weber County availability.' },
+              { title: 'Local disposal awareness', description: 'We sort for donation, recycling, and appropriate disposal based on the material and local options.' },
             ],
           },
+          // TODO: paste 1–3 real Google reviews for Ogden — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'appliance removal in Northern Utah', href: '/services/appliance-removal', description: 'Helpful when an Ogden cleanup includes refrigerators, washers, dryers, or other heavy appliances.' },
+            { label: 'North Ogden junk removal', href: '/service-areas/north-ogden-utah', description: 'Nearby full-service hauling for homes north of Ogden.' },
+          ],
           faq: {
             title: 'OGDEN JUNK REMOVAL FAQ',
-            subtitle: 'Common questions from Weber County residents',
+            subtitle: 'Practical answers for Weber County junk hauling',
             items: [
-              {
-                question: 'Do you provide same-day service in Ogden?',
-                answer:
-                  'Yes, we offer same-day junk removal throughout Ogden and Weber County when you schedule before noon, subject to availability.',
-              },
-              {
-                question: "How do you handle downtown Ogden's parking restrictions?",
-                answer:
-                  'Our team is experienced with downtown Ogden logistics. We coordinate parking and access to ensure efficient service without violations.',
-              },
-              {
-                question: 'What areas of Weber County do you serve?',
-                answer:
-                  'We serve all of Ogden plus surrounding Weber County communities including Roy, Riverdale, Washington Terrace, and South Ogden.',
-              },
-              {
-                question: 'Do you work with Ogden businesses and contractors?',
-                answer:
-                  'Absolutely. We provide business-class service including COI documentation, before/after photos, and flexible scheduling for commercial clients.',
-              },
+              { question: 'Do I need to move items outside before pickup in Ogden?', answer: 'No. Free Space Junk Removal & Cleaning is full-service. Our crew lifts, carries, loads, and hauls items from inside, outside, upstairs, basements, garages, or storage areas.' },
+              { question: 'What does junk removal cost in Ogden?', answer: 'Pricing depends on volume and access, with clear reference points: $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer projects. Call (385) 326-8426 or schedule online for a quote.' },
+              { question: 'Where does old furniture or appliance junk go in Weber County?', answer: 'We look for donation and recycling options first when items are usable or recyclable, then use appropriate Weber County disposal options for material that cannot be reused.' },
+              { question: 'Can you handle Ogden apartment or rental cleanouts?', answer: 'Yes. We help renters, landlords, and property managers clear furniture, mattresses, bagged debris, and bulky items after move-outs.' },
             ],
           },
         },
@@ -1926,26 +1856,85 @@ export const businessConfig: BusinessConfig = {
       slug: 'logan-utah',
       state: 'UT',
       county: 'Cache County',
-      description: 'Comprehensive junk removal services throughout Logan, Utah and Cache Valley.',
+      description:
+        'Full-service junk removal in Logan and Cache Valley for homes, apartments, student housing, rentals, and rural properties.',
       specialties: [
-        'Cache Valley residential services',
-        'USU student moving assistance',
-        'Rural property cleanouts',
-        'University area apartment clearing',
+        'USU student move-out and apartment cleanouts',
+        'Cache Valley rural and property cleanups',
+        'Furniture, mattress, and appliance hauling',
+        'Garage, basement, and storage-unit cleanouts',
       ],
       isActive: true,
       seo: {
-        title: 'Junk Removal Logan UT | Free Space Junk Removal & Cleaning',
+        title: 'Junk Removal Logan & Cache Valley, UT | Free Space',
         description:
-          'Professional junk removal in Logan, Utah and Cache Valley. Student-friendly service, rural property expertise, transparent pricing, eco-friendly disposal.',
+          'Full-service junk removal in Logan and Cache Valley. We lift, load, and haul furniture, appliances, move-out junk, and property clutter. Free quotes.',
       },
       content: {
         hero: {
           title: 'JUNK REMOVAL LOGAN UT',
-          subtitle: "Cache Valley's Trusted Junk Removal Experts",
+          subtitle: 'Full-service junk hauling for Logan and Cache Valley',
           description:
-            'Serving Logan and Cache Valley with professional junk removal services tailored to university communities, rural properties, and residential needs. Transparent pricing and eco-friendly disposal guaranteed.',
+            'Free Space Junk Removal & Cleaning helps Logan homes, rentals, student apartments, and Cache Valley properties clear unwanted items without renting or loading a dumpster.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
+        },
+        sections: {
+          mainContent: {
+            title: 'Logan junk removal for move-outs, homes, and rural properties',
+            content: [
+              'In Logan and Cache Valley, junk removal often means a mix of student move-out furniture, basement storage, yard debris, old appliances, and rural property clutter. Our full-service crew removes items from where they are, carries them out carefully, loads the truck or trailer, and hauls them away.',
+              'That full-service model matters. Instead of dropping a bin and leaving you to load it, we do the lifting and loading so apartment tenants, landlords, homeowners, and property owners can get the space cleared quickly.',
+              'We serve Logan and nearby Cache County communities with clear pricing references, online scheduling, and disposal practices that prioritize donation and recycling when practical.',
+            ],
+            highlights: [
+              { title: 'USU-area move-out cleanouts', description: 'Furniture, mattresses, desks, shelving, and bagged items removed from apartments and student rentals.' },
+              { title: 'Cache Valley property cleanups', description: 'Help with barns, garages, sheds, storage spaces, and rural property piles that need trailer capacity.' },
+              { title: 'Appliance and furniture hauling', description: 'Heavy items are carried out by our crew so you do not have to recruit friends or load a bin.' },
+              { title: 'Garage and basement cleanouts', description: 'We clear long-stored items from tight spaces, stairs, and storage areas with care.' },
+            ],
+          },
+          localServices: {
+            title: 'FULL-SERVICE JUNK REMOVAL IN LOGAN',
+            subtitle: 'Cache Valley hauling services with the lifting included',
+            services: [
+              { title: 'Single Item Pickup', description: 'One mattress, couch, appliance, dresser, or bulky item removed from the room or curb.', href: '/services/single-item-pickup', backgroundImage: '/images/single-item-pickup.jpg' },
+              { title: 'Large Load Junk Removal', description: 'Trailer capacity for apartment turns, garage cleanouts, and multi-room clutter.', href: '/services/large-load-junk-removal', backgroundImage: '/images/large-load-junk.jpeg' },
+              { title: 'Estate & Room Cleanouts', description: 'Careful room-by-room clearing for family transitions, downsizing, and inherited spaces.', href: '/services/estate-room-cleanouts', backgroundImage: '/images/estate-cleanout.jpeg' },
+              { title: 'Land Cleanout', description: 'Useful for rural Cache Valley properties with outdoor debris, old materials, and piled junk.', href: '/services/land-cleanout', backgroundImage: '/images/land-cleanout.jpeg' },
+            ],
+          },
+          neighborhoods: {
+            title: 'LOGAN AND CACHE VALLEY AREAS WE SERVE',
+            areas: [
+              { title: 'USU and central Logan', description: 'Student apartment move-outs, furniture pickup, and tenant cleanout hauling.' },
+              { title: 'Residential Logan neighborhoods', description: 'Garage, basement, appliance, and furniture removal for homeowners and renters.' },
+              { title: 'Cache Valley rural properties', description: 'Trailer hauling for sheds, barns, yards, storage areas, and property cleanups.' },
+            ],
+          },
+          whyChooseUs: {
+            title: 'A better option than loading a dumpster yourself',
+            content: [
+              { title: 'We do the labor', description: 'Our crew lifts, carries, loads, and hauls so you can clear space without doing the heavy work.' },
+              { title: 'Pricing you can understand', description: 'Reference prices include $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer projects.' },
+              { title: 'Quick CTA options', description: 'Schedule online at the Google booking link or call (385) 326-8426 for Logan availability.' },
+              { title: 'Donation and recycling minded', description: 'When items can be reused or recycled, we sort them before sending anything to disposal.' },
+            ],
+          },
+          // TODO: paste 1–3 real Google reviews for Logan — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'estate and room cleanout help', href: '/services/estate-room-cleanouts', description: 'Useful for Cache Valley family transitions and inherited-room projects.' },
+            { label: 'Hyrum junk removal', href: '/service-areas/hyrum-utah', description: 'Nearby service from the company’s Hyrum home base.' },
+          ],
+          faq: {
+            title: 'LOGAN JUNK REMOVAL FAQ',
+            subtitle: 'Answers for Cache Valley customers',
+            items: [
+              { question: 'Can you help with USU student move-out junk in Logan?', answer: 'Yes. We remove mattresses, desks, couches, shelving, bagged clutter, and other move-out items from apartments and rentals. Our crew does the lifting and loading.' },
+              { question: 'Do I have to load items into a dumpster?', answer: 'No. We are a full-service junk removal crew, not just a dumpster drop-off. We remove items from inside or outside the property and load everything for you.' },
+              { question: 'What are the Logan pricing reference points?', answer: 'Common reference prices are $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer projects. Final pricing depends on volume, item type, and access.' },
+              { question: 'Where does old appliance or mattress junk go in Cache County?', answer: 'Reusable and recyclable materials are separated when practical. Items that cannot be reused are taken to appropriate Cache County disposal options.' },
+            ],
+          },
         },
       },
     },
@@ -1956,22 +1945,84 @@ export const businessConfig: BusinessConfig = {
       state: 'UT',
       county: 'Box Elder County',
       description:
-        'Professional junk removal services throughout Brigham City and Box Elder County.',
+        'Full-service junk removal in Brigham City and Box Elder County for homes, farms, rentals, estates, and business cleanouts.',
       specialties: [
-        'Box Elder County coverage',
-        'Rural and agricultural property services',
-        'Residential and commercial cleanouts',
-        'Agricultural waste management',
+        'Box Elder County home and rental cleanouts',
+        'Agricultural and rural property hauling',
+        'Estate, garage, and storage cleanouts',
+        'Appliance, furniture, and debris removal',
       ],
       isActive: true,
       seo: {
-        title: 'Junk Removal Brigham City UT | Free Space Junk Removal',
+        title: 'Junk Removal Brigham City, UT | Full-Service Hauling | Free Space',
         description:
-          'Professional junk removal in Brigham City and Box Elder County. Rural property expertise, agricultural waste handling, transparent pricing.',
+          'Full-service junk removal in Brigham City and Box Elder County. We do all lifting and loading for furniture, appliances, estates, farms, and cleanouts.',
       },
       content: {
         hero: {
+          title: 'JUNK REMOVAL BRIGHAM CITY UT',
+          subtitle: 'Full-service hauling for Box Elder County',
+          description:
+            'Free Space Junk Removal & Cleaning clears unwanted items in Brigham City with a crew that lifts, carries, loads, hauls, and sorts material responsibly.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
+        },
+        sections: {
+          mainContent: {
+            title: 'Brigham City junk removal with the loading included',
+            content: [
+              'Brigham City cleanouts can involve in-town homes, rural properties, rental turnovers, estate spaces, barns, garages, and outdoor piles. Free Space Junk Removal & Cleaning brings the labor and trailer capacity so customers do not have to load a dumpster by hand.',
+              'Our crew removes furniture, appliances, household clutter, yard and property debris, and renovation leftovers from where they sit. We load carefully, protect access areas where practical, and keep pricing straightforward.',
+              'We serve Brigham City and broader Box Elder County with full-service hauling, online scheduling, and responsible sorting for donation, recycling, or proper disposal.',
+            ],
+            highlights: [
+              { title: 'Rural and agricultural property hauling', description: 'Trailer-friendly removal for accumulated materials around sheds, barns, outbuildings, and acreage.' },
+              { title: 'Estate and downsizing cleanouts', description: 'Room-by-room removal for families clearing inherited items or preparing a property for sale.' },
+              { title: 'Furniture and appliance removal', description: 'Heavy lifting from inside the home is handled by our crew, including stairs and tight entries.' },
+              { title: 'Business and rental cleanouts', description: 'Clear office, retail, storage, or tenant-left items without tying up your own staff.' },
+            ],
+          },
+          localServices: {
+            title: 'FULL-SERVICE JUNK REMOVAL IN BRIGHAM CITY',
+            subtitle: 'Box Elder County hauling for homes, farms, rentals, and estates',
+            services: [
+              { title: 'Large Load Junk Removal', description: 'Trailer-load cleanouts for homes, shops, outbuildings, and multi-room projects.', href: '/services/large-load-junk-removal', backgroundImage: '/images/large-load-junk.jpeg' },
+              { title: 'Land Cleanout', description: 'Outdoor and rural property debris removal for Box Elder County properties.', href: '/services/land-cleanout', backgroundImage: '/images/land-cleanout.jpeg' },
+              { title: 'Estate & Room Cleanouts', description: 'Careful estate, downsizing, and room-clearing support.', href: '/services/estate-room-cleanouts', backgroundImage: '/images/estate-cleanout.jpeg' },
+              { title: 'Appliance Removal', description: 'Refrigerators, washers, dryers, freezers, and other heavy appliances hauled away.', href: '/services/appliance-removal', backgroundImage: '/images/appliance-removal.jpg' },
+            ],
+          },
+          neighborhoods: {
+            title: 'BRIGHAM CITY AND BOX ELDER COUNTY AREAS WE SERVE',
+            areas: [
+              { title: 'Brigham City homes', description: 'Garage, basement, appliance, furniture, and move-out hauling.' },
+              { title: 'Rural Box Elder properties', description: 'Outdoor piles, outbuildings, storage areas, and agricultural-property cleanups.' },
+              { title: 'Business and rental spaces', description: 'Retail, office, storage, and tenant turnover cleanouts.' },
+            ],
+          },
+          whyChooseUs: {
+            title: 'Full-service removal for Box Elder County',
+            content: [
+              { title: 'No self-loading', description: 'We do the lifting, carrying, and loading so you are not stuck filling a dumpster yourself.' },
+              { title: 'Published pricing references', description: 'Use $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer as clear starting points.' },
+              { title: 'Simple booking', description: 'Use the online schedule link or call (385) 326-8426 for a free Brigham City quote.' },
+              { title: 'Sorted disposal', description: 'We separate reusable, recyclable, and disposal-only items whenever practical.' },
+            ],
+          },
+          // TODO: paste 1–3 real Google reviews for Brigham City — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'land cleanout service', href: '/services/land-cleanout', description: 'A good fit for rural Box Elder County debris and property cleanup projects.' },
+            { label: 'Willard junk removal', href: '/service-areas/willard-utah', description: 'Nearby full-service hauling south of Brigham City.' },
+          ],
+          faq: {
+            title: 'BRIGHAM CITY JUNK REMOVAL FAQ',
+            subtitle: 'Helpful answers for Box Elder County cleanouts',
+            items: [
+              { question: 'Do you serve rural properties near Brigham City?', answer: 'Yes. We handle home, garage, outbuilding, barn, and outdoor debris cleanups across Brigham City and nearby Box Elder County areas.' },
+              { question: 'Will your crew load everything?', answer: 'Yes. We are full-service: the crew lifts, carries, loads, and hauls the items. You do not have to load a dumpster.' },
+              { question: 'How much does junk removal cost in Brigham City?', answer: 'Reference prices include $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer projects. We quote based on volume, access, and item type.' },
+              { question: 'Where does old junk go in Box Elder County?', answer: 'We sort usable and recyclable items first when practical, then use appropriate Box Elder County disposal options for material that cannot be reused.' },
+            ],
+          },
         },
       },
     },
@@ -1982,22 +2033,84 @@ export const businessConfig: BusinessConfig = {
       state: 'UT',
       county: 'Cache County',
       description:
-        'Local junk removal services for Hyrum and surrounding Cache County communities.',
+        'Local full-service junk removal from Hyrum for Cache County homes, rentals, garages, yards, and small businesses.',
       specialties: [
-        'Local Cache County expertise',
-        'Small town personalized service',
-        'Residential property focus',
-        'Community-oriented disposal',
+        'Hyrum home-base response for Cache County jobs',
+        'Garage, shed, and storage cleanouts',
+        'Furniture and appliance removal',
+        'Yard, property, and trailer-load hauling',
       ],
       isActive: true,
       seo: {
-        title: 'Junk Removal Hyrum UT | Free Space Junk Removal & Cleaning',
+        title: 'Junk Removal Hyrum, UT | Local Full-Service Hauling | Free Space',
         description:
-          'Local junk removal service in Hyrum, Utah. Personalized service for Cache County residents, transparent pricing, eco-friendly disposal.',
+          'Local full-service junk removal in Hyrum and Cache County. We lift, load, and haul furniture, appliances, garage clutter, and property debris.',
       },
       content: {
         hero: {
+          title: 'JUNK REMOVAL HYRUM UT',
+          subtitle: 'Local full-service hauling from Hyrum',
+          description:
+            'Free Space Junk Removal & Cleaning is based in Hyrum and helps Cache County customers clear junk without lifting or loading it themselves.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
+        },
+        sections: {
+          mainContent: {
+            title: 'Hyrum junk removal from a local crew',
+            content: [
+              'For Hyrum customers, junk removal should be simple: point to what needs to go and let the crew handle the work. Free Space Junk Removal & Cleaning lifts, carries, loads, hauls, and sorts unwanted items for responsible disposal.',
+              'We help with garage clutter, old appliances, furniture, room cleanouts, yard debris, shed storage, and trailer-load projects throughout Hyrum and nearby Cache County communities.',
+              'Because the business is based in Hyrum, this page is framed honestly around present service and local availability rather than unsupported years-in-business claims.',
+            ],
+            highlights: [
+              { title: 'Local Hyrum service', description: 'Convenient response for hometown cleanouts, garage clutter, and property projects.' },
+              { title: 'Garage and shed clearing', description: 'We remove boxes, old tools, shelving, household clutter, and bulky items from storage spaces.' },
+              { title: 'Appliance and furniture pickup', description: 'Heavy items are lifted and loaded by our crew, not left for you to drag outside.' },
+              { title: 'Property cleanup hauling', description: 'Trailer options for yards, outbuildings, and larger Cache County cleanup projects.' },
+            ],
+          },
+          localServices: {
+            title: 'FULL-SERVICE JUNK REMOVAL IN HYRUM',
+            subtitle: 'Local Cache County hauling with the labor included',
+            services: [
+              { title: 'Garage Cleanout', description: 'Clear boxes, tools, shelves, and old household items from your garage.', href: '/services/garage-cleanout', backgroundImage: '/images/garage-cleaning.jpeg' },
+              { title: 'Small Load Junk Removal', description: 'A practical option for closet, room, and smaller home cleanouts.', href: '/services/small-load-junk-removal', backgroundImage: '/images/small-cleanup.jpg' },
+              { title: 'Appliance Removal', description: 'Heavy refrigerators, washers, dryers, and freezers removed by our crew.', href: '/services/appliance-removal', backgroundImage: '/images/appliance-removal.jpg' },
+              { title: 'Large Load Junk Removal', description: 'Trailer capacity for multi-room, shed, and property cleanups.', href: '/services/large-load-junk-removal', backgroundImage: '/images/large-load-junk.jpeg' },
+            ],
+          },
+          neighborhoods: {
+            title: 'HYRUM AND CACHE COUNTY AREAS WE SERVE',
+            areas: [
+              { title: 'Hyrum homes and rentals', description: 'Furniture, appliance, garage, and move-out cleanouts.' },
+              { title: 'South Cache Valley', description: 'Nearby communities with small-load and trailer-load junk removal needs.' },
+              { title: 'Yards and outbuildings', description: 'Outdoor, shed, garage, and property cleanup hauling.' },
+            ],
+          },
+          whyChooseUs: {
+            title: 'Hyrum customers do not have to do the lifting',
+            content: [
+              { title: 'Full-service labor', description: 'We carry and load everything included in the quoted removal.' },
+              { title: 'Clear prices', description: 'Reference points: $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer.' },
+              { title: 'Easy schedule link', description: 'Book online or call (385) 326-8426 to discuss a Hyrum pickup.' },
+              { title: 'Responsible local disposal', description: 'Reusable and recyclable items are separated when practical.' },
+            ],
+          },
+          // TODO: paste 1–3 real Google reviews for Hyrum — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'garage cleanout service', href: '/services/garage-cleanout', description: 'A useful option for Hyrum storage and garage clutter.' },
+            { label: 'Logan junk removal', href: '/service-areas/logan-utah', description: 'Nearby Cache Valley service north of Hyrum.' },
+          ],
+          faq: {
+            title: 'HYRUM JUNK REMOVAL FAQ',
+            subtitle: 'Local answers for Cache County customers',
+            items: [
+              { question: 'Is Free Space Junk Removal & Cleaning based in Hyrum?', answer: 'Yes. The business address is 375 E 300 S, Hyrum, UT 84319, and the crew serves Hyrum and nearby Northern Utah communities.' },
+              { question: 'Do I need to carry junk outside?', answer: 'No. The service is full-service, so the crew does the lifting, carrying, loading, and hauling.' },
+              { question: 'What are the Hyrum junk removal prices?', answer: 'Published reference points include $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer. Final quotes depend on the load and access.' },
+              { question: 'Can you remove items from a shed or garage?', answer: 'Yes. We handle garage, shed, storage, and yard cleanouts, including bulky items and trailer-load projects.' },
+            ],
+          },
         },
       },
     },
@@ -2007,17 +2120,85 @@ export const businessConfig: BusinessConfig = {
       slug: 'north-ogden-utah',
       state: 'UT',
       county: 'Weber County',
-      description: 'Professional junk removal services for North Ogden and Weber County residents.',
+      description:
+        'Full-service junk removal for North Ogden and Weber County homes, garages, hillside properties, rentals, and cleanout projects.',
       specialties: [
-        'North Weber County expertise',
-        'Suburban and rural properties',
-        'Family-focused service approach',
-        'Mountain access properties',
+        'North Ogden garage and basement cleanouts',
+        'Hillside and suburban property hauling',
+        'Furniture, appliance, and mattress pickup',
+        'Renovation debris and large-load removal',
       ],
       isActive: true,
+      seo: {
+        title: 'Junk Removal North Ogden, UT | Full-Service Hauling | Free Space',
+        description:
+          'Full-service junk removal in North Ogden and Weber County. We lift, load, and haul furniture, appliances, garage clutter, and project debris.',
+      },
       content: {
         hero: {
+          title: 'JUNK REMOVAL NORTH OGDEN UT',
+          subtitle: 'Full-service hauling for North Weber County',
+          description:
+            'Free Space Junk Removal & Cleaning clears North Ogden junk with a crew that lifts, carries, loads, and hauls items from homes, garages, yards, and rentals.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
+        },
+        sections: {
+          mainContent: {
+            title: 'North Ogden junk removal without the heavy lifting',
+            content: [
+              'North Ogden homes often have steep drives, basement storage, busy garages, and bulky furniture that is hard to move alone. Our full-service crew handles the carrying and loading so you do not have to rent a dumpster or find helpers.',
+              'We remove furniture, appliances, mattresses, yard and garage clutter, construction leftovers, and larger trailer loads throughout North Ogden and nearby Weber County areas.',
+              'The process is straightforward: schedule online or by phone, show us what goes, and our team loads and hauls the items while sorting for donation or recycling where practical.',
+            ],
+            highlights: [
+              { title: 'Hillside-home hauling', description: 'Help moving bulky items from homes with stairs, slopes, or tight access points.' },
+              { title: 'Garage and basement cleanouts', description: 'Clear long-stored clutter without carrying everything outside first.' },
+              { title: 'Appliance and furniture removal', description: 'Our crew carries heavy items out and loads them safely.' },
+              { title: 'Large-load project support', description: 'Trailer capacity for remodel debris, multi-room cleanouts, and property clearing.' },
+            ],
+          },
+          localServices: {
+            title: 'FULL-SERVICE JUNK REMOVAL IN NORTH OGDEN',
+            subtitle: 'Weber County hauling for homes, garages, and projects',
+            services: [
+              { title: 'Single Item Pickup', description: 'Bulky item pickup for mattresses, couches, appliances, and heavy furniture.', href: '/services/single-item-pickup', backgroundImage: '/images/single-item-pickup.jpg' },
+              { title: 'Garage Cleanout', description: 'Declutter garages and storage spaces without hauling items to the driveway.', href: '/services/garage-cleanout', backgroundImage: '/images/garage-cleaning.jpeg' },
+              { title: 'Large Load Junk Removal', description: 'Trailer-load removal for bigger North Ogden cleanouts.', href: '/services/large-load-junk-removal', backgroundImage: '/images/large-load-junk.jpeg' },
+              { title: 'Construction Cleanup', description: 'Remodel debris and project leftovers hauled from Weber County properties.', href: '/services/construction-cleanup', backgroundImage: '/images/construction-cleanup.jpeg' },
+            ],
+          },
+          neighborhoods: {
+            title: 'NORTH OGDEN AREAS WE SERVE',
+            areas: [
+              { title: 'Residential neighborhoods', description: 'Furniture, appliances, garage clutter, and move-out items.' },
+              { title: 'Foothill and hillside homes', description: 'Careful hauling where access, stairs, or grade make self-loading hard.' },
+              { title: 'Nearby Weber County routes', description: 'Large-load and project cleanups north of Ogden.' },
+            ],
+          },
+          whyChooseUs: {
+            title: 'Full-service hauling for North Ogden',
+            content: [
+              { title: 'Crew-loaded service', description: 'You do not load a dumpster; we lift, carry, load, and haul.' },
+              { title: 'Clear pricing references', description: '$50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer.' },
+              { title: 'Simple scheduling', description: 'Use the Google booking link or call (385) 326-8426.' },
+              { title: 'Practical disposal sorting', description: 'Donation and recycling are considered before disposal whenever possible.' },
+            ],
+          },
+          // TODO: paste 1–3 real Google reviews for North Ogden — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'Ogden junk removal', href: '/service-areas/ogden-utah', description: 'Nearby service for central and south Ogden cleanouts.' },
+            { label: 'single item pickup', href: '/services/single-item-pickup', description: 'Best for one couch, mattress, refrigerator, or other bulky item.' },
+          ],
+          faq: {
+            title: 'NORTH OGDEN JUNK REMOVAL FAQ',
+            subtitle: 'Answers for North Weber County customers',
+            items: [
+              { question: 'Can you remove items from basements or upstairs rooms?', answer: 'Yes. Our crew handles stairs, tight access, carrying, loading, and haul-away for bulky items.' },
+              { question: 'Do you provide dumpster rental in North Ogden?', answer: 'No. Free Space Junk Removal & Cleaning is full-service junk removal, which means we do the loading and hauling for you.' },
+              { question: 'What does North Ogden junk removal cost?', answer: 'Reference prices are $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer. Quotes depend on volume, access, and item type.' },
+              { question: 'Where do appliances and mattresses go in Weber County?', answer: 'We sort usable or recyclable material when practical and use appropriate local disposal options for items that cannot be reused.' },
+            ],
+          },
         },
       },
     },
@@ -2027,17 +2208,85 @@ export const businessConfig: BusinessConfig = {
       slug: 'willard-utah',
       state: 'UT',
       county: 'Box Elder County',
-      description: 'Comprehensive junk removal for Willard and surrounding Box Elder County areas.',
+      description:
+        'Full-service junk removal for Willard and Box Elder County homes, lake-area properties, yards, outbuildings, and cleanouts.',
       specialties: [
-        'Small community service',
-        'Rural property expertise',
-        'Agricultural area coverage',
-        'Personalized local service',
+        'Willard home and garage cleanouts',
+        'Lake-area and rural property debris hauling',
+        'Furniture, appliance, and mattress removal',
+        'Outbuilding, shed, and yard cleanup loads',
       ],
       isActive: true,
+      seo: {
+        title: 'Junk Removal Willard, UT | Full-Service Hauling | Free Space',
+        description:
+          'Full-service junk removal in Willard and Box Elder County. We lift, load, and haul appliances, furniture, garage clutter, yard debris, and cleanouts.',
+      },
       content: {
         hero: {
+          title: 'JUNK REMOVAL WILLARD UT',
+          subtitle: 'Full-service hauling for Willard and Box Elder County',
+          description:
+            'Free Space Junk Removal & Cleaning helps Willard customers clear unwanted items without loading a dumpster. Our crew lifts, loads, hauls, and sorts the junk.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
+        },
+        sections: {
+          mainContent: {
+            title: 'Willard junk removal for homes, yards, and outbuildings',
+            content: [
+              'Willard cleanouts often include a blend of household junk, garage storage, lake-area property clutter, yard piles, and outbuilding debris. We bring full-service labor and hauling so customers can clear space without moving heavy items themselves.',
+              'Our crew carries items from garages, rooms, sheds, and yards, then loads and hauls them for donation, recycling, or proper disposal when practical.',
+              'Whether you need one bulky item gone or a multi-trailer property cleanup, Free Space Junk Removal & Cleaning provides transparent reference pricing and easy scheduling for Willard customers.',
+            ],
+            highlights: [
+              { title: 'Lake-area and rural property cleanup', description: 'Useful for outdoor clutter, sheds, old materials, and seasonal property cleanups.' },
+              { title: 'Garage and storage cleanouts', description: 'We lift and load boxes, shelving, furniture, appliances, and long-stored clutter.' },
+              { title: 'Appliance and furniture pickup', description: 'Heavy items are removed from where they sit without customer loading.' },
+              { title: 'Trailer-load capacity', description: 'Half-trailer, full-trailer, and multi-trailer options for larger Willard projects.' },
+            ],
+          },
+          localServices: {
+            title: 'FULL-SERVICE JUNK REMOVAL IN WILLARD',
+            subtitle: 'Box Elder County hauling with the loading handled for you',
+            services: [
+              { title: 'Small Load Junk Removal', description: 'Good for a room, storage corner, or smaller cleanup pile.', href: '/services/small-load-junk-removal', backgroundImage: '/images/small-cleanup.jpg' },
+              { title: 'Large Load Junk Removal', description: 'Trailer capacity for sheds, garages, yards, and multi-room cleanouts.', href: '/services/large-load-junk-removal', backgroundImage: '/images/large-load-junk.jpeg' },
+              { title: 'Land Cleanout', description: 'Outdoor debris and property cleanup support for rural Willard jobs.', href: '/services/land-cleanout', backgroundImage: '/images/land-cleanout.jpeg' },
+              { title: 'Appliance Removal', description: 'Old refrigerators, freezers, washers, dryers, and bulky appliances hauled away.', href: '/services/appliance-removal', backgroundImage: '/images/appliance-removal.jpg' },
+            ],
+          },
+          neighborhoods: {
+            title: 'WILLARD AREAS WE SERVE',
+            areas: [
+              { title: 'Willard homes', description: 'Garage, furniture, appliance, and move-out hauling.' },
+              { title: 'Lake-area properties', description: 'Seasonal cleanup, yard clutter, and property debris hauling.' },
+              { title: 'Rural Box Elder routes', description: 'Outbuildings, sheds, storage areas, and larger cleanouts.' },
+            ],
+          },
+          whyChooseUs: {
+            title: 'No self-loading for Willard cleanouts',
+            content: [
+              { title: 'Full-service crew', description: 'We lift, carry, load, and haul everything included in the job.' },
+              { title: 'Transparent references', description: 'Starting points include $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer.' },
+              { title: 'Two ways to book', description: 'Schedule online or call (385) 326-8426 for a free quote.' },
+              { title: 'Responsible sorting', description: 'Donation and recycling options are used when practical.' },
+            ],
+          },
+          // TODO: paste 1–3 real Google reviews for Willard — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'Brigham City junk removal', href: '/service-areas/brigham-city-utah', description: 'Nearby Box Elder County service for larger cleanouts.' },
+            { label: 'large load junk removal', href: '/services/large-load-junk-removal', description: 'Trailer hauling for property, shed, and multi-room cleanups.' },
+          ],
+          faq: {
+            title: 'WILLARD JUNK REMOVAL FAQ',
+            subtitle: 'Questions from Box Elder County customers',
+            items: [
+              { question: 'Do you pick up junk from sheds and yards in Willard?', answer: 'Yes. We remove junk from sheds, garages, yards, storage areas, and homes. Our crew loads the material for you.' },
+              { question: 'Can I book a full-trailer cleanup?', answer: 'Yes. Pricing references include $320 half trailer, $490 full trailer, and $849 multi-trailer projects, depending on the load.' },
+              { question: 'Where does old appliance junk go near Willard?', answer: 'Reusable and recyclable materials are separated when practical, with remaining items taken to appropriate Box Elder County disposal options.' },
+              { question: 'Do I need to rent a dumpster first?', answer: 'No. This is full-service junk removal, so the crew does the lifting, loading, and hauling.' },
+            ],
+          },
         },
       },
     },
@@ -2047,17 +2296,85 @@ export const businessConfig: BusinessConfig = {
       slug: 'plain-city-utah',
       state: 'UT',
       county: 'Weber County',
-      description: 'Reliable junk removal services for Plain City and Weber County residents.',
+      description:
+        'Full-service junk removal in Plain City and Weber County for homes, farms, garages, yards, and cleanout projects.',
       specialties: [
-        'Rural Weber County service',
-        'Agricultural property support',
-        'Residential cleanouts',
-        'Community-focused approach',
+        'Plain City garage and room cleanouts',
+        'Rural Weber County property hauling',
+        'Furniture, mattress, and appliance pickup',
+        'Farm-adjacent yard and outbuilding cleanup',
       ],
       isActive: true,
+      seo: {
+        title: 'Junk Removal Plain City, UT | Full-Service Hauling | Free Space',
+        description:
+          'Full-service junk removal in Plain City and Weber County. We lift, load, and haul furniture, appliances, farm-area clutter, garages, and cleanouts.',
+      },
       content: {
         hero: {
+          title: 'JUNK REMOVAL PLAIN CITY UT',
+          subtitle: 'Full-service hauling for rural Weber County',
+          description:
+            'Free Space Junk Removal & Cleaning helps Plain City customers clear unwanted items from homes, garages, yards, and outbuildings with the lifting and loading included.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
+        },
+        sections: {
+          mainContent: {
+            title: 'Plain City junk removal for homes and rural properties',
+            content: [
+              'Plain City customers often need junk removal that works for both residential spaces and rural-property cleanup: garages, sheds, yards, outbuildings, old appliances, and heavy furniture. Our crew does the lifting, loading, hauling, and sorting.',
+              'Instead of loading a dumpster yourself, you can show us the items and let the team handle the physical work. We use clear pricing references and responsible disposal practices for Weber County jobs.',
+              'From a single bulky item to a full trailer load, Free Space Junk Removal & Cleaning helps Plain City residents reclaim space without tying up a weekend of heavy labor.',
+            ],
+            highlights: [
+              { title: 'Rural-property hauling', description: 'Useful for farm-adjacent yards, sheds, shops, and outdoor clutter piles.' },
+              { title: 'Garage and room cleanouts', description: 'We carry and load old storage, furniture, mattresses, boxes, and household junk.' },
+              { title: 'Appliance removal', description: 'Heavy appliances are removed by our crew and sorted for responsible disposal.' },
+              { title: 'Large-load trailer options', description: 'Half-trailer and full-trailer hauling for bigger cleanup projects.' },
+            ],
+          },
+          localServices: {
+            title: 'FULL-SERVICE JUNK REMOVAL IN PLAIN CITY',
+            subtitle: 'Weber County hauling for homes, yards, garages, and outbuildings',
+            services: [
+              { title: 'Garage Cleanout', description: 'Declutter garage and storage areas without carrying everything outside yourself.', href: '/services/garage-cleanout', backgroundImage: '/images/garage-cleaning.jpeg' },
+              { title: 'Land Cleanout', description: 'Outdoor debris and rural-property cleanup support.', href: '/services/land-cleanout', backgroundImage: '/images/land-cleanout.jpeg' },
+              { title: 'Appliance Removal', description: 'Heavy appliance pickup with lifting and loading included.', href: '/services/appliance-removal', backgroundImage: '/images/appliance-removal.jpg' },
+              { title: 'Large Load Junk Removal', description: 'Trailer hauling for large room, shed, and property cleanouts.', href: '/services/large-load-junk-removal', backgroundImage: '/images/large-load-junk.jpeg' },
+            ],
+          },
+          neighborhoods: {
+            title: 'PLAIN CITY AREAS WE SERVE',
+            areas: [
+              { title: 'Plain City homes', description: 'Garage, furniture, appliance, and room cleanouts.' },
+              { title: 'Rural Weber County properties', description: 'Shed, outbuilding, yard, and property debris hauling.' },
+              { title: 'Nearby residential routes', description: 'Flexible pickup for surrounding Weber County communities.' },
+            ],
+          },
+          whyChooseUs: {
+            title: 'Plain City customers get full-service loading',
+            content: [
+              { title: 'No loading required', description: 'The crew lifts, carries, loads, and hauls the items included in your quote.' },
+              { title: 'Clear price references', description: '$50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer.' },
+              { title: 'Schedule quickly', description: 'Book online or call (385) 326-8426 for Plain City availability.' },
+              { title: 'Disposal sorting', description: 'Usable and recyclable items are separated when practical.' },
+            ],
+          },
+          // TODO: paste 1–3 real Google reviews for Plain City — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'land cleanout in Northern Utah', href: '/services/land-cleanout', description: 'Helpful for Plain City outdoor and property debris hauling.' },
+            { label: 'West Haven junk removal', href: '/service-areas/west-haven-utah', description: 'Nearby Weber County service for suburban cleanouts.' },
+          ],
+          faq: {
+            title: 'PLAIN CITY JUNK REMOVAL FAQ',
+            subtitle: 'Useful answers for Weber County customers',
+            items: [
+              { question: 'Can you remove junk from outbuildings in Plain City?', answer: 'Yes. We remove items from sheds, garages, shops, yards, and outbuildings, then load and haul them away.' },
+              { question: 'Is this a dumpster rental?', answer: 'No. Free Space Junk Removal & Cleaning is full-service. We do the lifting and loading instead of leaving that work to you.' },
+              { question: 'How is pricing estimated?', answer: 'Pricing is based mainly on load volume and access. Reference points are $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer.' },
+              { question: 'Where does old mattress or appliance junk go in Weber County?', answer: 'When practical, reusable and recyclable items are separated first. Remaining material is taken to appropriate local disposal options.' },
+            ],
+          },
         },
       },
     },
@@ -2067,17 +2384,85 @@ export const businessConfig: BusinessConfig = {
       slug: 'west-haven-utah',
       state: 'UT',
       county: 'Weber County',
-      description: 'Professional junk removal services throughout West Haven and Weber County.',
+      description:
+        'Full-service junk removal in West Haven and Weber County for growing households, garages, rentals, businesses, and cleanout projects.',
       specialties: [
-        'Suburban community focus',
-        'Family property services',
-        'Weber County coverage',
-        'Residential expertise',
+        'West Haven garage and home cleanouts',
+        'Furniture, appliance, and mattress removal',
+        'Move-out and rental turnover hauling',
+        'Large-load cleanouts for busy households',
       ],
       isActive: true,
+      seo: {
+        title: 'Junk Removal West Haven, UT | Full-Service Hauling | Free Space',
+        description:
+          'Full-service junk removal in West Haven and Weber County. We lift, load, and haul furniture, appliances, garage clutter, move-out junk, and debris.',
+      },
       content: {
         hero: {
+          title: 'JUNK REMOVAL WEST HAVEN UT',
+          subtitle: 'Full-service hauling for West Haven homes and businesses',
+          description:
+            'Free Space Junk Removal & Cleaning helps West Haven customers clear clutter quickly by lifting, carrying, loading, hauling, and sorting unwanted items.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
+        },
+        sections: {
+          mainContent: {
+            title: 'West Haven junk removal for busy households and rentals',
+            content: [
+              'West Haven is a practical fit for full-service junk removal: growing families, garage overflows, move-out projects, furniture upgrades, rental turns, and business clutter. We do the heavy lifting so you do not have to load a dumpster.',
+              'Our crew removes items from inside the home, garage, yard, storage area, or business space, then loads and hauls them for donation, recycling, or disposal when practical.',
+              'Use the online scheduling link or call for a free quote; pricing references are straightforward and based mainly on volume and access.',
+            ],
+            highlights: [
+              { title: 'Family garage cleanouts', description: 'Sporting goods, boxes, furniture, and household clutter cleared from storage spaces.' },
+              { title: 'Move-out and rental hauling', description: 'Mattresses, couches, bagged debris, and bulky items removed after moves or tenant turnovers.' },
+              { title: 'Appliance and furniture pickup', description: 'Heavy items are lifted from where they sit and loaded by our crew.' },
+              { title: 'Business cleanout support', description: 'Office, storage, and light commercial junk hauling for West Haven businesses.' },
+            ],
+          },
+          localServices: {
+            title: 'FULL-SERVICE JUNK REMOVAL IN WEST HAVEN',
+            subtitle: 'Weber County hauling with the lifting included',
+            services: [
+              { title: 'Garage Cleanout', description: 'Clear family garage clutter and bulky storage without doing the carrying.', href: '/services/garage-cleanout', backgroundImage: '/images/garage-cleaning.jpeg' },
+              { title: 'Single Item Pickup', description: 'One heavy item removed from inside or outside the property.', href: '/services/single-item-pickup', backgroundImage: '/images/single-item-pickup.jpg' },
+              { title: 'Large Load Junk Removal', description: 'Trailer-load capacity for whole rooms, move-outs, and major decluttering.', href: '/services/large-load-junk-removal', backgroundImage: '/images/large-load-junk.jpeg' },
+              { title: 'Estate & Room Cleanouts', description: 'Room-by-room hauling for downsizing, transitions, and inherited spaces.', href: '/services/estate-room-cleanouts', backgroundImage: '/images/estate-cleanout.jpeg' },
+            ],
+          },
+          neighborhoods: {
+            title: 'WEST HAVEN AREAS WE SERVE',
+            areas: [
+              { title: 'Residential West Haven', description: 'Garage, basement, furniture, appliance, and room cleanouts.' },
+              { title: 'Rental and move-out projects', description: 'Fast removal of leftover tenant or moving clutter.' },
+              { title: 'Business and storage spaces', description: 'Office, storage, retail, and light commercial junk hauling.' },
+            ],
+          },
+          whyChooseUs: {
+            title: 'West Haven junk removal with crew loading',
+            content: [
+              { title: 'No dumpster work for you', description: 'We do the lifting, loading, and hauling.' },
+              { title: 'Reference pricing', description: '$50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer.' },
+              { title: 'Call or schedule online', description: 'Use the booking link or call (385) 326-8426 for availability.' },
+              { title: 'Donation and recycling minded', description: 'We sort items responsibly whenever practical.' },
+            ],
+          },
+          // TODO: paste 1–3 real Google reviews for West Haven — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'garage cleanout service', href: '/services/garage-cleanout', description: 'A strong fit for West Haven household storage projects.' },
+            { label: 'Plain City junk removal', href: '/service-areas/plain-city-utah', description: 'Nearby Weber County full-service hauling.' },
+          ],
+          faq: {
+            title: 'WEST HAVEN JUNK REMOVAL FAQ',
+            subtitle: 'Answers for Weber County cleanouts',
+            items: [
+              { question: 'Do you handle move-out junk in West Haven?', answer: 'Yes. We remove leftover furniture, mattresses, bagged debris, boxes, and bulky items from homes and rentals.' },
+              { question: 'Will your crew move items from inside the home?', answer: 'Yes. The service is full-service, so our crew lifts, carries, loads, and hauls the items included in the quote.' },
+              { question: 'What does junk removal cost in West Haven?', answer: 'Reference prices are $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer projects. Final quotes depend on volume and access.' },
+              { question: 'Where do old appliances or mattresses go in Weber County?', answer: 'We sort usable and recyclable material when practical before taking remaining items to appropriate local disposal options.' },
+            ],
+          },
         },
       },
     },
@@ -2088,26 +2473,93 @@ export const businessConfig: BusinessConfig = {
       state: 'UT',
       county: 'Weber County',
       description:
-        'Specialized junk removal for Liberty and surrounding Weber County mountain areas.',
+        'Full-service junk removal for Liberty and Ogden Valley properties, including cabins, rural homes, garages, yards, and seasonal cleanouts.',
       specialties: [
-        'Mountain access properties',
-        'Cabin and recreational cleanouts',
-        'Rural property expertise',
-        'Seasonal service support',
+        'Ogden Valley cabin and seasonal cleanouts',
+        'Mountain-access property hauling',
+        'Garage, shed, and yard debris removal',
+        'Furniture, appliance, and large-load pickup',
       ],
       isActive: true,
+      seo: {
+        title: 'Junk Removal Liberty, UT | Ogden Valley Hauling | Free Space',
+        description:
+          'Full-service junk removal in Liberty and Ogden Valley. We lift, load, and haul cabin clutter, furniture, appliances, garage items, and property debris.',
+      },
       content: {
         hero: {
+          title: 'JUNK REMOVAL LIBERTY UT',
+          subtitle: 'Full-service hauling for Ogden Valley properties',
+          description:
+            'Free Space Junk Removal & Cleaning helps Liberty customers clear cabin clutter, garages, yards, and rural-property junk without loading a dumpster.',
           backgroundImage: '/images/north-utah-ogden-mountain.jpeg',
+        },
+        sections: {
+          mainContent: {
+            title: 'Liberty junk removal for mountain and seasonal properties',
+            content: [
+              'Liberty and Ogden Valley cleanouts can involve cabins, seasonal homes, mountain-access properties, garages, sheds, and outdoor clutter. Our full-service crew does the carrying, loading, hauling, and sorting so customers do not have to wrestle items into a dumpster.',
+              'We remove old furniture, mattresses, appliances, boxes, yard debris, shed contents, renovation leftovers, and trailer-load property clutter. Access is part of the planning, especially where driveways or mountain routes require care.',
+              'Free Space Junk Removal & Cleaning provides clear pricing references, online scheduling, and responsible disposal practices for Liberty and nearby Weber County communities.',
+            ],
+            highlights: [
+              { title: 'Cabin and seasonal cleanouts', description: 'Furniture, mattresses, storage items, and clutter removed before or after a seasonal stay.' },
+              { title: 'Mountain-access hauling', description: 'We plan for driveways, outbuildings, and rural access that make self-loading difficult.' },
+              { title: 'Shed, garage, and yard cleanup', description: 'Outdoor and storage clutter removed with trailer capacity.' },
+              { title: 'Appliance and bulky item pickup', description: 'Heavy items are lifted and loaded by our crew.' },
+            ],
+          },
+          localServices: {
+            title: 'FULL-SERVICE JUNK REMOVAL IN LIBERTY',
+            subtitle: 'Ogden Valley hauling for homes, cabins, yards, and outbuildings',
+            services: [
+              { title: 'Large Load Junk Removal', description: 'Trailer capacity for cabin, garage, and property cleanouts.', href: '/services/large-load-junk-removal', backgroundImage: '/images/large-load-junk.jpeg' },
+              { title: 'Land Cleanout', description: 'Outdoor debris and rural-property clutter hauled away.', href: '/services/land-cleanout', backgroundImage: '/images/land-cleanout.jpeg' },
+              { title: 'Estate & Room Cleanouts', description: 'Careful room-by-room clearing for family and seasonal-property transitions.', href: '/services/estate-room-cleanouts', backgroundImage: '/images/estate-cleanout.jpeg' },
+              { title: 'Appliance Removal', description: 'Old cabin and household appliances removed with loading included.', href: '/services/appliance-removal', backgroundImage: '/images/appliance-removal.jpg' },
+            ],
+          },
+          neighborhoods: {
+            title: 'LIBERTY AND OGDEN VALLEY AREAS WE SERVE',
+            areas: [
+              { title: 'Liberty homes and cabins', description: 'Room, appliance, furniture, and storage cleanouts.' },
+              { title: 'Mountain and rural properties', description: 'Shed, yard, outbuilding, and access-sensitive hauling.' },
+              { title: 'Ogden Valley routes', description: 'Seasonal and property cleanouts throughout nearby Weber County communities.' },
+            ],
+          },
+          whyChooseUs: {
+            title: 'Liberty cleanouts with the labor handled',
+            content: [
+              { title: 'Full-service removal', description: 'The crew lifts, carries, loads, and hauls items from the property.' },
+              { title: 'Clear pricing references', description: '$50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer.' },
+              { title: 'Online or phone booking', description: 'Schedule with the Google link or call (385) 326-8426.' },
+              { title: 'Responsible disposal', description: 'Usable and recyclable items are sorted when practical.' },
+            ],
+          },
+          // TODO: paste 1–3 real Google reviews for Liberty — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
+          contextualLinks: [
+            { label: 'land cleanout service', href: '/services/land-cleanout', description: 'Helpful for Liberty outdoor, shed, and rural-property debris.' },
+            { label: 'North Ogden junk removal', href: '/service-areas/north-ogden-utah', description: 'Nearby Weber County service west of Ogden Valley.' },
+          ],
+          faq: {
+            title: 'LIBERTY JUNK REMOVAL FAQ',
+            subtitle: 'Answers for Ogden Valley customers',
+            items: [
+              { question: 'Can you serve cabins or seasonal homes in Liberty?', answer: 'Yes. We help with cabin furniture, mattresses, storage items, appliance removal, and seasonal-property cleanouts.' },
+              { question: 'Do I have to move items down to the driveway?', answer: 'No. Our crew does the lifting, carrying, and loading. We plan access for mountain and rural properties before hauling.' },
+              { question: 'How much does Liberty junk removal cost?', answer: 'Reference prices include $50 single item, $95 truck load, $320 half trailer, $490 full trailer, and $849 multi-trailer. Final pricing depends on volume and access.' },
+              { question: 'Where does old cabin furniture or appliances go?', answer: 'When practical, usable items are separated for donation and recyclable materials are sorted before appropriate Weber County disposal.' },
+            ],
+          },
         },
       },
     },
   ],
 
   seo: {
-    title: 'Junk Removal Near Me | #1 Northern Utah Junk Removal Service',
+    title: 'Junk Removal in Northern Utah | Free Space Junk Removal & Cleaning',
     description:
-      'Professional junk removal near me in Northern Utah. Same-day junk hauling, transparent pricing, eco-friendly disposal. Serving Ogden, Logan, Brigham City areas with 5-star rated junk removal services.',
+      'Full-service junk removal in Northern Utah. We lift, load, haul, and dispose responsibly for homes, rentals, farms, and businesses from Cache Valley to Weber County.',
     keywords: [
       'junk removal near me',
       'junk removal northern utah',
@@ -2142,7 +2594,7 @@ export const businessConfig: BusinessConfig = {
         name: 'Jennifer Martinez',
         initial: 'J',
         projectType: 'Garage Cleanout',
-        review: `Free Space Junk Removal exceeded all expectations! Their online pricing was exactly what I paid - no surprises or hidden fees. The team arrived on time and transformed our cluttered garage in just a few hours. They even provided photos showing how our items were recycled and donated. Professional, reliable, and environmentally conscious. Highly recommend!`,
+        review: `Free Space Junk Removal & Cleaning exceeded all expectations! Their online pricing was exactly what I paid - no surprises or hidden fees. The team arrived on time and transformed our cluttered garage in just a few hours. They even provided photos showing how our items were recycled and donated. Professional, reliable, and environmentally conscious. Highly recommend!`,
         rating: 5,
       },
       {

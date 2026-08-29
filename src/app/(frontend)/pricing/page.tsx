@@ -7,13 +7,13 @@ import { getBusinessConfig } from '@/utils/businessHelpers'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Transparent Junk Removal Pricing | Free Space Junk Removal',
+  title: 'Transparent Junk Removal Pricing | Free Space Junk Removal & Cleaning',
   description:
     'Upfront, transparent pricing for junk removal services in Northern Utah. No hidden fees. Single items start at $50. Truck loads, trailer loads, and add-on services available.',
   keywords:
     'junk removal pricing utah, transparent junk removal costs, northern utah junk removal prices, appliance removal cost, furniture removal pricing, trailer load cost',
   openGraph: {
-    title: 'Transparent Junk Removal Pricing | Free Space Junk Removal',
+    title: 'Transparent Junk Removal Pricing | Free Space Junk Removal & Cleaning',
     description:
       'Clear, upfront pricing for all junk removal services. No surprises, no hidden fees. See our complete price list for Northern Utah.',
     type: 'website',

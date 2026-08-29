@@ -190,7 +190,7 @@ const PricingSummary = () => {
             <p className="text-gray-600">
               Need a custom quote? Call us at{' '}
               <a
-                href="tel:3853268426"
+                href="tel:+13853268426"
                 className="font-bold text-primary hover:text-primary-700 transition-colors"
               >
                 (385) 326-8426

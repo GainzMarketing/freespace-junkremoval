@@ -47,18 +47,14 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://freespace-junkremoval.com',
+    url: 'https://www.freespace-junkremoval.com',
     siteName: 'Free Space Junk Removal & Cleaning',
     title: 'Free Space Junk Removal & Cleaning | Northern Utah Junk Removal',
     description:
       'Professional junk removal and cleaning services throughout Northern Utah. Transparent pricing, eco-friendly disposal, same-day service available.',
     images: [
-      {
-        url: 'https://freespace-junkremoval.com/images/logo-main.svg',
-        width: 1200,
-        height: 630,
-        alt: 'Free Space Junk Removal & Cleaning Services',
-      },
+      // TODO: supply a true 1200x630 raster social share image for OpenGraph.
+      // Current brand assets include logos and service photos, but no confirmed share image.
     ],
   },
   icons: {
@@ -84,7 +80,8 @@ export const metadata = {
     ],
   },
   verification: {
-    google: 'google-site-verification-code',
+    // TODO_VERIFICATION_CODE: replace with the real Google Search Console token when available.
+    google: 'TODO_VERIFICATION_CODE',
   },
 }
 
