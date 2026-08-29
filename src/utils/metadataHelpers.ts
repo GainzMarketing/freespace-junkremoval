@@ -82,6 +82,7 @@ function createPageMetadata(path: string, metadata: Metadata): Metadata {
 
   return {
     ...metadata,
+    title: { absolute: pageTitle },
     alternates: {
       ...metadata.alternates,
       canonical: canonicalUrl,

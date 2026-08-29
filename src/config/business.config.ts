@@ -185,7 +185,7 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Single Item Pickup',
       isActive: true,
       seo: {
-        title: 'Single Item Pickup in Northern Utah | Free Space Junk Removal & Cleaning',
+        title: 'Single Item Pickup in Northern Utah | Free Space',
         description:
           'Full-service single item pickup in Northern Utah. We lift and haul couches, mattresses, appliances, and bulky items with clear pricing and free quotes.',
       },
@@ -387,7 +387,7 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Large Load Removal',
       isActive: true,
       seo: {
-        title: 'Large Load Junk Removal in Northern Utah | Free Space Junk Removal & Cleaning',
+        title: 'Large Load Junk Removal in Northern Utah | Free Space',
         description:
           'Full-service large load junk removal in Northern Utah. Trailer hauling for garage, room, estate, property, and business cleanouts with upfront pricing.',
       },
@@ -586,7 +586,7 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Small Load Pickup',
       isActive: true,
       seo: {
-        title: 'Small Load Junk Removal in Northern Utah | Free Space Junk Removal & Cleaning',
+        title: 'Small Load Junk Removal in Northern Utah | Free Space',
         description:
           'Full-service small load junk removal in Northern Utah for closets, rooms, storage corners, and light decluttering. We lift, load, and haul.',
       },
@@ -785,7 +785,7 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Estate Cleanout',
       isActive: true,
       seo: {
-        title: 'Estate & Room Cleanouts in Northern Utah | Free Space Junk Removal & Cleaning',
+        title: 'Estate & Room Cleanouts in Northern Utah | Free Space',
         description:
           'Careful estate and room cleanouts in Northern Utah. We lift, load, donate when practical, and haul unwanted items with transparent pricing.',
       },
@@ -984,7 +984,7 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Land Cleanout',
       isActive: true,
       seo: {
-        title: 'Land Cleanout in Northern Utah | Free Space Junk Removal & Cleaning',
+        title: 'Land Cleanout in Northern Utah | Free Space',
         description:
           'Full-service land cleanout in Northern Utah for yards, sheds, rural properties, and debris piles. Trailer hauling with clear pricing.',
       },
@@ -1183,7 +1183,7 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Appliance Removal',
       isActive: true,
       seo: {
-        title: 'Appliance Removal in Northern Utah | Free Space Junk Removal & Cleaning',
+        title: 'Appliance Removal in Northern Utah | Free Space',
         description:
           'Full-service appliance removal in Northern Utah. We lift, carry, load, and haul refrigerators, washers, dryers, freezers, and more.',
       },
@@ -1382,7 +1382,7 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Garage Cleanout',
       isActive: true,
       seo: {
-        title: 'Garage Cleanout in Northern Utah | Free Space Junk Removal & Cleaning',
+        title: 'Garage Cleanout in Northern Utah | Free Space',
         description:
           'Full-service garage cleanout in Northern Utah. We clear boxes, furniture, appliances, storage clutter, and bulky items so you do not lift.',
       },
@@ -1581,7 +1581,7 @@ export const businessConfig: BusinessConfig = {
       buttonText: 'Schedule Construction Cleanup',
       isActive: true,
       seo: {
-        title: 'Construction Cleanup in Northern Utah | Free Space Junk Removal & Cleaning',
+        title: 'Construction Cleanup in Northern Utah | Free Space',
         description:
           'Construction cleanup and debris removal in Northern Utah. We load and haul remodel debris, packaging, fixtures, and job-site clutter.',
       },
@@ -1832,10 +1832,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Local disposal awareness', description: 'We sort for donation, recycling, and appropriate disposal based on the material and local options.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for Ogden — reviewer name + text',
-            'TODO: paste second real Google review for Ogden if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for Ogden — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'appliance removal in Northern Utah', href: '/services/appliance-removal', description: 'Helpful when an Ogden cleanup includes refrigerators, washers, dryers, or other heavy appliances.' },
             { label: 'North Ogden junk removal', href: '/service-areas/north-ogden-utah', description: 'Nearby full-service hauling for homes north of Ogden.' },
@@ -1869,7 +1866,7 @@ export const businessConfig: BusinessConfig = {
       ],
       isActive: true,
       seo: {
-        title: 'Junk Removal Logan & Cache Valley, UT | Free Space Junk Removal & Cleaning',
+        title: 'Junk Removal Logan & Cache Valley, UT | Free Space',
         description:
           'Full-service junk removal in Logan and Cache Valley. We lift, load, and haul furniture, appliances, move-out junk, and property clutter. Free quotes.',
       },
@@ -1923,10 +1920,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Donation and recycling minded', description: 'When items can be reused or recycled, we sort them before sending anything to disposal.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for Logan — reviewer name + text',
-            'TODO: paste second real Google review for Logan if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for Logan — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'estate and room cleanout help', href: '/services/estate-room-cleanouts', description: 'Useful for Cache Valley family transitions and inherited-room projects.' },
             { label: 'Hyrum junk removal', href: '/service-areas/hyrum-utah', description: 'Nearby service from the company’s Hyrum home base.' },
@@ -2014,10 +2008,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Sorted disposal', description: 'We separate reusable, recyclable, and disposal-only items whenever practical.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for Brigham City — reviewer name + text',
-            'TODO: paste second real Google review for Brigham City if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for Brigham City — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'land cleanout service', href: '/services/land-cleanout', description: 'A good fit for rural Box Elder County debris and property cleanup projects.' },
             { label: 'Willard junk removal', href: '/service-areas/willard-utah', description: 'Nearby full-service hauling south of Brigham City.' },
@@ -2105,10 +2096,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Responsible local disposal', description: 'Reusable and recyclable items are separated when practical.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for Hyrum — reviewer name + text',
-            'TODO: paste second real Google review for Hyrum if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for Hyrum — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'garage cleanout service', href: '/services/garage-cleanout', description: 'A useful option for Hyrum storage and garage clutter.' },
             { label: 'Logan junk removal', href: '/service-areas/logan-utah', description: 'Nearby Cache Valley service north of Hyrum.' },
@@ -2196,10 +2184,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Practical disposal sorting', description: 'Donation and recycling are considered before disposal whenever possible.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for North Ogden — reviewer name + text',
-            'TODO: paste second real Google review for North Ogden if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for North Ogden — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'Ogden junk removal', href: '/service-areas/ogden-utah', description: 'Nearby service for central and south Ogden cleanouts.' },
             { label: 'single item pickup', href: '/services/single-item-pickup', description: 'Best for one couch, mattress, refrigerator, or other bulky item.' },
@@ -2287,10 +2272,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Responsible sorting', description: 'Donation and recycling options are used when practical.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for Willard — reviewer name + text',
-            'TODO: paste second real Google review for Willard if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for Willard — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'Brigham City junk removal', href: '/service-areas/brigham-city-utah', description: 'Nearby Box Elder County service for larger cleanouts.' },
             { label: 'large load junk removal', href: '/services/large-load-junk-removal', description: 'Trailer hauling for property, shed, and multi-room cleanups.' },
@@ -2378,10 +2360,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Disposal sorting', description: 'Usable and recyclable items are separated when practical.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for Plain City — reviewer name + text',
-            'TODO: paste second real Google review for Plain City if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for Plain City — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'land cleanout in Northern Utah', href: '/services/land-cleanout', description: 'Helpful for Plain City outdoor and property debris hauling.' },
             { label: 'West Haven junk removal', href: '/service-areas/west-haven-utah', description: 'Nearby Weber County service for suburban cleanouts.' },
@@ -2469,10 +2448,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Donation and recycling minded', description: 'We sort items responsibly whenever practical.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for West Haven — reviewer name + text',
-            'TODO: paste second real Google review for West Haven if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for West Haven — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'garage cleanout service', href: '/services/garage-cleanout', description: 'A strong fit for West Haven household storage projects.' },
             { label: 'Plain City junk removal', href: '/service-areas/plain-city-utah', description: 'Nearby Weber County full-service hauling.' },
@@ -2560,10 +2536,7 @@ export const businessConfig: BusinessConfig = {
               { title: 'Responsible disposal', description: 'Usable and recyclable items are sorted when practical.' },
             ],
           },
-          reviewTodos: [
-            'TODO: paste real Google review for Liberty — reviewer name + text',
-            'TODO: paste second real Google review for Liberty if available',
-          ],
+          // TODO: paste 1–3 real Google reviews for Liberty — reviewer name + text. Keep these non-rendered until confirmed GBP review text is supplied.
           contextualLinks: [
             { label: 'land cleanout service', href: '/services/land-cleanout', description: 'Helpful for Liberty outdoor, shed, and rural-property debris.' },
             { label: 'North Ogden junk removal', href: '/service-areas/north-ogden-utah', description: 'Nearby Weber County service west of Ogden Valley.' },

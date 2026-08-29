@@ -63,7 +63,6 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
   const localServices = serviceArea.content?.sections?.localServices
   const neighborhoods = serviceArea.content?.sections?.neighborhoods
   const whyChooseUs = serviceArea.content?.sections?.whyChooseUs
-  const reviewTodos = serviceArea.content?.sections?.reviewTodos
   const contextualLinks = serviceArea.content?.sections?.contextualLinks
   const faq = serviceArea.content?.sections?.faq
   const faqItems = faq?.items ?? [
@@ -353,26 +352,6 @@ export default async function ServiceAreaPage({ params }: { params: Promise<{ sl
                   <div key={index}>
                     <h4 className="font-heading font-bold text-brand-dark mb-2">{item.title}</h4>
                     <p className="text-gray-600 mb-4">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-        </Section>
-      )}
-
-
-      {reviewTodos && reviewTodos.length > 0 && (
-        <Section background="light" paddingY="xl">
-          <AnimatedSection>
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-heading font-bold text-brand-dark mb-6 text-center">
-                REAL {serviceArea.name.toUpperCase()} CUSTOMER REVIEWS
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {reviewTodos.map((todo, index) => (
-                  <div key={index} className="bg-white border-2 border-dashed border-primary/40 rounded-lg p-6 text-gray-700">
-                    {todo}
                   </div>
                 ))}
               </div>
