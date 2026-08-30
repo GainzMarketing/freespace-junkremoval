@@ -2,6 +2,31 @@ import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/services/commercial-junk-removal',
+        destination: '/services/large-load-junk-removal',
+        statusCode: 301,
+      },
+      {
+        source: '/residential-junk-removal',
+        destination: '/services',
+        statusCode: 301,
+      },
+      {
+        source: '/estate-cleanouts',
+        destination: '/services/estate-room-cleanouts',
+        statusCode: 301,
+      },
+      {
+        source: '/construction-debris',
+        destination: '/services/construction-cleanup',
+        statusCode: 301,
+      },
+    ]
+  },
+
   // Production optimizations
   compress: true,
   poweredByHeader: false,
