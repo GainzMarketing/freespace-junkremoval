@@ -4,21 +4,9 @@ import Hero from '@/components/Hero'
 import Layout from '@/components/Layout'
 import Section from '@/components/Section'
 import { getBusinessConfig } from '@/utils/businessHelpers'
-import { Metadata } from 'next'
+import { getPricingMetadata } from '@/utils/metadataHelpers'
 
-export const metadata: Metadata = {
-  title: 'Transparent Junk Removal Pricing | Free Space Junk Removal & Cleaning',
-  description:
-    'Upfront, transparent pricing for junk removal services in Northern Utah. No hidden fees. Single items start at $50. Truck loads, trailer loads, and add-on services available.',
-  keywords:
-    'junk removal pricing utah, transparent junk removal costs, northern utah junk removal prices, appliance removal cost, furniture removal pricing, trailer load cost',
-  openGraph: {
-    title: 'Transparent Junk Removal Pricing | Free Space Junk Removal & Cleaning',
-    description:
-      'Clear, upfront pricing for all junk removal services. No surprises, no hidden fees. See our complete price list for Northern Utah.',
-    type: 'website',
-  },
-}
+export const metadata = getPricingMetadata()
 
 // Pricing data based on the provided table
 const pricingData = {
@@ -26,7 +14,8 @@ const pricingData = {
     {
       name: 'Single Item Pickup',
       price: '$50',
-      description: 'Perfect for removing one bulky item like furniture, appliances, or exercise equipment',
+      description:
+        'Perfect for removing one bulky item like furniture, appliances, or exercise equipment',
       features: [
         'One large item removal',
         'Quick and efficient service',
@@ -110,7 +99,8 @@ const pricingData = {
     {
       name: 'Appliance Removal',
       price: '$40 - $80',
-      description: 'Safe removal and disposal of refrigerators, washers, dryers, and other appliances',
+      description:
+        'Safe removal and disposal of refrigerators, washers, dryers, and other appliances',
     },
     {
       name: 'Scrap Metal Hauling',
@@ -143,7 +133,8 @@ export default function PricingPage() {
               JUNK REMOVAL SERVICES
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4">
-              Simple, transparent pricing for all your junk removal needs. No hidden fees, no surprise charges - just honest, upfront costs you can trust.
+              Simple, transparent pricing for all your junk removal needs. No hidden fees, no
+              surprise charges - just honest, upfront costs you can trust.
             </p>
           </div>
         </AnimatedSection>
@@ -162,7 +153,7 @@ export default function PricingPage() {
                   </div>
                   <p className="text-gray-600">{service.description}</p>
                 </div>
-                
+
                 <div className="flex-grow">
                   <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
@@ -183,9 +174,13 @@ export default function PricingPage() {
                     ))}
                   </ul>
                 </div>
-                
+
                 <div className="mt-6 pt-6 border-t border-gray-200">
-                  <Button href="https://calendar.app.google/S8TaQaP9DRGngVtV7" variant="primary" className="w-full">
+                  <Button
+                    href="https://calendar.app.google/S8TaQaP9DRGngVtV7"
+                    variant="primary"
+                    className="w-full"
+                  >
                     Schedule Your Removal
                   </Button>
                 </div>
@@ -203,10 +198,16 @@ export default function PricingPage() {
             <p className="text-lg text-white/90 mb-6 max-w-2xl mx-auto">
               Ready to get started? Book your appointment online and we'll take care of the rest.
             </p>
-            
+
             {/* Google Calendar Appointment Scheduling begin */}
-            <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet"/>
-            <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+            <link
+              href="https://calendar.google.com/calendar/scheduling-button-script.css"
+              rel="stylesheet"
+            />
+            <script
+              src="https://calendar.google.com/calendar/scheduling-button-script.js"
+              async
+            ></script>
             <script
               dangerouslySetInnerHTML={{
                 __html: `
@@ -221,7 +222,7 @@ export default function PricingPage() {
                       });
                     });
                   })();
-                `
+                `,
               }}
             />
             {/* end Google Calendar Appointment Scheduling */}
@@ -239,7 +240,7 @@ export default function PricingPage() {
                 Enhance your junk removal service with these additional options
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {pricingData.addOns.map((addon, index) => (
                 <div key={addon.name} className="bg-white rounded-lg p-6 border border-gray-200">
@@ -247,12 +248,8 @@ export default function PricingPage() {
                     <h4 className="text-xl font-heading font-bold text-brand-dark mb-2">
                       {addon.name}
                     </h4>
-                    <div className="text-2xl font-bold text-primary mb-3">
-                      {addon.price}
-                    </div>
-                    <p className="text-gray-600 text-sm">
-                      {addon.description}
-                    </p>
+                    <div className="text-2xl font-bold text-primary mb-3">{addon.price}</div>
+                    <p className="text-gray-600 text-sm">{addon.description}</p>
                   </div>
                 </div>
               ))}
@@ -291,7 +288,8 @@ export default function PricingPage() {
                       NO HIDDEN FEES
                     </h3>
                     <p className="text-gray-600">
-                      The price you see is the price you pay. No surprise charges, no "additional fees" at the end.
+                      The price you see is the price you pay. No surprise charges, no "additional
+                      fees" at the end.
                     </p>
                   </div>
                 </div>
@@ -317,7 +315,8 @@ export default function PricingPage() {
                       UPFRONT ONLINE QUOTES
                     </h3>
                     <p className="text-gray-600">
-                      Get accurate pricing immediately online. No waiting for estimates or on-site visits required.
+                      Get accurate pricing immediately online. No waiting for estimates or on-site
+                      visits required.
                     </p>
                   </div>
                 </div>
@@ -343,7 +342,8 @@ export default function PricingPage() {
                       FAIR & COMPETITIVE
                     </h3>
                     <p className="text-gray-600">
-                      Our pricing is competitive with local and national companies, but with better service and transparency.
+                      Our pricing is competitive with local and national companies, but with better
+                      service and transparency.
                     </p>
                   </div>
                 </div>
@@ -369,7 +369,8 @@ export default function PricingPage() {
                       ECO-FRIENDLY INCLUDED
                     </h3>
                     <p className="text-gray-600">
-                      Environmental responsibility is built into our pricing. We donate, recycle, and dispose responsibly at no extra cost.
+                      Environmental responsibility is built into our pricing. We donate, recycle,
+                      and dispose responsibly at no extra cost.
                     </p>
                   </div>
                 </div>
@@ -384,15 +385,21 @@ export default function PricingPage() {
                   READY TO GET STARTED?
                 </h3>
                 <p className="text-gray-600 mb-6">
-                  Get your free quote today and experience the difference of transparent, honest pricing.
+                  Get your free quote today and experience the difference of transparent, honest
+                  pricing.
                 </p>
               </div>
-              
+
               <div className="space-y-4">
-                <Button href="https://calendar.app.google/S8TaQaP9DRGngVtV7" variant="primary" size="lg" className="w-full">
+                <Button
+                  href="https://calendar.app.google/S8TaQaP9DRGngVtV7"
+                  variant="primary"
+                  size="lg"
+                  className="w-full"
+                >
                   Schedule Your Removal
                 </Button>
-                
+
                 <div className="text-center border-t pt-4">
                   <p className="text-sm text-gray-600 mb-2">
                     Questions about pricing? Call us directly:
@@ -418,7 +425,7 @@ export default function PricingPage() {
               PRICING QUESTIONS & ANSWERS
             </h2>
           </div>
-          
+
           <div className="max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-6">
@@ -427,19 +434,21 @@ export default function PricingPage() {
                     Do you charge extra for stairs?
                   </h3>
                   <p className="text-gray-600">
-                    No, stair access is included in our standard pricing. We handle the heavy lifting at no additional cost.
+                    No, stair access is included in our standard pricing. We handle the heavy
+                    lifting at no additional cost.
                   </p>
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg font-heading font-bold text-brand-dark mb-2">
                     What's included in the service?
                   </h3>
                   <p className="text-gray-600">
-                    All labor, loading, transportation, disposal fees, and cleanup. Everything is included in the quoted price.
+                    All labor, loading, transportation, disposal fees, and cleanup. Everything is
+                    included in the quoted price.
                   </p>
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg font-heading font-bold text-brand-dark mb-2">
                     Can I get a discount for multiple services?
@@ -449,32 +458,35 @@ export default function PricingPage() {
                   </p>
                 </div>
               </div>
-              
+
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-heading font-bold text-brand-dark mb-2">
                     Do you offer same-day service?
                   </h3>
                   <p className="text-gray-600">
-                    Yes, same-day service is often available. Contact us to check availability in your area.
+                    Yes, same-day service is often available. Contact us to check availability in
+                    your area.
                   </p>
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg font-heading font-bold text-brand-dark mb-2">
                     What payment methods do you accept?
                   </h3>
                   <p className="text-gray-600">
-                    We accept cash, check, and all major credit cards. Payment is due upon completion of service.
+                    We accept cash, check, and all major credit cards. Payment is due upon
+                    completion of service.
                   </p>
                 </div>
-                
+
                 <div>
                   <h3 className="text-lg font-heading font-bold text-brand-dark mb-2">
                     Is there a minimum charge?
                   </h3>
                   <p className="text-gray-600">
-                    Our minimum charge is $50 for single item pickup, making us affordable for any size job.
+                    Our minimum charge is $50 for single item pickup, making us affordable for any
+                    size job.
                   </p>
                 </div>
               </div>
@@ -491,10 +503,15 @@ export default function PricingPage() {
               TRANSPARENT PRICING, EXCEPTIONAL SERVICE
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              Experience the difference of honest, upfront pricing with professional junk removal service throughout Northern Utah.
+              Experience the difference of honest, upfront pricing with professional junk removal
+              service throughout Northern Utah.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button href="https://calendar.app.google/S8TaQaP9DRGngVtV7" variant="accent" size="lg">
+              <Button
+                href="https://calendar.app.google/S8TaQaP9DRGngVtV7"
+                variant="accent"
+                size="lg"
+              >
                 Schedule Your Removal
               </Button>
               <Button href="/services" variant="secondary" size="lg">

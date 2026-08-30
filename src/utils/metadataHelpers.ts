@@ -77,7 +77,8 @@ function getShareImageMetadata() {
 function createPageMetadata(path: string, metadata: Metadata): Metadata {
   const canonicalUrl = getCanonicalUrl(path)
   const pageTitle = typeof metadata.title === 'string' ? metadata.title : config.seo.title
-  const pageDescription = typeof metadata.description === 'string' ? metadata.description : config.seo.description
+  const pageDescription =
+    typeof metadata.description === 'string' ? metadata.description : config.seo.description
   const shareImages = getShareImageMetadata()
 
   return {
@@ -104,6 +105,14 @@ function createPageMetadata(path: string, metadata: Metadata): Metadata {
       ...(shareImages ? { images: shareImages.map((image) => image.url) } : {}),
     },
   }
+}
+
+function formatServiceTitle(serviceName: string): string {
+  return `${serviceName} in ${config.contact.address.serviceArea} | Free Space`
+}
+
+function formatServiceAreaTitle(areaName: string, state: string): string {
+  return `Junk Removal ${areaName}, ${state} | Free Space`
 }
 
 function getLocalBusinessId(): string {
@@ -213,8 +222,10 @@ export function getHomeMetadata(): Metadata {
   return createPageMetadata('/', {
     ...getBaseMetadata(),
     title: 'Junk Removal in Northern Utah | Free Space Junk Removal & Cleaning',
-    description: 'Full-service junk removal across Northern Utah. We lift, load, haul, and dispose responsibly for homes, rentals, farms, and businesses. Free quotes.',
-    keywords: 'junk removal northern utah, full-service junk removal, junk hauling near me, furniture removal, appliance removal, ogden junk removal, logan junk removal, brigham city junk removal, local junk removal, residential junk removal, commercial junk removal'
+    description:
+      'Full-service junk removal across Northern Utah. We lift, load, haul, and dispose responsibly for homes, rentals, farms, and businesses. Free quotes.',
+    keywords:
+      'junk removal northern utah, full-service junk removal, junk hauling near me, furniture removal, appliance removal, ogden junk removal, logan junk removal, brigham city junk removal, local junk removal, residential junk removal, commercial junk removal',
   })
 }
 
@@ -239,6 +250,20 @@ export function getContactMetadata(): Metadata {
     title: `Contact ${config.business.name} | Free Junk Removal Quotes`,
     description: `Contact ${config.business.name} for a free junk removal quote. Call ${config.contact.phone.display} or email ${config.contact.email.main}. Serving Northern Utah.`,
     keywords: `contact ${config.business.name.toLowerCase()}, free estimate, ${config.contact.address.serviceArea.toLowerCase()}, ${config.contact.phone.display}`,
+  })
+}
+
+/**
+ * Pricing page metadata
+ */
+export function getPricingMetadata(): Metadata {
+  return createPageMetadata('/pricing', {
+    ...getBaseMetadata(),
+    title: 'Junk Removal Pricing in Northern Utah | Free Space',
+    description:
+      'Upfront pricing for full-service junk removal in Northern Utah, including single-item pickup, truck loads, trailer loads, and custom hauls. Free quotes.',
+    keywords:
+      'junk removal pricing northern utah, junk removal costs, appliance removal cost, furniture removal pricing, trailer load junk removal',
   })
 }
 
@@ -307,7 +332,7 @@ export function getServiceMetadata(serviceSlug: string): Metadata {
     return getServicesMetadata() // Fallback to services page metadata
   }
 
-  const title = service.seo?.title || `${service.name} Services | ${config.business.name}`
+  const title = service.seo?.title || formatServiceTitle(service.name)
   const description = service.seo?.description || service.shortDescription
 
   return createPageMetadata(`/services/${service.slug}`, {
@@ -329,7 +354,7 @@ export function getServiceAreaMetadata(areaSlug: string): Metadata {
     return getServiceAreasMetadata() // Fallback to service areas page metadata
   }
 
-  const title = area.seo?.title || `${area.name} ${area.state} Services | ${config.business.name}`
+  const title = area.seo?.title || formatServiceAreaTitle(area.name, area.state)
   const description =
     area.seo?.description ||
     `${config.business.name} serves ${area.name}, ${area.state}. ${area.description} Contact us for junk removal in ${area.name}.`
@@ -397,7 +422,9 @@ export function getOrganizationStructuredData() {
   }
 }
 
-export function createServiceAreaLocalBusinessStructuredData(input: ServiceAreaStructuredDataInput) {
+export function createServiceAreaLocalBusinessStructuredData(
+  input: ServiceAreaStructuredDataInput,
+) {
   const openingHours = TODO_OPENING_HOURS ? { openingHours: TODO_OPENING_HOURS } : {}
 
   return {

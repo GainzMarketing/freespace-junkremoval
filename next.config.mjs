@@ -6,6 +6,23 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+  trailingSlash: false,
+
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'freespace-junkremoval.com',
+          },
+        ],
+        destination: 'https://www.freespace-junkremoval.com/:path*',
+        permanent: true,
+      },
+    ]
+  },
 
   // Experimental features for better performance
   experimental: {
