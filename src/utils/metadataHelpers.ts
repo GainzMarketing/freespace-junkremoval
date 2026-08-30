@@ -77,7 +77,8 @@ function getShareImageMetadata() {
 function createPageMetadata(path: string, metadata: Metadata): Metadata {
   const canonicalUrl = getCanonicalUrl(path)
   const pageTitle = typeof metadata.title === 'string' ? metadata.title : config.seo.title
-  const pageDescription = typeof metadata.description === 'string' ? metadata.description : config.seo.description
+  const pageDescription =
+    typeof metadata.description === 'string' ? metadata.description : config.seo.description
   const shareImages = getShareImageMetadata()
 
   return {
@@ -213,8 +214,10 @@ export function getHomeMetadata(): Metadata {
   return createPageMetadata('/', {
     ...getBaseMetadata(),
     title: 'Junk Removal in Northern Utah | Free Space Junk Removal & Cleaning',
-    description: 'Full-service junk removal across Northern Utah. We lift, load, haul, and dispose responsibly for homes, rentals, farms, and businesses. Free quotes.',
-    keywords: 'junk removal northern utah, full-service junk removal, junk hauling near me, furniture removal, appliance removal, ogden junk removal, logan junk removal, brigham city junk removal, local junk removal, residential junk removal, commercial junk removal'
+    description:
+      'Full-service junk removal across Northern Utah. We lift, load, haul, and dispose responsibly for homes, rentals, farms, and businesses. Free quotes.',
+    keywords:
+      'junk removal northern utah, full-service junk removal, junk hauling near me, furniture removal, appliance removal, ogden junk removal, logan junk removal, brigham city junk removal, local junk removal, residential junk removal, commercial junk removal',
   })
 }
 
@@ -293,6 +296,30 @@ export function getGalleryMetadata(): Metadata {
     title: `${config.business.name} Gallery | Junk Removal Projects`,
     description: `View junk removal and cleanout project examples from ${config.business.name} across Northern Utah.`,
     keywords: `${config.business.name.toLowerCase()} gallery, work examples, before and after, ${config.contact.address.serviceArea.toLowerCase()}`,
+  })
+}
+
+/**
+ * Privacy policy page metadata
+ */
+export function getPrivacyMetadata(): Metadata {
+  return createPageMetadata('/privacy', {
+    ...getBaseMetadata(),
+    title: `Privacy Policy | ${config.business.name}`,
+    description: `Privacy information for customers contacting ${config.business.name} about junk removal and cleanout services in Northern Utah.`,
+    keywords: `${config.business.name.toLowerCase()} privacy policy, customer privacy, ${config.contact.address.serviceArea.toLowerCase()} junk removal`,
+  })
+}
+
+/**
+ * Terms of service page metadata
+ */
+export function getTermsMetadata(): Metadata {
+  return createPageMetadata('/terms', {
+    ...getBaseMetadata(),
+    title: `Terms of Service | ${config.business.name}`,
+    description: `Service terms and scheduling information for customers contacting ${config.business.name} for junk removal in Northern Utah.`,
+    keywords: `${config.business.name.toLowerCase()} terms of service, junk removal scheduling, ${config.contact.address.serviceArea.toLowerCase()} junk removal`,
   })
 }
 
@@ -397,7 +424,9 @@ export function getOrganizationStructuredData() {
   }
 }
 
-export function createServiceAreaLocalBusinessStructuredData(input: ServiceAreaStructuredDataInput) {
+export function createServiceAreaLocalBusinessStructuredData(
+  input: ServiceAreaStructuredDataInput,
+) {
   const openingHours = TODO_OPENING_HOURS ? { openingHours: TODO_OPENING_HOURS } : {}
 
   return {
