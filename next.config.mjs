@@ -1,11 +1,30 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
+const PREFERRED_ORIGIN = 'https://www.freespace-junkremoval.com'
+const APEX_HOST = 'freespace-junkremoval.com'
+
 const nextConfig = {
   // Production optimizations
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: APEX_HOST,
+          },
+        ],
+        destination: `${PREFERRED_ORIGIN}/:path*`,
+        permanent: true,
+      },
+    ]
+  },
 
   // Experimental features for better performance
   experimental: {
