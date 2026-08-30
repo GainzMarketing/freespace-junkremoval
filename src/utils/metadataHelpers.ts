@@ -77,7 +77,8 @@ function getShareImageMetadata() {
 function createPageMetadata(path: string, metadata: Metadata): Metadata {
   const canonicalUrl = getCanonicalUrl(path)
   const pageTitle = typeof metadata.title === 'string' ? metadata.title : config.seo.title
-  const pageDescription = typeof metadata.description === 'string' ? metadata.description : config.seo.description
+  const pageDescription =
+    typeof metadata.description === 'string' ? metadata.description : config.seo.description
   const shareImages = getShareImageMetadata()
 
   return {
@@ -213,8 +214,10 @@ export function getHomeMetadata(): Metadata {
   return createPageMetadata('/', {
     ...getBaseMetadata(),
     title: 'Junk Removal in Northern Utah | Free Space Junk Removal & Cleaning',
-    description: 'Full-service junk removal across Northern Utah. We lift, load, haul, and dispose responsibly for homes, rentals, farms, and businesses. Free quotes.',
-    keywords: 'junk removal northern utah, full-service junk removal, junk hauling near me, furniture removal, appliance removal, ogden junk removal, logan junk removal, brigham city junk removal, local junk removal, residential junk removal, commercial junk removal'
+    description:
+      'Full-service junk removal across Northern Utah. We lift, load, haul, and dispose responsibly for homes, rentals, farms, and businesses. Free quotes.',
+    keywords:
+      'junk removal northern utah, full-service junk removal, junk hauling near me, furniture removal, appliance removal, ogden junk removal, logan junk removal, brigham city junk removal, local junk removal, residential junk removal, commercial junk removal',
   })
 }
 
@@ -285,14 +288,28 @@ export function getBlogMetadata(): Metadata {
 }
 
 /**
+ * Pricing page metadata
+ */
+export function getPricingMetadata(): Metadata {
+  return createPageMetadata('/pricing', {
+    ...getBaseMetadata(),
+    title: 'Transparent Junk Removal Pricing | Free Space Junk Removal & Cleaning',
+    description:
+      'Upfront, transparent pricing for junk removal services in Northern Utah. Single item pickups, truck loads, trailer loads, and add-on services are available.',
+    keywords:
+      'junk removal pricing utah, transparent junk removal costs, northern utah junk removal prices, appliance removal cost, furniture removal pricing, trailer load cost',
+  })
+}
+
+/**
  * Gallery page metadata
  */
 export function getGalleryMetadata(): Metadata {
   return createPageMetadata('/gallery', {
     ...getBaseMetadata(),
     title: `${config.business.name} Gallery | Junk Removal Projects`,
-    description: `View junk removal and cleanout project examples from ${config.business.name} across Northern Utah.`,
-    keywords: `${config.business.name.toLowerCase()} gallery, work examples, before and after, ${config.contact.address.serviceArea.toLowerCase()}`,
+    description: `Browse service photos and junk removal project examples from ${config.business.name} across Northern Utah, including cleanouts, hauling, and item pickup work.`,
+    keywords: `${config.business.name.toLowerCase()} gallery, junk removal photos, cleanout project examples, ${config.contact.address.serviceArea.toLowerCase()}`,
   })
 }
 
@@ -397,7 +414,9 @@ export function getOrganizationStructuredData() {
   }
 }
 
-export function createServiceAreaLocalBusinessStructuredData(input: ServiceAreaStructuredDataInput) {
+export function createServiceAreaLocalBusinessStructuredData(
+  input: ServiceAreaStructuredDataInput,
+) {
   const openingHours = TODO_OPENING_HOURS ? { openingHours: TODO_OPENING_HOURS } : {}
 
   return {
