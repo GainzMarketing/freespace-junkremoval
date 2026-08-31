@@ -5,8 +5,26 @@ const PREFERRED_ORIGIN = 'https://www.freespace-junkremoval.com'
 const APEX_HOST = 'freespace-junkremoval.com'
 
 const nextConfig = {
+  // Production optimizations
+  compress: true,
+  poweredByHeader: false,
+  generateEtags: true,
+
   async redirects() {
     return [
+      // Canonical host: apex -> www (PR #8).
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: APEX_HOST,
+          },
+        ],
+        destination: `${PREFERRED_ORIGIN}/:path*`,
+        permanent: true,
+      },
+      // Legacy URL redirects (PR #7).
       {
         source: '/services/commercial-junk-removal',
         destination: '/services/large-load-junk-removal',
@@ -26,27 +44,6 @@ const nextConfig = {
         source: '/construction-debris',
         destination: '/services/construction-cleanup',
         statusCode: 301,
-      },
-    ]
-  },
-
-  // Production optimizations
-  compress: true,
-  poweredByHeader: false,
-  generateEtags: true,
-
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: APEX_HOST,
-          },
-        ],
-        destination: `${PREFERRED_ORIGIN}/:path*`,
-        permanent: true,
       },
     ]
   },
