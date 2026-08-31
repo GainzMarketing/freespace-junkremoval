@@ -9,6 +9,8 @@ const nextConfig = {
   compress: true,
   poweredByHeader: false,
   generateEtags: true,
+  trailingSlash: false,
+
 
   async redirects() {
     return [

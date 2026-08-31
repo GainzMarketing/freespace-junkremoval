@@ -107,6 +107,14 @@ function createPageMetadata(path: string, metadata: Metadata): Metadata {
   }
 }
 
+function formatServiceTitle(serviceName: string): string {
+  return `${serviceName} in ${config.contact.address.serviceArea} | Free Space`
+}
+
+function formatServiceAreaTitle(areaName: string, state: string): string {
+  return `Junk Removal ${areaName}, ${state} | Free Space`
+}
+
 function getLocalBusinessId(): string {
   return `${getCanonicalUrl()}#localbusiness`
 }
@@ -246,6 +254,20 @@ export function getContactMetadata(): Metadata {
 }
 
 /**
+ * Pricing page metadata
+ */
+export function getPricingMetadata(): Metadata {
+  return createPageMetadata('/pricing', {
+    ...getBaseMetadata(),
+    title: 'Junk Removal Pricing in Northern Utah | Free Space',
+    description:
+      'Upfront pricing for full-service junk removal in Northern Utah, including single-item pickup, truck loads, trailer loads, and custom hauls. Free quotes.',
+    keywords:
+      'junk removal pricing northern utah, junk removal costs, appliance removal cost, furniture removal pricing, trailer load junk removal',
+  })
+}
+
+/**
  * Services page metadata
  */
 export function getServicesMetadata(): Metadata {
@@ -334,7 +356,7 @@ export function getServiceMetadata(serviceSlug: string): Metadata {
     return getServicesMetadata() // Fallback to services page metadata
   }
 
-  const title = service.seo?.title || `${service.name} Services | ${config.business.name}`
+  const title = service.seo?.title || formatServiceTitle(service.name)
   const description = service.seo?.description || service.shortDescription
 
   return createPageMetadata(`/services/${service.slug}`, {
@@ -356,7 +378,7 @@ export function getServiceAreaMetadata(areaSlug: string): Metadata {
     return getServiceAreasMetadata() // Fallback to service areas page metadata
   }
 
-  const title = area.seo?.title || `${area.name} ${area.state} Services | ${config.business.name}`
+  const title = area.seo?.title || formatServiceAreaTitle(area.name, area.state)
   const description =
     area.seo?.description ||
     `${config.business.name} serves ${area.name}, ${area.state}. ${area.description} Contact us for junk removal in ${area.name}.`
