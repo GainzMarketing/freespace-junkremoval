@@ -1,6 +1,9 @@
 import { withPayload } from '@payloadcms/next/withPayload'
 
 /** @type {import('next').NextConfig} */
+const PREFERRED_ORIGIN = 'https://www.freespace-junkremoval.com'
+const APEX_HOST = 'freespace-junkremoval.com'
+
 const nextConfig = {
   // Production optimizations
   compress: true,
@@ -8,18 +11,41 @@ const nextConfig = {
   generateEtags: true,
   trailingSlash: false,
 
+
   async redirects() {
     return [
+      // Canonical host: apex -> www (PR #8).
       {
         source: '/:path*',
         has: [
           {
             type: 'host',
-            value: 'freespace-junkremoval.com',
+            value: APEX_HOST,
           },
         ],
-        destination: 'https://www.freespace-junkremoval.com/:path*',
+        destination: `${PREFERRED_ORIGIN}/:path*`,
         permanent: true,
+      },
+      // Legacy URL redirects (PR #7).
+      {
+        source: '/services/commercial-junk-removal',
+        destination: '/services/large-load-junk-removal',
+        statusCode: 301,
+      },
+      {
+        source: '/residential-junk-removal',
+        destination: '/services',
+        statusCode: 301,
+      },
+      {
+        source: '/estate-cleanouts',
+        destination: '/services/estate-room-cleanouts',
+        statusCode: 301,
+      },
+      {
+        source: '/construction-debris',
+        destination: '/services/construction-cleanup',
+        statusCode: 301,
       },
     ]
   },

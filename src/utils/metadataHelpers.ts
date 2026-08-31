@@ -322,6 +322,30 @@ export function getGalleryMetadata(): Metadata {
 }
 
 /**
+ * Privacy policy page metadata
+ */
+export function getPrivacyMetadata(): Metadata {
+  return createPageMetadata('/privacy', {
+    ...getBaseMetadata(),
+    title: `Privacy Policy | ${config.business.name}`,
+    description: `Privacy information for customers contacting ${config.business.name} about junk removal and cleanout services in Northern Utah.`,
+    keywords: `${config.business.name.toLowerCase()} privacy policy, customer privacy, ${config.contact.address.serviceArea.toLowerCase()} junk removal`,
+  })
+}
+
+/**
+ * Terms of service page metadata
+ */
+export function getTermsMetadata(): Metadata {
+  return createPageMetadata('/terms', {
+    ...getBaseMetadata(),
+    title: `Terms of Service | ${config.business.name}`,
+    description: `Service terms and scheduling information for customers contacting ${config.business.name} for junk removal in Northern Utah.`,
+    keywords: `${config.business.name.toLowerCase()} terms of service, junk removal scheduling, ${config.contact.address.serviceArea.toLowerCase()} junk removal`,
+  })
+}
+
+/**
  * Dynamic metadata for individual service pages
  */
 export function getServiceMetadata(serviceSlug: string): Metadata {

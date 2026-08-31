@@ -58,6 +58,6 @@ describe('frontend metadata', () => {
     const urls = sitemap().map((entry) => entry.url.toString())
 
     expect(urls.some((url) => url.endsWith('/pricing'))).toBe(true)
-    expect(urls.some((url) => url.endsWith('/gallery'))).toBe(false)
+    expect(urls.some((url) => url.endsWith('/gallery'))).toBe(true)
   })
 })
